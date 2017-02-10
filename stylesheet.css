@@ -36,3 +36,17 @@ li:hover {
 	text-align:center;
 	padding:5px;
 }
+
+tr td img {
+	width:300px;
+	height:auto;
+}
+
+td {
+	padding:10px;
+	border:2px solid black;
+}
+
+.producten {
+	margin:0 auto;
+}
