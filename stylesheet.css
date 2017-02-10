@@ -1,0 +1,38 @@
+html {
+	padding:0;
+	margin:0;
+}
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
+
+nav {
+	list-style-type: none;
+	margin:0;
+	padding:0;
+	width:100%;
+	text-align:center;
+}
+
+li {
+	display:inline;
+	padding: 10px 20px 10px 20px;
+	border-radius:2px;
+}
+
+li a {
+	color:black;
+	text-decoration:none;
+}
+
+li:hover {
+	background-color:grey;
+}
+
+.intro {
+	width:100%;
+	background-color:#80aef7;
+	text-align:center;
+	padding:5px;
+}
