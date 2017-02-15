@@ -15,8 +15,8 @@ html, body {
 }
 
 p {
-    font-family: verdana;
-    font-size: 20px;
+    font-family: arial;
+    font-size: 16px;
 }
 
 nav {
@@ -39,10 +39,11 @@ footer {
 	height:60px;
 }
 
-footer ul li {
+footer ul li a {
 	color:grey;
+	font-family:arial;
 	font-size:11px;
-	display:block;
+	display:block;	
 	padding:0px 20px 0px 20px;
 }
 
@@ -70,7 +71,7 @@ nav ul li a:hover {
 	color: lightblue;
 }
 
-.intro {
+header {
 	background-color:#80aef7;
 	text-align:center;
 	padding:5px;
@@ -112,4 +113,10 @@ td {
     padding: 12px 20px 12px 40px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
+}
+
+#howitsmade {
+	width:600px;
+	display:block;
+	margin:0 auto;
 }
