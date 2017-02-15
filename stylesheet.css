@@ -2,6 +2,7 @@ html, body {
 	padding:0;
 	margin:0;
 	height:100%;
+	font-family:Arial;
 }
 
 .container {
@@ -15,8 +16,8 @@ html, body {
 }
 
 p {
-    font-family: verdana;
-    font-size: 20px;
+    font-family: Arial;
+    font-size: 16px;
 }
 
 nav {
@@ -83,4 +84,10 @@ td {
 .contactform {
 	margin:0 auto;
 	width:300px;	
+}
+
+#howitsmade {
+	width:600px;
+	display:block;
+	margin:0 auto;
 }
