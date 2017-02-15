@@ -32,7 +32,7 @@ footer {
 	height:60px;
 }
 
-footer ul li {
+footer ul li a{
 	color:grey;
 	font-size:11px;
 	display:block;
@@ -48,7 +48,15 @@ li {
 	list-style-type:none;
 }
 
-li a {
+a {
+	text-decoration:none;
+}
+
+a:visited {
+	text-decoration:none;
+}
+
+nav li a {
 	color:black;
 	text-decoration:none;
 	display:block;
