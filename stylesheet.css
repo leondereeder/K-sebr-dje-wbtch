@@ -2,7 +2,6 @@ html, body {
 	padding:0;
 	margin:0;
 	height:100%;
-	font-family:Arial;
 }
 
 .container {
@@ -16,13 +15,21 @@ html, body {
 }
 
 p {
-    font-family: Arial;
-    font-size: 16px;
+    font-family: verdana;
+    font-size: 20px;
 }
 
 nav {
 	text-align:center;
+	background-color: royalblue;
+	margin-top: 50px;
+	margin-bottom: 50px;
+    margin-right: 150px;
+    margin-left: 150px;
+	border-radius: 10px;
+	 
 }
+
 
 footer {
 	position:absolute;
@@ -32,7 +39,7 @@ footer {
 	height:60px;
 }
 
-footer ul li a{
+footer ul li {
 	color:grey;
 	font-size:11px;
 	display:block;
@@ -48,27 +55,22 @@ li {
 	list-style-type:none;
 }
 
-a {
-	text-decoration:none;
-}
-
-a:visited {
-	text-decoration:none;
-}
-
-nav li a {
-	color:black;
+li a {
+	color:white;
 	text-decoration:none;
 	display:block;
 	padding: 10px 20px 10px 20px;
+	font: bold 15px Verdana;
 }
 
-nav ul li:hover {
-	background-color:grey;
-		border-radius:2px;
+
+
+
+nav ul li a:hover {
+	color: lightblue;
 }
 
-header {
+.intro {
 	background-color:#80aef7;
 	text-align:center;
 	padding:5px;
@@ -92,10 +94,4 @@ td {
 .contactform {
 	margin:0 auto;
 	width:300px;	
-}
-
-#howitsmade {
-	width:600px;
-	display:block;
-	margin:0 auto;
 }
