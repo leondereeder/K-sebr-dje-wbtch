@@ -22,16 +22,9 @@ p {
 nav {
 	text-align:center;
 	background-color: royalblue;
-	margin-top: 50px;
-	margin-bottom: 50px;
-    margin-right: 150px;
-    margin-left: 150px;
-	border-radius: 10px;
-	 
-}
-
-img{
-	
+	margin:0;
+	top:0;
+	padding: 10px 0px 10px 0px;
 }
 
 #logo{
@@ -46,10 +39,11 @@ footer {
 	width:100%;
 	text-align:center;
 	height:60px;
+	background-color:royalblue;
 }
 
 footer ul li a {
-	color:grey;
+	color:white;
 	font-family:arial;
 	font-size:11px;
 	display:block;	
@@ -73,7 +67,9 @@ li a {
 	font: bold 15px Verdana;
 }
 
-
+nav ul {
+	margin:0px;
+}
 
 
 nav ul li a:hover {
@@ -84,6 +80,7 @@ header {
 	background-color:#80aef7;
 	text-align:center;
 	padding:5px;
+	font-family:trebuchet ms;
 }
 
 tr td img {
@@ -108,24 +105,39 @@ td {
 
 .search {
     float:right;
-	margin-top:16px;
 	margin-right:5px;
-	width: 230px;
+	width: 330px;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
     background-color: white;
-    background-image: url('searchicon.png');
     background-position: 10px 10px; 
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
+	margin-left:-100px;
 }
 
 #howitsmade {
 	width:600px;
 	display:block;
 	margin:0 auto;
+}
+
+#gaminglaptop {
+	width:900px;
+}
+
+#promotext-wrapper {
+	width:300px;
+	float:right;
+	display:inline;
+	margin-right:100px;
+	margin-top:100px;
+}
+#promotext {
+	font-size:60px;
+	text-align:center;
 }
