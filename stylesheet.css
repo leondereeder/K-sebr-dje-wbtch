@@ -67,16 +67,15 @@ li a {
 	font: bold 15px Verdana;
 }
 
-<<<<<<< HEAD
+
 a, li a {
 	font-family: trebuchet ms;
 }
-=======
+
 nav ul {
 	margin:0px;
 }
 
->>>>>>> origin/master
 
 nav ul li a:hover {
 	color: lightblue;
