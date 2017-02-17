@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Aldrich"); //import google fonts
+
 html, body {
 	padding:0;
 	margin:0;
@@ -142,7 +144,15 @@ td {
 	margin-right:100px;
 	margin-top:100px;
 }
-#promotext {
-	font-size:60px;
+
+#promoheader {
+	font-size:40px;
 	text-align:center;
+	font-family: Aldrich;
+}
+
+#promotext {
+	font-size:15px;
+	text-align:center;
+	font-family: Aldrich;
 }
