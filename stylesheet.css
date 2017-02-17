@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Aldrich");
+
 html, body {
 	padding:0;
 	margin:0;
@@ -142,9 +144,21 @@ td {
 	margin-right:100px;
 	margin-top:150px;
 }
+
+#promoheader {
+	font-family:Aldrich, serif;
+	font-size: 40px;
+}
 #promotext {
-	font-size:60px;
+	font-size:20px;
 	text-align:center;
+	font-family: Aldrich, serif;
+}
+
+#promoheader2 {
+	font-family: Aldrich, serif;
+	font-size: 40px;
+	color: LightGreen;
 }
 
 .predatorx {
