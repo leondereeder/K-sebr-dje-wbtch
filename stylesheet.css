@@ -73,8 +73,9 @@ li a {
 	font: bold 15px Verdana;
 }
 
-
-
+a, li a {
+	font-family: trebuchet ms;
+}
 
 nav ul li a:hover {
 	color: lightblue;
