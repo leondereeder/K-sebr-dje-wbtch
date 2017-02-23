@@ -301,3 +301,7 @@ td {
    opacity: 0.4;
    height:600px;
 }
+
+.w3-warning {
+	display:none;
+}
