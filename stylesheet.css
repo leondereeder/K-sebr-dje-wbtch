@@ -4,6 +4,7 @@
 		padding:0;
 		margin:0;
 		height:100%;
+		font-family:Arial, Verdana;
 	}
 
 	.container {
@@ -112,7 +113,7 @@
 	}
 
 	.producten {
-		margin:0 au	to;
+		margin:0 auto;
 	}
 
 	.contactform {
@@ -164,7 +165,7 @@
 	#promotext {
 		font-size:20px;
 		text-align:justify;
-		text-wrap:word-spacing;
+		word-wrap:break-word;
 		font-family: Aldrich, serif;
 	}
 
@@ -306,7 +307,7 @@
 		display:none;
 	}
 
-	/*input[type=text]&&, select, textarea {
+	#fname, #lname, #email, select, textarea {
 		width: 100%; 
 		padding: 12px; 
 		border: 1px solid #ccc; 
@@ -314,7 +315,7 @@
 		box-sizing: border-box; 
 		margin-top: 6px; 
 		margin-bottom: 16px; 
-	}  */
+	}  
 
 	input[type=submit] {
 		background-color: #4CAF50;
@@ -329,8 +330,13 @@
 		background-color: #45a049;
 	} 
 
-	.container-form {
+	#container-form {
 		border-radius: 5px;
 		background-color: #f2f2f2;
 		padding: 20px;
+		padding-bottom:80px;
 	} 
+	
+	.innercontent {
+		margin:50px;
+	}
