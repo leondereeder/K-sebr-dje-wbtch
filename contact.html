@@ -12,12 +12,13 @@
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta http-equiv="default-style" content="stylesheet.css">
 		<meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+		<link rel="icon" href="img/icon.png" sizes="256x172" type="image/png">
 	</head>
 	<body>
 		<div class="container">
 			<nav>
 				<ul>
-					<li><img id="logo" src="img/logo_koleon.png"></img>
+					<li><img id="logo" alt="koleon logo" src="img/logo_koleon.png"></li>
 					<li><a href="index.html">Koleon</a></li>
 					<li><a href="producten.html">Producten</a></li>
 					<li><a href="diensten.html">Diensten</a></li>
@@ -28,20 +29,36 @@
 			</nav>
 			
 			<section class="content">
-				<p>This is a paragraph.</p>
-				
-				<form action="" method="post" class="contactform">
-									Naam:<br>
-									<input type="text" name="naam" value="">
-									<br>
-									Emailadres:<br>
-									<input type="email" name="Email" value="">
-									<br>
-									Bericht:<br>
-									<textarea name="message" rows="5" cols="50"></textarea>
-									<br><br>
-									<input type="submit" value="Submit">
-				</form>
+				<div class="innercontent">
+					<p>Heb je een vraag of een opmerking? Daar willen we je graag vanaf helpen! Vul hieronder het formulier in zodat wij je zo snel mogelijk te woord kunnen staan.</p>
+					
+					<div id="container-form">
+					  <form>
+
+						<label for="fname">Voornaam:</label>
+						<input type="text" id="fname" name="firstname" placeholder="Je voornaam..">
+
+						<label for="lname">Achternaam:</label>
+						<input type="text" id="lname" name="lastname" placeholder="Je achternaam..">
+						
+						<label for="email">Email:</label>
+						<input type="email" id="email" name="email" placeholder="Je email..">
+
+						<label for="land">Land</label>
+						<select id="land" name="land">
+						  <option value="nl">Nederland</option>
+						  <option value="be">België</option>
+						  <option value="fr">France</option>
+						  <option value="de">Deutschland</option>
+						  <option value="usa">USA</option>
+						</select>
+
+						<label for="subject">Je vraag of opmerking:</label>
+						<textarea id="subject" name="subject" placeholder="Plaats hier je vraag of opmerking.." style="height:200px"></textarea>
+
+						<input type="submit" value="Verstuur">
+					  </form>
+				</div>
 			</section>
 				
 			<footer>
