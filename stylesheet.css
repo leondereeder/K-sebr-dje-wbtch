@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Aldrich");
+@import url("https://fonts.googleapis.com/css?family=Abel");
 
 html, body {
 	padding:0;
@@ -100,20 +101,54 @@ header {
 	font-family:trebuchet ms;
 }
 
+/*	Tabel	*/ 
+
+
+
 tr td img {
-	width:250px;
+	width:auto;
 	height:auto;
+	max-width: 250px;
+	max-height: 250px;
+	font-family: Abel,Verdana;
 }
 
-td {
-	padding:15px;
-	border:2px solid black;
-	text-align:center;
+
+
+td, .prijs {
+	padding:20px;
+	border:0px;
+	text-align:;
+	min-width: 300px;
+	width: auto;
+	height: auto;
 }
 
 .producten {
-	margin:0 au	to;
+	margin: auto;
+	border-collapse: collapse;
+	width: 10px;
+	float: center;
+	font-family: Abel, Verdana;
+	text-align: center;
 }
+
+.producten tr:nth-child(odd) {
+	background-color: #eee;
+}
+
+.prijs p {
+	padding: 20px;
+	background-color: lightblue;
+	color: white;
+	font-family: Abel;
+}
+
+.prijs p:hover {
+	color: yellow;
+}
+
+/* /Tabel */
 
 .contactform {
 	margin:0 auto;
