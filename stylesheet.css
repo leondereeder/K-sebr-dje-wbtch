@@ -387,3 +387,14 @@ input[type=submit]:hover {
 .innercontent {
 	margin:50px;
 }
+
+.overons {
+	font-family: Abel;
+	text-align: center;
+	
+}
+
+.overons img {
+	max-width: 400px;
+	max-height: 400px;
+}
