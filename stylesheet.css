@@ -60,6 +60,10 @@ footer {
 	padding-bottom:20px;
 }
 
+footer a:hover {
+	color: lightblue;
+}
+
 footer ul li a {
 	color:white;
 	font-family:arial;
