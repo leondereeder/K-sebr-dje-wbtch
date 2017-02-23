@@ -74,6 +74,14 @@ li {
 	list-style-type:none;
 }
 
+nav li a {
+	color:white;
+}
+
+nav li a:visited {
+	color:white;
+}
+
 li a {
 	color:white;
 	text-decoration:none;
@@ -128,6 +136,7 @@ width: 10px;
 float: center;
 font-family: Abel, Verdana;
 text-align: center;
+margin-bottom:50px;
 }
 
 .producten tr:nth-child(odd) {
@@ -361,11 +370,11 @@ input[type=submit]:hover {
 	background-color: #45a049;
 } 
 
-#container-form {
+.container-form {
 	border-radius: 5px;
 	background-color: #f2f2f2;
 	padding: 20px;
-	padding-bottom:80px;
+	margin-bottom:80px;
 } 
 
 .innercontent {
