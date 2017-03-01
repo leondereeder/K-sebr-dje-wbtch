@@ -12,7 +12,7 @@ body {
     min-height: 100%;
 }
 .content {
-    padding-bottom: 60px;
+    padding-bottom: 110px;
 }
 a {
     text-decoration: none;
@@ -343,4 +343,10 @@ input[type=submit]:hover {
 .overons img {
 	max-width: 400px;
 	max-height: 400px;
+}
+
+#map {
+	height:600px;
+	width:80%;
+	margin:0 auto;
 }

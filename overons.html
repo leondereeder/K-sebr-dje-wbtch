@@ -27,7 +27,7 @@
             </ul>
             <input class="search" type="text" name="search" placeholder="Zoeken..">
          </nav>
-         <section class="overons">
+         <section class="content overons">
             <h1>Oprichting </h1>
             Harambe <br>
             1999 - 2016 <br>
@@ -42,6 +42,7 @@
                Tot dusver hebben we al 0 klanten bereikt met ons streven, en we verwachten dat dit de komende jaren zal groeien met 1136 procent. <br>
                Dit betekent dat in 2020 maar liefst 0 klanten de beste gaming laptops voor het minste geld ontvangen hebben.
             </p>
+			<div id="map"></div>
          </section>
          <footer>
             <ul>
@@ -55,5 +56,45 @@
             <a href="https://www.w3schools.com/" target="_blank">Deze site is mogelijk gemaakt door w3schools</a>	
          </footer>
       </div>
+	  <script>
+		  function initMap() {
+			var map = new google.maps.Map(document.getElementById('map'), {
+			  center: {lat: 36.5699064, lng: 75.9628949},
+			  zoom: 3
+			});
+			
+			var icons = {
+			  Koleon: {
+				name: 'Koleon',
+				icon: 'img/logo_koleon.png'
+			  }
+			};
+			
+			function addMarker(feature) {
+			  var marker = new google.maps.Marker({
+				position: feature.position,
+				icon: icons[feature.type].icon,
+				map: map
+			  });
+			}	
+
+			var features = [
+				{
+				position: new google.maps.LatLng(28.6466772,76.8130646),
+				type:'Koleon'
+				}, {
+				position: new google.maps.LatLng(13.7244426,100.3529064),
+				type:'Koleon'
+				}
+			];
+			
+			for (var i = 0, feature; feature = features[i]; i++) {
+			  addMarker(feature);
+			}
+
+		  }
+		</script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7nSkYhgNYQ_8yybsYIEpQrJ8GZKS2c2I&callback=initMap"
+		async defer></script>
    </body>
 </html>
