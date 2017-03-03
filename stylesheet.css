@@ -96,6 +96,7 @@ header {
     padding: 5px;
     font-family: "trebuchet ms";
 }
+
 /*	Tabel	*/
 
 tr td img {
@@ -124,15 +125,17 @@ td,
 .producten tr:nth-child(odd) {
     background-color: #eee;
 }
-.prijs p {
-    padding: 20px;
+
+td button {
+	padding: 20px;
     background-color: lightblue;
     color: white;
     font-family: Abel;
 }
-.prijs p:hover {
-    color: yellow;
+td button:hover {
+	color: yellow;
 }
+
 /* /Tabel */
 
 .contactform {
