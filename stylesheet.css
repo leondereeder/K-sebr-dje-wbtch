@@ -127,10 +127,12 @@ td,
 }
 
 td button {
-	padding: 20px;
+	padding: 20px 80px;
     background-color: lightblue;
     color: white;
     font-family: Abel;
+	border: none;
+	cursor:pointer;
 }
 td button:hover {
 	color: yellow;
@@ -268,7 +270,6 @@ td button:hover {
     display: block;
     z-index: 2;
     overflow: hidden;
-    margin-bottom: 50px;
 }
 #bestellen3_image {
     width: 50%;
@@ -320,15 +321,15 @@ textarea {
     margin-bottom: 16px;
 }
 input[type=submit] {
-    background-color: #4CAF50;
     color: white;
     padding: 12px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+	background-color:royalblue;
 }
 input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: rgba(65, 105, 225, 0.9);
 }
 .container-form {
     border-radius: 5px;
@@ -367,3 +368,116 @@ input[type=submit]:hover {
 #legend img {
 	vertical-align: middle;
 }
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	overflow:hidden;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Modal Header */
+.modal-header {
+    padding: 2px 16px;
+    background-color: royalblue;
+    color: white;
+}
+
+/* Modal Body */
+.modal-body {
+	padding: 2px 16px;
+}
+
+#modaltext {
+	font-size:25px;
+	display:block;
+}
+
+#modalimg {
+	width:50%;
+	float:left;
+}
+
+/* Modal Footer */
+.modal-footer {
+    padding: 2px 16px;
+    background-color: royalblue;
+    color: white;
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 0;
+    border: 1px solid royalblue;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top: -300px; opacity: 0} 
+    to {top: 0; opacity: 1}
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+button {
+	color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+	background-color:royalblue;
+}
+
+input:hover {
+    background-color: rgba(65, 105, 225, 0.9);
+}
+
+#modalbestel {
+	float:right;
+	margin:10px;
+	background-color:white;
+	color:royalblue;
+}
+
+@media screen and (max-width: 1200px) {
+	.search {
+		float:none;
+		margin:10px 0px 0px 10px;
+		width:90%
+	}
+}	
