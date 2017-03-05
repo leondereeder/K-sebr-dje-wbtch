@@ -25,7 +25,7 @@
                <li><a href="contact.html">Contact</a></li>
                <li><a href="overons.html">Over Koleon</a></li>
             </ul>
-			<a href="#"><img src="img/shopping-cart-white.png" alt="shopping cart" width="50px"></a>
+			<a href="#"><img src="img/shopping-cart-white.png" alt="shopping cart" width="50"><div id="shoppingCartNumber">0</div></a>
             <input class="search" type="text" name="search" placeholder="Zoeken..">
          </nav>
          <section class="content">
@@ -45,7 +45,7 @@
                            Voeg de optionele Graphics Amplifier toe om de ervaring nog beter te maken.
                         </td>
                         <td>
-                           <button id = "Alien17" onclick="activateModal(this.id)"> €1299-</button>
+                           <button id = "Alien17" onclick="activateModal(this.id, 1299)"> €1299-</button>
                         </td>
                      </tr>
                      <tr>
@@ -58,7 +58,7 @@
                            Kortom deze notebook heeft alles in huis voor de complete game-ervaring!
                         </td>
                         <td>
-                           <button id = "MSI5" onclick="activateModal(this.id)"> €999-</button>
+                           <button id = "MSI5" onclick="activateModal(this.id, 999)"> €999-</button>
                         </td>
                      </tr>
                      <tr>
@@ -69,7 +69,7 @@
                            Samen met een full HD scherm en 16 gigabyte RAM geheugen kan niks je stoppen.
                         </td>
                         <td>
-                           <button id = "PredX" onclick="activateModal(this.id)">€1499-</button>
+                           <button id = "PredX" onclick="activateModal(this.id, 1499)">€1499-</button>
                         </td>
                      </tr>
                   </tbody>
@@ -81,7 +81,7 @@
 						<h2 id="modalheadertext">Modal Header</h2>
 					  </div>
 					  <div class="modal-body">
-						<img id="modalimg" alt="modalimg">
+						<img id="modalimg" src="" alt="modalimg">
 						<p id="modaltext">Some text in the Modal Body</p>
 						<br style="clear:both;"/>
 					  </div>
@@ -105,8 +105,9 @@
             <a href="https://www.w3schools.com/" target="_blank">Deze site is mogelijk gemaakt door w3schools</a>	
          </footer>
       </div>
+	  <!-- Modal -->
 	  <script>
-		function activateModal(id) {
+		function activateModal(id, price) {
 			var modal = document.getElementById('myModal');
 			var modalheader = document.getElementById('modalheadertext');
 			var modalbody = document.getElementById('modaltext');
@@ -114,6 +115,7 @@
 			var btn = document.getElementById(id);
 			var span = document.getElementsByClassName("close")[0];
 			modal.style.display = "block";
+			var modalbestel = document.getElementById("modalbestel");
 			switch(id) {
 				case "Alien17":
 					modalheader.innerHTML = "Alienware 17";
@@ -132,6 +134,10 @@
 					break;
 			}
 
+			modalbestel.onclick = function() {
+				addToShoppingCart(id, price);
+				modal.style.display = "none";
+			}
 			span.onclick = function() {
 				modal.style.display = "none";
 			}
@@ -142,6 +148,61 @@
 				}
 			}
 		}
+		
+		
 	  </script>
+	  <script>
+		var itemsInCart = 0;
+		function addToShoppingCart(id, price) {
+			itemsInCart++;
+			document.getElementById("shoppingCartNumber").innerHTML = itemsInCart;
+			
+			/* Kut koekjes
+			checkCookie();
+			 document.cookie = id + ";" + price + ";path=/";
+			
+			//Test read
+			var decodedCookie = decodeURIComponent(document.cookie);
+			var ca = decodedCookie.split(';');
+			for(var i = 0; i <ca.length; i++) {
+				alert(ca[i]);
+			} 
+			
+			checkCookie();
+			function setCookie(cname, cvalue, exdays) {
+				var d = new Date();
+				d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+				var expires = "expires="+d.toUTCString();
+				document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+			}
+
+			function getCookie(cname) {
+				var name = cname + "=";
+				var ca = document.cookie.split(';');
+				for(var i = 0; i < ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') {
+						c = c.substring(1);
+					}
+					if (c.indexOf(name) == 0) {
+						return c.substring(name.length, c.length);
+					}
+				}
+				return "";
+			}
+
+			function checkCookie() {
+				var user = getCookie("username");
+				if (user != "") {
+					alert("Welcome again " + user);
+				} else {
+					user = prompt("Please enter your name:", "");
+					if (user != "" && user != null) {
+						setCookie("username", user, 365);
+					}
+				}
+			} */
+		}
+		</script>
    </body>
 </html>
