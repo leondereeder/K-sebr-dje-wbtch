@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>Producten</title>
+      <title>Winkelmandje</title>
       <link rel="stylesheet" type="text/css" href="stylesheet.css">
       <meta name="description" content="Koleon is DE plek voor uw laptop op maat">
       <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,7 +14,7 @@
       <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
       <link rel="icon" href="img/icon.png" sizes="256x172" type="image/png">
    </head>
-   <body>
+   <body onload="checkShoppingCart()">
       <div class="container">
          <nav>
             <ul>
@@ -152,13 +152,30 @@
 		
 	  </script>
 	  <script>
+		function checkShoppingCart() {
+			getCookie();
+		};
+		
+		function getCookie() {
+			var cookies = document.cookie.split("; ");
+			var cookieCnt = document.cookie.split("; ").length;
+				for(i=0; i<cookieCnt; i++)
+				{
+					var cookie01 = cookies[i].split("=");
+					var value01 = decodeURIComponent(cookie01[1]);
+					addToProducts(value01);
+				}
+		};
+		
+		function addToProducts(product) {
+			alert(String(product));
+			addToShoppingCart(product, 1);
+		};
+		
 		var itemsInCart = 0;
 		function addToShoppingCart(id, price) {
 			itemsInCart++;
 			document.getElementById("shoppingCartNumber").innerHTML = itemsInCart;
-			
-			document.cookie = "product=" + encodeURIComponent(id);
-
 		}
 		</script>
    </body>
