@@ -16,6 +16,7 @@
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 	  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	  <script src="js/generic.js" defer></script>
    </head>
    <body>
       <div class="container">
@@ -28,7 +29,7 @@
                <li><a href="contact.html">Contact</a></li>
                <li><a href="overons.html">Over Koleon</a></li>
             </ul>
-			<a href="#"><img src="img/shopping-cart-white.png" alt="shopping cart" width="50px"></a>
+			<a href="winkelmandje.html"><img src="img/shopping-cart-white.png" alt="shopping cart" id="wínkelmandje"><div id="shoppingCartNumber">0</div></a>
             <input class="search" type="text" name="search" placeholder="Zoeken..">
          </nav>
          <section class="content">
@@ -80,9 +81,14 @@
                <li><a href="">Over Koleon</a></li>
             </ul>
             <br>
-            <a href="https://www.w3schools.com/" target="_blank">Deze site is mogelijk gemaakt door w3schools</a>	
+			<div id="accessibility">
+				<span id="makeSmaller">a</span>&nbsp;&nbsp;
+				<span id="makeLarger">A</span><br>
+				<span id="makeBold"><strong>Dikke tekst</strong></span><br>
+				<span id="makeItalic"><em>Schuingedrukt</em></span><br>
+			</div>
+            <a href="https://www.w3schools.com/" target="_blank" style="margin-right:-100px;">Deze site is mogelijk gemaakt door w3schools</a>	
          </footer>
       </div>
-	    
    </body>
 </html>

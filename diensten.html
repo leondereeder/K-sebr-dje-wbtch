@@ -13,6 +13,9 @@
       <meta http-equiv="default-style" content="stylesheet.css">
       <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
       <link rel="icon" href="img/icon.png" sizes="256x172" type="image/png">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	  <script src="js/generic.js"  defer></script>
+	  <script src="js/diensten.js"></script>
    </head>
    <body>
       <div class="container">
@@ -25,7 +28,7 @@
                <li><a href="contact.html">Contact</a></li>
                <li><a href="overons.html">Over Koleon</a></li>
             </ul>
-			<a href="#"><img src="img/shopping-cart-white.png" alt="shopping cart" width="50px"></a>
+			<a href="winkelmandje.html"><img src="img/shopping-cart-white.png" alt="shopping cart" id="wínkelmandje"><div id="shoppingCartNumber">0</div></a>
             <input class="search" type="text" name="search" placeholder="Zoeken..">
          </nav>
          <section class="content">
@@ -76,18 +79,14 @@
                <li><a href="">Over Koleon</a></li>
             </ul>
             <br>
-            <a href="https://www.w3schools.com/" target="_blank">Deze site is mogelijk gemaakt door w3schools</a>	
+			<div id="accessibility">
+				<span id="makeSmaller">a</span>&nbsp;&nbsp;
+				<span id="makeLarger">A</span><br>
+				<span id="makeBold"><strong>Dikke tekst</strong></span><br>
+				<span id="makeItalic"><em>Schuingedrukt</em></span><br>
+			</div>
+            <a href="https://www.w3schools.com/" target="_blank" style="margin-right:-100px;">Deze site is mogelijk gemaakt door w3schools</a>	
          </footer>
       </div>
-	  <script>
-		function calculate() {
-			var totaal = 200 + //basisprijs
-			parseInt(document.getElementById("cpu").value) +
-			parseInt(document.getElementById("gpu").value) +
-			parseInt(document.getElementById("ram").value) +
-			parseInt(document.getElementById("scherm").value);
-			document.getElementById("totaalbedrag").innerHTML = "Uw geselecteerde laptop kost: €" + totaal;
-		}
-	  </script>
    </body>
 </html>
