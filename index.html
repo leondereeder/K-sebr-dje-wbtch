@@ -17,6 +17,7 @@
 	  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 	  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 	  <script src="js/generic.js" defer></script>
+	  <script src="js/comments.js" defer></script>
    </head>
    <body>
       <div class="container">
@@ -71,6 +72,14 @@
                   <img id="bestellen3_image" alt="alienware laptop" src="img/alienware-laptop.png">
                </article>
             </div>
+			<article class = "commentsection">
+			<div class="container_comments">
+				<form onsubmit = "event.preventDefault();";>
+				<input type = "text" id = "commentBox" name = "commentaar" value = "Laat een comment achter">
+				<button id="sendComment"> Verstuur </button>
+				</form>
+			</div>
+			</article>
          </section>
          <footer>
             <ul>
@@ -81,6 +90,7 @@
                <li><a href="">Over Koleon</a></li>
             </ul>
             <br>
+			
 			<div id="accessibility">
 				<span id="makeSmaller">a</span>&nbsp;&nbsp;
 				<span id="makeLarger">A</span><br>
