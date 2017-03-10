@@ -26,7 +26,7 @@ function activateModal(id, price) {
 	}
 
 	modalbestel.onclick = function() {
-		addToShoppingCart(id, price);
+		createCookie(id, price);
 		modal.style.display = "none";
 	}
 	span.onclick = function() {
@@ -42,12 +42,10 @@ function activateModal(id, price) {
 		
 
 var itemsInCart = 0;
-function addToShoppingCart(id, price) {
+function createCookie(id, price) {
 	itemsInCart++;
 	document.getElementById("shoppingCartNumber").innerHTML = itemsInCart;
-	 var d = new Date();
-	d.setTime(d.getTime() + (365* 24 * 60 * 60 * 1000));
-	var expires = "expires="+d.toUTCString();
-	document.cookie = "product=" + id + ";" + expires + ";path=/";
-}
+	document.cookie = "product=" + id + ";path=/";
+	document.getElementsByClassName("producten")[0].innerHTML = "product=" + id + ";" + expires + ";path=/";
+	}
 		

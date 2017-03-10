@@ -1,24 +1,31 @@
 $(document).ready(function getCookie() {
-	var cookies = document.cookie.split("; ");
-	var cookieCnt = document.cookie.split("; ").length;
-		for(i=0; i<cookieCnt; i++)
-		{
-			var cookie01 = cookies[i].split("=");
-			var value01 = decodeURIComponent(cookie01[1]);
-			addToShoppingCart(value01, 1);
-		}
+	if (document.cookie.split("; ")[0] != ""){
+		var cookies = document.cookie.split(";");
+		var cookieCnt = document.cookie.split(";").length;
+			for(i=0; i<cookieCnt; i++)
+			{
+				var cookie01 = cookies[i].split("=");
+				var value01 = decodeURIComponent(cookie01[1]);
+				addToShoppingCart(value01, 1);
+			}
+	}
 }); 
  
-var itemsInCart = 0;
+	var itemsInCart = 0;
 	function addToShoppingCart(id, price) {
 	itemsInCart++;
 	document.getElementById("shoppingCartNumber").innerHTML = itemsInCart;
 }
 
-	document.getElementById("makeSmaller").addEventListener("click", function(){makeSmaller(), false});
-	document.getElementById("makeLarger").addEventListener("click", function() {makeLarger(), false});
-	document.getElementById("makeBold").addEventListener("click", function() {makeBold(), false});
-	document.getElementById("makeItalic").addEventListener("click", function() {makeItalic(), false});
+$("body").contextmenu({
+    delegate: ".container",
+  menu: [
+    {title: "Maak tekst kleiner", action:function(event,ui){makeSmaller();}},
+    {title: "Maak tekst groter", action:function(event,ui){makeLarger();}},
+    {title: "Maak tekst schuingedrukt", action:function(event,ui){makeItalic();}},
+    {title: "Maak tekst dikker", action:function(event,ui){makeBold();}}
+    ],
+});
 
 var smallCnt = 1;
 function makeSmaller() {
@@ -27,7 +34,7 @@ function makeSmaller() {
 		smallCnt*=-1;
 	}
 	else {
-		$("p, a, td").css("font-size","16px", 'important');
+		$("p, a, td").css("font-size","", 'important');
 		smallCnt*-1;
 	}
 }
@@ -38,7 +45,7 @@ function makeLarger() {
 		largeCnt*=-1;
 	}
 	else {
-		$("p, a, td").css("font-size","16px", 'important');
+		$("p, a, td").css("font-size","", 'important');
 		largeCnt*=-1;
 	}
 }
@@ -49,7 +56,7 @@ function makeBold() {
 		boldCnt*=-1;
 	}
 	else {
-		$("p, a, td").css("font-weight","normal", '!important');
+		$("p, a, td").css("font-weight","", '!important');
 		boldCnt*=-1;
 	}
 }
@@ -60,7 +67,7 @@ function makeItalic() {
 		italicCnt*=-1;
 	}
 	else {
-		$("p, a, td").css("font-style","normal", '!important');
+		$("p, a, td").css("font-style","", '!important');
 		italicCnt*=-1;
 	}
 }

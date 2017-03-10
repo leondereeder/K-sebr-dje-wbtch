@@ -178,8 +178,9 @@ td button:hover {
     margin: 0 auto;
 }
 #gaminglaptop {
-    width: 70%;
-    margin:50px 0px 50px 0px
+    width:50%;
+	height:auto;
+    margin-top: 100px;
 }
 #promotext-wrapper {
     width: 300px;
@@ -240,9 +241,9 @@ td button:hover {
     overflow: hidden;
 }
 #bestellen_image {
-    width: 45%;
+    width: 50%;
+	height:auto;
     float: left;
-	margin:15% auto;
     opacity: 1;
     z-index: 2;
 }
@@ -284,6 +285,7 @@ td button:hover {
 }
 #bestellen3_image {
     width: 50%;
+	height:auto;
     float: left;
     z-index: 2;
     opacity: 1;
@@ -500,6 +502,10 @@ input:hover {
 #wínkelmandje {
 	margin-right: -10px;
 	width: 50px;
+}
+
+.ui-menu {
+	z-index:3;
 }
 
 @media screen and (max-width: 1200px) {
