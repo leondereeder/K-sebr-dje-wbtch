@@ -214,6 +214,7 @@ td button:hover {
     font-size: 40px;
     color: rgb(46, 0, 95);
 }
+
 .predatorx {
     height: 600px;
     overflow: hidden;
@@ -316,6 +317,35 @@ td button:hover {
     background: url('img/alienware.png') no-repeat fixed 50% 50%;
     opacity: 0.4;
 }
+
+.commentsection {
+	width: 100%;
+    height: auto;
+    position: relative;
+    display: block;
+    background-color: white;
+    overflow: hidden;
+	font-family: Abel;
+	
+}
+
+.container_comments {
+	margin: auto;
+	display: block;
+	width: 50%;
+	padding: 10px;
+}
+
+.container_comments input {
+	height: 50px;
+	width: 300px;
+}
+
+.container_comments button {
+	height:auto;
+	font-family:Aldrich;
+}
+
 .w3-warning {
     display: none;
 }
@@ -504,8 +534,13 @@ input:hover {
 	width: 50px;
 }
 
+<<<<<<< HEAD
 .ui-menu {
 	z-index:3;
+=======
+.commentsection form input {
+	size: 100;
+>>>>>>> origin/master
 }
 
 @media screen and (max-width: 1200px) {
