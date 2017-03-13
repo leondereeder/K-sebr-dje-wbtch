@@ -1,17 +1,33 @@
-document.getElementById("sendComment").addEventListener("click", function (){setComment(name, document.getElementById("commentBox").value);});
+document.getElementById("sendComment").addEventListener("click", function (){setComment(document.getElementById("commentBox").value);});
+document.getElementById("showComment").addEventListener("click", function (){getComments()});
 
-function setComment(name, value) {
-	name = generateName();
-	window.alert(value);
-	document.cookie = name + "=" + value;
+function setComment(cvalue) {
+	alert(cvalue);
+	cname = generateCname();
+	document.cookie = cname + "=" + cvalue + ";path=/";
+	alert(document.cookie);
 }
 
-function generateName() {
-	var x;
-	return x;
+function generateCname() {
+	var x = decodeURIComponent(document.cookie);
+	var name;
+	var ca = x.split("_");
+	var counter = ca.length;
+	name = encodeURIComponent("comment_" + counter);
+	return name;
 }
-
-function getComment(cname) {
+//SPATIES
+function getComments() {
+	var x = "";
 	var decodedCookie = decodeURIComponent(document.cookie);
-	var ca = decodedCookie.split('');
+	var ca = decodedCookie.split(";");
+	var cookieCnt = document.cookie.split(";").length;
+	for(var i=0; i < cookieCnt; i++) {
+		var str = ca[i];
+		if(str.substring(0, 7) == "comment") {
+			var c = ca[i].split("=");
+			x = x + c[1];
+		}
+	}
+	alert(x);
 }
