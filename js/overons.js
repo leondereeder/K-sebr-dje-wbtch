@@ -6,8 +6,8 @@ function initMap() {
         },
         zoom: 3
     });
-
-    var icons = {
+	
+	var icons = {
         Koleon: {
             name: 'Koleon',
             icon: 'img/marker-koleon.png'
@@ -26,56 +26,20 @@ function initMap() {
         }
 
     };
-
-    var features = [{
-        position: new google.maps.LatLng(28.6466772, 76.8130646),
-        type: 'Cpu',
-        title: "CPU",
-        content: '<div id="content">' +
-            '<div id="siteNotice">' +
-            '</div>' +
-            '<h1 id="firstHeading" class="firstHeading">CPU</h1>' +
-            '<div id="bodyContent">' +
-            '<p>Dit is een van onze belangrijkste leveranciers voor CPUs</p>' +
-            '</div>' +
-            '</div>'
-    }, {
-        position: new google.maps.LatLng(13.7244426, 100.3529064),
-        type: 'Gpu',
-        title: "GPU",
-        content: 'Info over de cpu'
-    }, {
-        position: new google.maps.LatLng(24.6822124, 121.7564334, 14),
-        type: 'Ram',
-        title: "RAM",
-        content: 'Info over de cpu'
-    }, {
-        position: new google.maps.LatLng(52.0873639, 5.1631756, 17),
-        type: 'Koleon',
-        title: "Koleon",
-        content: 'Info over de cpu'
-    }, {
-        position: new google.maps.LatLng(30.567816, 114.0201867, 10),
-        type: 'Cpu',
-        title: 'CPU',
-        content: 'Info over de cpu'
-    }, {
-        position: new google.maps.LatLng(30.117174, 120.1193385, 10),
-        type: 'Gpu',
-        title: 'GPU',
-        content: 'Info over de cpu'
-    }, {
-        position: new google.maps.LatLng(34.527839, 133.5255459, 12),
-        type: 'Ram',
-        title: 'RAM',
-        content: 'Info over de cpu'
-    }, {
-        position: new google.maps.LatLng(37.7109818, 126.2959495, 8),
-        type: 'Cpu',
-        title: 'CPU',
-        content: 'Info over de cpu'
-    }];
-
+	
+	var script = document.createElement('script');
+	script.src = 'js/Mapdata.geojsonp';
+	document.getElementsByTagName("head")[0].appendChild(script);
+	
+	var markers = new Array();
+	window.eqfeed_callback = function(results) {
+        for (var i = 0; i < results.features.length; i++) {
+          var coords = results.features[i].position;
+		  addMarker(results.features[i]);
+        }
+      }
+	         
+	var i = 0;
     function addMarker(feature) {
         var marker = new google.maps.Marker({
             position: feature.position,
@@ -89,11 +53,17 @@ function initMap() {
             });
             infowindow.open(map, marker);
         });
+		markers[i] = new google.maps.Marker({
+            position: feature.position,
+            label: feature.title
+          });
+		  i++;
+		  alert(markers);
     }
 
-    for (var i = 0, feature; feature = features[i]; i++) {
-        addMarker(feature);
-    }
+	var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'img/markers'});
+
 
     var legend = document.getElementById('legend');
     for (var key in icons) {

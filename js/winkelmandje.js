@@ -39,3 +39,71 @@ function activateModal(id, price) {
         }
     }
 }
+
+$(document).ready(function getCookie() {
+	if (document.cookie.split("; ")[0] != ""){
+		var cookies = document.cookie.split("; ");
+		var cookieCnt = document.cookie.split(";").length;
+			for(i=0; i<cookieCnt; i++)
+			{	
+				var str = cookies[i];
+				if (str.substring(0,7) == "product") {
+					var cookie01 = cookies[i].split("=");
+					var value01 = decodeURIComponent(cookie01[1]);
+					displayInCart(value01);
+				}
+			}
+	}
+}); 
+
+function displayInCart(id) {
+	    switch (id) {
+        case "Alien17":
+			$("#productentabel").css("display", "table"); 
+			$("#afrekenen").css("display","block");
+            $("#productentabel").find("tbody").append( 
+			"<tr>" +
+				"<td><img src=\"img/alienware17.png\" alt=\"Alienware 17\">" +
+				   "<br>Alienware 17" +
+				"<td>Enorm beeldscherm. Overweldigende grafische prestaties. De Alienware 17 is de perfecte gaminglaptop voor kracht en prestaties." + 
+				   "Voeg de optionele Graphics Amplifier toe om de ervaring nog beter te maken." +
+				"</td>" +
+				"<td>" +
+				   "<button id = \"Alien17\" onclick=\"activateModal(this.id, 1299)\"> €1299-</button>" +
+				"</td>" +
+			 "</tr>");
+			break;
+        case "MSI5":
+            $("#productentabel").css("display", "table"); 
+			$("#afrekenen").css("display","block");
+            $("#productentabel").find("tbody").append( 
+			"<tr>" +
+				"<td><img src=\"img/msi.png\" alt=\"MSI 5\">" +
+				   "<br>MSI Hunter 5" +
+				"<td>De GL72 notebook van MSI is een krachtige notebook, ideaal voor zowel multimedia als gaming." + 
+				   "Dankzij de laatste Intel Core i7 processor, 8 GB geheugen en een harde schijf van 1 TB is deze snelle notebook een echte alleskunner." +
+				   "Deze notebook is ook voorzien van de nieuwste NVIDIA GTX960M videokaart en voorzien van Windows 10." +
+				   "Kortom deze notebook heeft alles in huis voor de complete game-ervaring!" +
+				"</td>" +
+				"<td>" +
+				   "<button id = \"MSI5\" onclick=\"activateModal(this.id, 999)\"> €999-</button>" +
+				"</td>" +
+			 "</tr>");
+            break;
+        case "PredX":
+            $("#productentabel").css("display", "table"); 
+			$("#afrekenen").css("display","block");
+            $("#productentabel").find("tbody").append( 
+			"<tr>" +
+				"<td><img src=\"img/PredatorX.png\" alt=\"PredatorX\">" +
+				   "<br>Predator X" +
+				"<td>De Predator X brengt je game-ervaring tot ongekende hoogtes dankzij de nieuwste Intel-i7 processor en gtx 1080 videokaart." +
+                "Samen met een full HD scherm en 16 gigabyte RAM geheugen kan niks je stoppen." +
+				"</td>" +
+				"<td>" +
+				   "<button id = \"PredX\" onclick=\"activateModal(this.id, 1499)\"> €1499-</button>" +
+				"</td>" +
+			 "</tr>");
+            break;
+    }
+}

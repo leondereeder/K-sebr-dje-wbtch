@@ -45,7 +45,14 @@ var itemsInCart = 0;
 function createCookie(id, price) {
 	itemsInCart++;
 	document.getElementById("shoppingCartNumber").innerHTML = itemsInCart;
-	document.cookie = "product=" + id + ";path=/";
-	document.getElementsByClassName("producten")[0].innerHTML = "product=" + id + ";" + expires + ";path=/";
+	var cookieName = generateCname();
+	document.cookie = cookieName + "=" + id + ";path=/";
 	}
 		
+function generateCname() {
+	var x = decodeURIComponent(document.cookie);
+	var ca = x.split("_");
+	var counter = ca.length;
+	var name = encodeURIComponent("product_" + counter);
+    return name;
+}

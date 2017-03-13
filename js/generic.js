@@ -1,18 +1,21 @@
 $(document).ready(function getCookie() {
 	if (document.cookie.split("; ")[0] != ""){
-		var cookies = document.cookie.split(";");
+		var cookies = document.cookie.split("; ");
 		var cookieCnt = document.cookie.split(";").length;
 			for(i=0; i<cookieCnt; i++)
 			{
-				var cookie01 = cookies[i].split("=");
-				var value01 = decodeURIComponent(cookie01[1]);
-				addToShoppingCart(value01, 1);
+				var str = cookies[i];
+				if (str.substring(0,7) == "product") {
+					var cookie01 = cookies[i].split("=");
+					var value01 = decodeURIComponent(cookie01[1]);
+					addToShoppingCart(value01, 1);
+				}
 			}
 	}
 }); 
  
 	var itemsInCart = 0;
-	function addToShoppingCart(id, price) {
+function addToShoppingCart(id, price) {
 	itemsInCart++;
 	document.getElementById("shoppingCartNumber").innerHTML = itemsInCart;
 }
@@ -23,30 +26,31 @@ $("body").contextmenu({
     {title: "Maak tekst kleiner", action:function(event,ui){makeSmaller();}},
     {title: "Maak tekst groter", action:function(event,ui){makeLarger();}},
     {title: "Maak tekst schuingedrukt", action:function(event,ui){makeItalic();}},
-    {title: "Maak tekst dikker", action:function(event,ui){makeBold();}}
+    {title: "Maak tekst dikker", action:function(event,ui){makeBold();}},
+    {title: "Verwijder cookies", action:function(event,ui){deleteCookies();}}
     ],
 });
 
-var smallCnt = 1;
+var textCnt = 1;
 function makeSmaller() {
-	if (smallCnt == 1) {
+	if (textCnt == 1) {
 		$("p, a, td").css("font-size","14px", 'important');
-		smallCnt*=-1;
+		textCnt*=-1;
 	}
 	else {
 		$("p, a, td").css("font-size","", 'important');
-		smallCnt*-1;
+		textCnt*-1;
 	}
 }
-var largeCnt = 1;
+var textCnt = 1;
 function makeLarger() {
-	if (largeCnt == 1) {
+	if (textCnt == 1) {
 		$("p, a, td").css("font-size","22px", 'important');
-		largeCnt*=-1;
+		textCnt*=-1;
 	}
 	else {
 		$("p, a, td").css("font-size","", 'important');
-		largeCnt*=-1;
+		textCnt*=-1;
 	}
 }
 var boldCnt = 1;
@@ -70,4 +74,12 @@ function makeItalic() {
 		$("p, a, td").css("font-style","", '!important');
 		italicCnt*=-1;
 	}
+}
+
+function deleteCookies() {
+	var cnt = document.cookie.length;
+	for (i=0;i<cnt;i++) {
+		document.cookie = "product_" + i + "=; expires=Thu, 18 Dec 2014 12:00:00 UTC;path=/"
+	}
+	location.reload();
 }

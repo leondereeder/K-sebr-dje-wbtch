@@ -1,0 +1,48 @@
+eqfeed_callback({'type':'FeatureCollection','title':'Map data Koleon','features':[
+	{ 'position': new google.maps.LatLng(28.6466772, 76.8130646),
+        'type': 'Cpu',
+        'title': 'CPU',
+        'content': '<div id="content">' +
+            '<div id="siteNotice">' +
+            '</div>' +
+            '<h1 id="firstHeading" class="firstHeading">CPU</h1>' +
+            '<div id="bodyContent">' +
+            '<p>Dit is een van onze belangrijkste leveranciers voor CPUs</p>' +
+            '</div>' +
+            '</div>'
+    }, {
+        'position': new google.maps.LatLng(13.7244426, 100.3529064),
+        'type': 'Gpu',
+        'title': "GPU",
+        'content': "info over de cpu"
+    }, {
+        position: new google.maps.LatLng(24.6822124, 121.7564334, 14),
+        'type': 'Ram',
+        'title': "RAM",
+        'content': "info over de cpu"
+    }, {
+        position: new google.maps.LatLng(52.0873639, 5.1631756, 17),
+        'type': 'Koleon',
+        'title': "Koleon",
+        'content': "info over de cpu"
+    }, {
+        position: new google.maps.LatLng(30.567816, 114.0201867, 10),
+        'type': 'Cpu',
+        'title': 'CPU',
+        'content': "info over de cpu"
+    }, {
+        position: new google.maps.LatLng(30.117174, 120.1193385, 10),
+        'type': 'Gpu',
+        'title': 'GPU',
+        'content': "info over de cpu"
+    }, {
+        position: new google.maps.LatLng(34.527839, 133.5255459, 12),
+        'type': 'Ram',
+        'title': 'RAM',
+        'content': "info over de cpu"
+    }, {
+        position: new google.maps.LatLng(37.7109818, 126.2959495, 8),
+        'type': 'Cpu',
+        'title': 'CPU',
+        'content': "info over de cpu"
+    }]});

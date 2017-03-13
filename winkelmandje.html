@@ -15,7 +15,10 @@
       <link rel="icon" href="img/icon.png" sizes="256x172" type="image/png">
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	  <script src="js/generic.js" defer></script>
-	  <script src="js/winkelmandje.js"></script>
+	  <script src="js/winkelmandje.js" defer></script>
+	  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	  <script src="https://cdn.jsdelivr.net/jquery.ui-contextmenu/1.14.0/jquery.ui-contextmenu.min.js"></script>
    </head>
    <body>
       <div class="container">
@@ -37,49 +40,16 @@
          <section class="content">
             <h2 class="w3-warning">W3</h2>
             <div style="overflow-x:auto;">
-               <table class="producten">
+               <table id="productentabel">
                   <tbody>
                      <tr>
                         <td> Product		</td>
                         <td> Omschrijving	</td>
                         <td> Prijs			
                      </tr>
-                     <tr>
-                        <td><img src="img/alienware17.png" alt="Alienware 17">
-                           <br>Alienware 17
-                        <td>Enorm beeldscherm. Overweldigende grafische prestaties. De Alienware 17 is de perfecte gaminglaptop voor kracht en prestaties. 
-                           Voeg de optionele Graphics Amplifier toe om de ervaring nog beter te maken.
-                        </td>
-                        <td>
-                           <button id = "Alien17" onclick="activateModal(this.id, 1299)"> €1299-</button>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td><img src="img/msi.png" alt="MSI Hunter">
-                           <br>MSI Hunter 5
-                        </td>
-                        <td>De GL72 notebook van MSI is een krachtige notebook, ideaal voor zowel multimedia als gaming. 
-                           Dankzij de laatste Intel Core i7 processor, 8 GB geheugen en een harde schijf van 1 TB is deze snelle notebook een echte alleskunner.
-                           Deze notebook is ook voorzien van de nieuwste NVIDIA GTX960M videokaart en voorzien van Windows 10. 
-                           Kortom deze notebook heeft alles in huis voor de complete game-ervaring!
-                        </td>
-                        <td>
-                           <button id = "MSI5" onclick="activateModal(this.id, 999)"> €999-</button>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td><img src="img/PredatorX.png" alt="Predator X">
-                           <br>Predator X
-                        </td>
-                        <td> De Predator X brengt je game-ervaring tot ongekende hoogtes dankzij de nieuwste Intel-i7 processor en gtx 1080 videokaart.
-                           Samen met een full HD scherm en 16 gigabyte RAM geheugen kan niks je stoppen.
-                        </td>
-                        <td>
-                           <button id = "PredX" onclick="activateModal(this.id, 1499)">€1499-</button>
-                        </td>
-                     </tr>
-                  </tbody>
+					</tbody>
                </table>
+			   <button id="afrekenen">Afrekenen!</button>
                <div id="myModal" class="modal">
                   <div class="modal-content">
                      <div class="modal-header">
@@ -92,7 +62,7 @@
                         <br style="clear:both;"/>
                      </div>
                      <div class="modal-footer">
-                        <button id="modalbestel">Bestel nu!</button>
+                        <button id="modalbestel">Verwijder uit winkelmandje</button>
                         <br style="clear:both;"/>
                      </div>
                   </div>
@@ -108,12 +78,6 @@
                <li><a href="">Over Koleon</a></li>
             </ul>
             <br>
-			<div id="accessibility">
-				<span id="makeSmaller">a</span>&nbsp;&nbsp;
-				<span id="makeLarger">A</span><br>
-				<span id="makeBold"><strong>Dikke tekst</strong></span><br>
-				<span id="makeItalic"><em>Schuingedrukt</em></span><br>
-			</div>
             <a href="https://www.w3schools.com/" target="_blank" style="margin-right:-100px;">Deze site is mogelijk gemaakt door w3schools</a>	
          </footer>
       </div>
