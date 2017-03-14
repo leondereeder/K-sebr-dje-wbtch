@@ -553,6 +553,11 @@ input:hover {
 	size: 100;
 }
 
+.commentText p{
+	font-size: 100px;
+	background: yellow;
+}
+
 #productentabel {
 	display:none;
 	margin: auto;
@@ -579,4 +584,6 @@ input:hover {
 		margin:10px 0px 0px 10px;
 		width:90%
 	}
-}	
+}
+
+	
