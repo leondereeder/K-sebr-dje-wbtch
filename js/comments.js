@@ -16,7 +16,7 @@ function generateCname() {
 	name = encodeURIComponent("comment_" + counter);
 	return name;
 }
-//SPATIES
+
 function getComments() {
 	var x = "";
 	var decodedCookie = decodeURIComponent(document.cookie);
@@ -26,7 +26,7 @@ function getComments() {
 		var str = ca[i];
 		if(str.substring(0, 7) == "comment") {
 			var c = ca[i].split("=");
-			x = x + "<br><br>" + c[1];
+			x = x + "<br><hr><br>" + c[1];
 		}
 	}
 	document.getElementById("commentText").innerHTML = x;
