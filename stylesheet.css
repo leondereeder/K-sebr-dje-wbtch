@@ -318,22 +318,26 @@ td button:hover {
     opacity: 0.4;
 }
 
-.commentsection {
-	width: 100%;
-    height: auto;
-    position: relative;
-    display: block;
-    background-color: white;
-    overflow: hidden;
-	font-family: Abel;
-	
-}
-
 .container_comments {
 	margin: auto;
 	display: block;
-	width: 50%;
+	width: 66%;
 	padding: 10px;
+	font-family: Abel;
+	font-size: 20px;
+	overflow: hidden;
+	background-color: white;
+	position: relative;
+}
+
+.container_comments p {
+	font-family: Abel;
+	font-size: 16px;
+}
+
+.commentText {
+	font-family: Abel;
+	font-size: 16px;
 }
 
 .container_comments input {
@@ -346,9 +350,11 @@ td button:hover {
 	font-family:Aldrich;
 }
 
+
 .w3-warning {
     display: none;
 }
+
 #fname,
 #lname,
 #email,
@@ -549,9 +555,6 @@ input:hover {
 	color:white !important;
 }
 
-.commentsection form input {
-	size: 100;
-}
 
 #productentabel {
 	display:none;
@@ -579,4 +582,6 @@ input:hover {
 		margin:10px 0px 0px 10px;
 		width:90%
 	}
-}	
+}
+
+	

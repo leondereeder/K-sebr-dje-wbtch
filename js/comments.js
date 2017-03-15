@@ -16,18 +16,18 @@ function generateCname() {
 	name = encodeURIComponent("comment_" + counter);
 	return name;
 }
-//SPATIES
+
 function getComments() {
 	var x = "";
 	var decodedCookie = decodeURIComponent(document.cookie);
-	var ca = decodedCookie.split(";");
+	var ca = decodedCookie.split("; ");
 	var cookieCnt = document.cookie.split(";").length;
 	for(var i=0; i < cookieCnt; i++) {
 		var str = ca[i];
 		if(str.substring(0, 7) == "comment") {
 			var c = ca[i].split("=");
-			x = x + c[1];
+			x = x + "<br><hr><br>" + c[1];
 		}
 	}
-	alert(x);
+	document.getElementById("commentText").innerHTML = x;
 }
