@@ -72,6 +72,19 @@
                   </form>
                </div>
             </div>
+		<article class = "commentsArticle">
+			<div class="container_comments">
+				<h1>Comments </h1>
+				<form onsubmit = "event.preventDefault();";>
+				<input type = "text" id = "nickname" placeholder = "Nickname">
+				<input type = "text" id = "commentBox" placeholder = "Comment">
+				<button id="sendComment"> Verstuur </button>
+				<button id="deleteComment"> Clear comments </button>
+				</form>
+				<br>
+				<p id = "commentText">No comments yet</p>
+			</div>
+			</article>
          </section>
          <footer>
             <ul>

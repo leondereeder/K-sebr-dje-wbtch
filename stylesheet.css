@@ -323,6 +323,7 @@ td button:hover {
 	display: block;
 	width: 66%;
 	padding: 10px;
+	padding-bottom: 30px;
 	font-family: Abel;
 	font-size: 20px;
 	overflow: hidden;
@@ -343,6 +344,11 @@ td button:hover {
 .container_comments input {
 	height: 50px;
 	width: 300px;
+}
+
+#nickname {
+	height: 50px;
+	width: 100px;
 }
 
 .container_comments button {

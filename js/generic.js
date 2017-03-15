@@ -12,6 +12,29 @@ $(document).ready(function getCookie() {
 				}
 			}
 	}
+	//get the saved comments 
+	var x = "";
+	var decodedCookie = decodeURIComponent(document.cookie);
+	var ca = decodedCookie.split("; ");
+	var cookieCnt = document.cookie.split(";").length;
+	for(var i=0; i < cookieCnt; i++) {
+		var str = ca[i];
+		if(str.substring(0, 7) == "comment") {
+			var c = ca[i].split("=");
+			if (x == 0){
+				x = x + "<b>door " + c[2] + ":</b><br> " + c[1];
+			}
+			
+			else {
+			x = x + "<br><hr><br><b> door " + c[2] + ":</b><br> " + c[1];
+			}
+		}
+	}
+	if (x == ""){}
+	else {
+		x = x + "<hr>";
+	}
+	document.getElementById("commentText").innerHTML = x;
 }); 
  
 	var itemsInCart = 0;
@@ -79,7 +102,9 @@ function makeItalic() {
 function deleteCookies() {
 	var cnt = document.cookie.length;
 	for (i=0;i<cnt;i++) {
+		document.cookie = "comment_" + i + "=; expires=Thu, 18 Dec 2014 12:00:00 UTC;path=/"
 		document.cookie = "product_" + i + "=; expires=Thu, 18 Dec 2014 12:00:00 UTC;path=/"
 	}
 	location.reload();
 }
+
