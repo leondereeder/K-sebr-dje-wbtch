@@ -16,32 +16,32 @@ eqfeed_callback({'type':'FeatureCollection','title':'Map data Koleon','features'
         'title': "GPU",
         'content': "info over de cpu"
     }, {
-        position: new google.maps.LatLng(24.6822124, 121.7564334, 14),
+        'position': new google.maps.LatLng(24.6822124, 121.7564334, 14),
         'type': 'Ram',
         'title': "RAM",
         'content': "info over de cpu"
     }, {
-        position: new google.maps.LatLng(52.0873639, 5.1631756, 17),
+        'position': new google.maps.LatLng(52.0873639, 5.1631756, 17),
         'type': 'Koleon',
         'title': "Koleon",
         'content': "info over de cpu"
     }, {
-        position: new google.maps.LatLng(30.567816, 114.0201867, 10),
+        'position': new google.maps.LatLng(30.567816, 114.0201867, 10),
         'type': 'Cpu',
         'title': 'CPU',
         'content': "info over de cpu"
     }, {
-        position: new google.maps.LatLng(30.117174, 120.1193385, 10),
+        'position': new google.maps.LatLng(30.117174, 120.1193385, 10),
         'type': 'Gpu',
         'title': 'GPU',
         'content': "info over de cpu"
     }, {
-        position: new google.maps.LatLng(34.527839, 133.5255459, 12),
+        'position': new google.maps.LatLng(34.527839, 133.5255459, 12),
         'type': 'Ram',
         'title': 'RAM',
         'content': "info over de cpu"
     }, {
-        position: new google.maps.LatLng(37.7109818, 126.2959495, 8),
+        'position': new google.maps.LatLng(37.7109818, 126.2959495, 8),
         'type': 'Cpu',
         'title': 'CPU',
         'content': "info over de cpu"

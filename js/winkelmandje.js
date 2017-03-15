@@ -26,7 +26,6 @@ function activateModal(id, price) {
     }
 
     modalbestel.onclick = function() {
-        addToShoppingCart(id, price);
         modal.style.display = "none";
     }
     span.onclick = function() {
@@ -56,7 +55,7 @@ $(document).ready(function getCookie() {
 	}
 }); 
 
-function displayInCart(id) {
+function displayInCart(id, price) {
 	    switch (id) {
         case "Alien17":
 			$("#productentabel").css("display", "table"); 

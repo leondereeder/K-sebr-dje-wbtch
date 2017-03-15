@@ -15,7 +15,7 @@
       <link rel="icon" href="img/icon.png" sizes="256x172" type="image/png">
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	  <script src="js/generic.js"  defer></script>
-	  <script src="js/diensten.js"></script>
+	  <script src="js/diensten.js" defer></script>
 	  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 	  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 	  <script src="https://cdn.jsdelivr.net/jquery.ui-contextmenu/1.14.0/jquery.ui-contextmenu.min.js"></script>
@@ -42,7 +42,7 @@
                   Your browser does not support this type of video
                </video>
                <div class="container-form">
-                  <form id="laptop-samenstellen" onchange="calculate()">
+                  <form id="laptop-samenstellen" onchange="calculate()" onsubmit = "event.preventDefault();">
                      <label for="cpu">CPU:</label>
                      <select id="cpu" name="cpu">
                         <option value="180">Intel Core i3-7350K @ 4.20GHz - €180</option>
@@ -68,7 +68,7 @@
                         <option value="150">17 inch - €150</option>
                      </select>
                      <p id="totaalbedrag">Uw geselecteerde laptop kost: €680</p>
-                     <input type="submit" value="Betalen">
+                     <input type="submit" value="Betalen" id="customBetalen">
                   </form>
                </div>
             </div>
