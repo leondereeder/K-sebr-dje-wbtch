@@ -132,7 +132,7 @@ function initMap() {
             '</div>'
     }, {
 		position: new google.maps.LatLng(52.308477, 4.761560, 17),
-		type: 'Koleon',
+		type: 'Distribution',
 		title: 'Koleon distributie',
 		content: '<div id="content">' +
             '<div id="siteNotice">' +

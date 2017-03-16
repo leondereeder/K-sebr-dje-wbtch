@@ -373,6 +373,10 @@ input:hover {
     margin: 10px;
     border: 3px solid #000;
 }
+.gm-style img{
+	max-width:none;
+	max-height:none;
+}
 #legend h3 {
     margin-top: 0;
 }
