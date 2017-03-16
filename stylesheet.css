@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Aldrich");
-@import url("https://fonts.googleapis.com/css?family=Abel");
+/* Generic styling */
 html,
 body {
     padding: 0;
@@ -17,6 +16,7 @@ body {
 a {
     text-decoration: none;
     color: inherit;
+	font-family: "trebuchet ms";
 }
 a:visited {
     text-decoration: none;
@@ -32,13 +32,11 @@ p {
 nav {
     text-align: center;
     background-color: royalblue;
-    margin: 0;
-    top: 0;
     padding: 10px 0px 10px 0px;
 }
 #logo {
     width: 50px;
-    height: 30px
+    height: auto;
 }
 footer {
     position: absolute;
@@ -57,18 +55,7 @@ footer ul li a {
     color: white;
     font-family: arial;
     font-size: 11px;
-    display: block;
     padding: 0px 20px 0px 20px;
-}
-#accessibility {
-	position:relative;
-	float:right;
-	margin-top:-40px;
-	margin-right:10px;
-	line-height:20px;
-}
-#accessibility span {
-	cursor:pointer;
 }
 ul {
     display: inline-block;
@@ -77,10 +64,7 @@ li {
     float: left;
     list-style-type: none;
 }
-nav li a {
-    color: white;
-}
-nav li a:visited {
+nav li a, nav li a:visited {
     color: white;
 }
 li a {
@@ -89,70 +73,13 @@ li a {
     display: block;
     padding: 10px 20px 10px 20px;
     font: bold 15px Verdana;
-}
-a,
-li a {
-    font-family: "trebuchet ms";
+	font-family: "trebuchet ms";
 }
 nav ul {
     margin: 0px;
 }
 nav ul li a:hover {
     color: lightblue;
-}
-header {
-    background-color: #80aef7;
-    text-align: center;
-    padding: 5px;
-    font-family: "trebuchet ms";
-}
-
-/*	Tabel	*/
-
-tr td img {
-    width: auto;
-    height: auto;
-    max-width: 250px;
-    max-height: 250px;
-    font-family: Abel, Verdana;
-}
-td,
-.prijs {
-    padding: 20px;
-    border: 0px;
-    min-width: 300px;
-    width: auto;
-    height: auto;
-}
-.producten {
-    margin: auto;
-    border-collapse: collapse;
-    width: 10px;
-    font-family: Abel, Verdana;
-    text-align: center;
-    margin-bottom: 50px;
-}
-.producten tr:nth-child(odd) {
-    background-color: #eee;
-}
-
-td button {
-	padding: 20px 80px;
-    background-color: lightblue;
-    color: white;
-    font-family: Abel;
-	border: none;
-	cursor:pointer;
-}
-td button:hover {
-	color: yellow;
-}
-
-/* /Tabel */
-
-.contactform {
-    margin: 0 auto;
-    width: 300px;
 }
 .search {
     float: right;
@@ -172,155 +99,8 @@ td button:hover {
 	background-image: url('img/search.png');
 	background-size:30px 30px;
 }
-#howitsmade {
-    width: 600px;
-    display: block;
-    margin: 0 auto;
-}
-#gaminglaptop {
-    width:50%;
-	height:auto;
-    margin-top: 100px;
-}
-#promotext-wrapper {
-    width: 300px;
-    float: right;
-    display: inline;
-    margin-right: 100px;
-    margin-top: 150px;
-}
-#promoheader {
-    font-family: Aldrich, serif;
-    font-size: 40px;
-}
-#promotext {
-    font-size: 20px;
-    text-align: justify;
-    word-wrap: break-word;
-    font-family: Aldrich, serif;
-}
-#promoheader2 {
-    font-family: Aldrich, serif;
-    font-size: 40px;
-    color: #bd0000;
-}
-#promoheader3 {
-    font-family: Aldrich, serif;
-    font-size: 40px;
-    color: #2eff2e;
-}
-#promoheader4 {
-    font-family: Aldrich, serif;
-    font-size: 40px;
-    color: rgb(46, 0, 95);
-}
-
-.predatorx {
-    height: 600px;
-    overflow: hidden;
-}
-.container_bestellen {
-    position: relative;
-}
-.container_bestellen::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    background: url('img/lol.jpg') no-repeat fixed 0% 0%;
-    opacity: 0.4;
-}
-.bestellen {
-    width: 100%;
-    height: 800px;
-    position: relative;
-    display: block;
-    z-index: 2;
-    overflow: hidden;
-}
-#bestellen_image {
-    width: 50%;
-	height:auto;
-    float: left;
-    opacity: 1;
-    z-index: 2;
-}
-.bestellen p {
-    font-size: 50px;
-    width: 40%;
-    display: inline-block;
-    padding-left: 40px;
-    margin: 20% auto;
-}
-.bestellen2 {
-    width: 100%;
-    height: 800px;
-    position: relative;
-    display: block;
-    background-color: black;
-    overflow: hidden;
-}
-.bestellen2 p {
-    font-size: 50px;
-    color: #2dd605;
-    width: 40%;
-    display: inline-block;
-    padding-left: 40px;
-    margin:20% auto;
-}
-#bestellen2_image {
-    width: 50%;
-    margin-top: 100px;
-    float: right;
-}
-.bestellen3 {
-    width: 100%;
-    height: 800px;
-    position: relative;
-    display: block;
-    z-index: 2;
-    overflow: hidden;
-}
-#bestellen3_image {
-    width: 50%;
-	height:auto;
-    float: left;
-    z-index: 2;
-    opacity: 1;
-    -moz-transform: scale(-1, 1);
-    -webkit-transform: scale(-1, 1);
-    -o-transform: scale(-1, 1);
-    -ms-transform: scale(-1, 1);
-    transform: scale(-1, 1);
-}
-.bestellen3 p {
-    font-size: 50px;
-    width: 40%;
-    display: inline-block;
-    padding-left: 40px;
-    margin:20% auto;
-}
-.container_bestellen3 {
-    position: relative;
-}
-.container_bestellen3::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    background: url('img/alienware.png') no-repeat fixed 50% 50%;
-    opacity: 0.4;
-}
-
 .container_comments {
 	margin: auto;
-	display: block;
 	width: 66%;
 	padding: 10px;
 	padding-bottom: 30px;
@@ -328,38 +108,168 @@ td button:hover {
 	font-size: 20px;
 	overflow: hidden;
 	background-color: white;
-	position: relative;
 }
-
 .container_comments p {
 	font-family: Abel;
-	font-size: 16px;
 }
-
-.commentText {
-	font-family: Abel;
-	font-size: 16px;
-}
-
 .container_comments input {
 	height: 50px;
 	width: 300px;
 }
-
 #nickname {
-	height: 50px;
 	width: 100px;
 }
-
-.container_comments button {
-	height:auto;
+#sendComment {
 	font-family:Aldrich;
 }
-
-
 .w3-warning {
     display: none;
 }
+/* End of generic styling */
+
+/*	Table	*/
+tr td img {
+    max-width: 250px;
+    font-family: Abel, Verdana;
+}
+td,
+.prijs {
+    padding: 20px;
+    border: 0px;
+    min-width: 300px;
+    width: auto;
+    height: auto;
+}
+/* End of Table */
+
+/* Producten page */
+.producten {
+    margin: auto;
+    border-collapse: collapse;
+    width: 10px;
+    font-family: Abel, Verdana;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.producten tr:nth-child(odd) {
+    background-color: #eee;
+}
+td button {
+	padding: 20px 80px;
+    background-color: lightblue;
+    color: white;
+    font-family: Abel;
+}
+td button:hover {
+	color: yellow;
+}
+/* End of producten page */
+
+/* Laptop samenstellen page */
+#howitsmade {
+    width: 600px;
+    display: block;
+    margin: 0 auto;
+	border-radius: 50px;
+	padding:20px;
+}
+/* End of laptop samenstellen page */
+
+/* Index page */
+.promoBlock {
+	width: 100%;
+    height: 800px;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+.promoBlock p {
+	font-size: 50px;
+    width: 40%;
+    display: inline-block;
+    padding-left: 40px;
+    margin: 20% auto;
+	font-family: Aldrich, serif;
+	font-size:50px;
+	text-align:justify;
+	float:right;
+	padding:0px;
+	margin-right:20px;
+}
+.promoBlock h2 {
+	font-size:50px;
+	margin:0;
+}
+.promoBlock:nth-child(even) p {
+	float:left;
+	padding-left:40px;
+}
+.container_promoBlock {
+    position: relative;
+}
+.container_promoBlock::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    opacity: 0.4;
+}
+.promoPicture {
+	width:50%;
+	height:auto;
+	margin-top:100px;
+	opacity:1;
+	z-index:2;
+	float:left;
+}
+#promotext-wrapper {
+    width: 300px;
+    float: right;
+    margin-right: 100px;
+    margin-top: 150px;
+}
+#promotext {
+    font-size: 20px;
+	width:300px;
+	margin:20px 0px;
+	padding:0px;
+}
+#msiText {
+    color: #bd0000;
+}
+#nvidiaText {
+    color: #2eff2e;
+}
+#alienwareText {
+    color: rgb(46, 0, 95);
+}
+.predatorx {
+    height: 600px;
+}
+.container_msi::before {
+    background: url('img/lol.jpg') no-repeat fixed 0% 0%;	
+}
+.nvidiaBlock {
+    background-color: black;
+}
+.nvidiaBlock img {
+	float:right;
+}
+.container_alienware::before {
+    background: url('img/alienware.png') no-repeat fixed 50% 50%;
+}
+#alienwareImage {
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}
+/* End of index page */
+
 
 #fname,
 #lname,

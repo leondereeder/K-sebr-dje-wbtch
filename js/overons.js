@@ -1,4 +1,6 @@
+// Google Maps' initialize function
 function initMap() {
+	// Define a new map
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {
             lat: 36.5699064,
@@ -7,6 +9,7 @@ function initMap() {
         zoom: 3
     });
 	
+	// Define icons based on name of the feature
 	var icons = {
         Koleon: {
             name: 'Koleon',
@@ -27,6 +30,7 @@ function initMap() {
 
     };
 
+	// Define features, positions, type for the markers, titles and content for the infowindow event
 	var features = [{
         position: new google.maps.LatLng(28.6466772, 76.8130646),
         type: 'Cpu',
@@ -76,9 +80,10 @@ function initMap() {
         content: 'Info over de cpu'
     }];
 	
+	// Create an array of all the markers for the Clustermarkerer
 	var markers = new Array();
-	         
-	var i = 0;
+	  
+	// Function to add specific marker to the map
     function addMarker(feature) {
         var marker = new google.maps.Marker({
             position: feature.position,
@@ -86,23 +91,27 @@ function initMap() {
             map: map,
             title: feature.title
         });
+		// Add listener to each marker
         marker.addListener('click', function() {
             var infowindow = new google.maps.InfoWindow({
                 content: feature.content
             });
             infowindow.open(map, marker);
         });
+		// Push marker to the array of all markers
 		markers.push(marker);
     }
 
+	// Add all markers to the map
 	for (var i = 0, feature; feature = features[i]; i++) {
         addMarker(feature);
     }
 	
+	// Markerclusterer based on array of all markers
 	var markerCluster = new MarkerClusterer(map, markers,
             {imagePath: 'img/markers/m'});
 
-
+	// Add legend to the map
     var legend = document.getElementById('legend');
     for (var key in icons) {
         var type = icons[key];
@@ -113,6 +122,7 @@ function initMap() {
         legend.appendChild(div);
     }
 
+	// Push legend to the map
     map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
 
 }

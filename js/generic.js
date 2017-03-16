@@ -1,59 +1,41 @@
+// When the document is ready, load all the products into the shopping cart
 $(document).ready(function getCookie() {
 	if (document.cookie.split("; ")[0] != ""){
 		var cookies = document.cookie.split("; ");
-		var cookieCnt = document.cookie.split(";").length;
-			for(i=0; i<cookieCnt; i++)
+		cookieCnt = document.cookie.split(";").length;
+			for(i=0; i<cookieCnt; i+=1)
 			{
-				var str = cookies[i];
+				str = cookies[i];
 				if (str.substring(0,7) == "product") {
-					var cookie01 = cookies[i].split("=");
-					var value01 = decodeURIComponent(cookie01[1]);
+					cookie01 = cookies[i].split("=");
+					value01 = decodeURIComponent(cookie01[1]);
 					addToShoppingCart(value01, 1);
 				}
 			}
 	}
-	//get the saved comments 
-	var x = "";
-	var decodedCookie = decodeURIComponent(document.cookie);
-	var ca = decodedCookie.split("; ");
-	var cookieCnt = document.cookie.split(";").length;
-	for(var i=0; i < cookieCnt; i++) {
-		var str = ca[i];
-		if(str.substring(0, 7) == "comment") {
-			var c = ca[i].split("=");
-			if (x == 0){
-				x = x + "<b>door " + c[2] + ":</b><br> " + c[1];
-			}
-			
-			else {
-			x = x + "<br><hr><br><b> door " + c[2] + ":</b><br> " + c[1];
-			}
-		}
-	}
-	if (x == ""){}
-	else {
-		x = x + "<hr>";
-	}
-	document.getElementById("commentText").innerHTML = x;
 }); 
- 
+
+// Add all found products to the shopping cart as a number
 	var itemsInCart = 0;
 function addToShoppingCart(id, price) {
-	itemsInCart++;
+	itemsInCart+=1;
 	document.getElementById("shoppingCartNumber").innerHTML = itemsInCart;
 }
 
+// JQuery UI context accessibility menu
 $("body").contextmenu({
     delegate: ".container",
   menu: [
     {title: "Maak tekst kleiner", action:function(event,ui){makeSmaller();}},
     {title: "Maak tekst groter", action:function(event,ui){makeLarger();}},
     {title: "Maak tekst schuingedrukt", action:function(event,ui){makeItalic();}},
-    {title: "Maak tekst dikker", action:function(event,ui){makeBold();}},
-    {title: "Verwijder cookies", action:function(event,ui){deleteCookies();}}
-    ],
+    {title: "Maak tekst dikker", action:function(event,ui){makeBold();}}
+   // Test function to delete all cookies from the page
+   // {title: "Verwijder cookies", action:function(event,ui){deleteCookies();}}
+    ]
 });
 
+// Make all text smaller. Shares a counter with makeLarger()
 var textCnt = 1;
 function makeSmaller() {
 	if (textCnt == 1) {
@@ -65,7 +47,8 @@ function makeSmaller() {
 		textCnt*-1;
 	}
 }
-var textCnt = 1;
+
+// Make all text larger. Shares a counter with makeSmaller()
 function makeLarger() {
 	if (textCnt == 1) {
 		$("p, a, td").css("font-size","22px", 'important');
@@ -76,6 +59,8 @@ function makeLarger() {
 		textCnt*=-1;
 	}
 }
+
+// Make all text bold
 var boldCnt = 1;
 function makeBold() {
 	if (boldCnt == 1) {
@@ -87,6 +72,8 @@ function makeBold() {
 		boldCnt*=-1;
 	}
 }
+
+// Make all text italic
 var italicCnt = 1;
 function makeItalic() {
 	if (italicCnt == 1) {
@@ -99,12 +86,14 @@ function makeItalic() {
 	}
 }
 
+/* Test function to delete all cookies from the page
 function deleteCookies() {
 	var cnt = document.cookie.length;
-	for (i=0;i<cnt;i++) {
-		document.cookie = "comment_" + i + "=; expires=Thu, 18 Dec 2014 12:00:00 UTC;path=/"
-		document.cookie = "product_" + i + "=; expires=Thu, 18 Dec 2014 12:00:00 UTC;path=/"
+	var path = window.location.pathname;
+	for (i=0;i<cnt;i+=1) {
+		document.cookie = "comment_" + i + "=; expires=Thu, 18 Dec 2014 12:00:00 UTC;path=" + path;
+		document.cookie = "product_" + i + "=; expires=Thu, 18 Dec 2014 12:00:00 UTC;path=/";
 	}
 	location.reload();
-}
+} */
 

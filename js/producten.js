@@ -1,3 +1,4 @@
+// When a price has been clicked on, activate its modal
 function activateModal(id, price) {
 	var modal = document.getElementById('myModal');
 	var modalheader = document.getElementById('modalheadertext');
@@ -25,14 +26,18 @@ function activateModal(id, price) {
 			break;
 	}
 
+	// When the use clicks order, create a cookie with the product
 	modalbestel.onclick = function() {
 		createCookie(id, price);
 		modal.style.display = "none";
 	}
+	
+	// When the close button has been clicked, close the modal
 	span.onclick = function() {
 		modal.style.display = "none";
 	}
 
+	// When the user clicks outside the modal, close the modal
 	window.onclick = function(event) {
 		if (event.target == modal) {
 			modal.style.display = "none";
@@ -40,7 +45,7 @@ function activateModal(id, price) {
 	}
 }
 		
-
+// Create a page-wide cookie with the product
 var itemsInCart = 0;
 function createCookie(id, price) {
 	itemsInCart++;
@@ -49,6 +54,7 @@ function createCookie(id, price) {
 	document.cookie = cookieName + "=" + id + ";path=/";
 	}
 		
+// Generate a unique cookiename for the product based on the total number of products
 function generateCname() {
 	var x = decodeURIComponent(document.cookie);
 	var ca = x.split("_");

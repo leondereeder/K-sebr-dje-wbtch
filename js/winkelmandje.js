@@ -1,3 +1,4 @@
+// When a price has been clicked on, activate its modal
 function activateModal(id, price) {
     var modal = document.getElementById('myModal');
     var modalheader = document.getElementById('modalheadertext');
@@ -25,13 +26,17 @@ function activateModal(id, price) {
             break;
     }
 
+	// When a user clicks 'delete from shopping cart' close the modal. This function is still in development
     modalbestel.onclick = function() {
         modal.style.display = "none";
     }
+	
+	// When the user clicks the close button, close the modal
     span.onclick = function() {
         modal.style.display = "none";
     }
 
+	// When the user clicks outside the modal, close it
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
@@ -39,6 +44,7 @@ function activateModal(id, price) {
     }
 }
 
+// When the document is ready, add all products to the shopping cart page
 $(document).ready(function getCookie() {
 	if (document.cookie.split("; ")[0] != ""){
 		var cookies = document.cookie.split("; ");
@@ -55,6 +61,7 @@ $(document).ready(function getCookie() {
 	}
 }); 
 
+// Get the proper piece of HTML for the cookie and add it to the page
 function displayInCart(id, price) {
 	    switch (id) {
         case "Alien17":
