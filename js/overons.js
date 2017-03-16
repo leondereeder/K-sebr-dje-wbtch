@@ -27,9 +27,13 @@ function initMap() {
             name: 'Ram',
             icon: 'img/marker-ram.png'
         },
-		Distribution: {
+		Distribution1: {
 			name: 'Plane',
 			icon: 'img/marker-plane.png'
+		},
+		Ups: {
+			name: 'Ups',
+			icon: 'img/marker-ups.png'
 		}
     };
 
@@ -132,7 +136,7 @@ function initMap() {
             '</div>'
     }, {
 		position: new google.maps.LatLng(52.308477, 4.761560, 17),
-		type: 'Distribution',
+		type: 'Distribution1',
 		title: 'Koleon distributie',
 		content: '<div id="content">' +
             '<div id="siteNotice">' +
@@ -140,6 +144,30 @@ function initMap() {
             '<h3>Distributie</h3>' +
             '<div id="bodyContent">' +
             '<p>Onze internationale verzendingen buiten Nederland en het Europese vasteland worden gedistributeerd vanaf Schiphol.</p>' +
+            '</div>' +
+            '</div>'
+	}, {
+		position: new google.maps.LatLng(52.083104, 5.182438, 17),
+		type: 'Ups',
+		title: 'Koleon distributie',
+		content: '<div id="content">' +
+            '<div id="siteNotice">' +
+            '</div>' +
+            '<h3>Distributie</h3>' +
+            '<div id="bodyContent">' +
+            '<p>Onze verzendingen binnen Nederland en het Europese vasteland worden gedistributeerd vanaf Utrecht door UPS.</p>' +
+            '</div>' +
+            '</div>'
+	}, 	{
+		position: new google.maps.LatLng(39.859996, -75.252336, 17),
+		type: 'Ups',
+		title: 'Koleon distributie',
+		content: '<div id="content">' +
+            '<div id="siteNotice">' +
+            '</div>' +
+            '<h3>Distributie</h3>' +
+            '<div id="bodyContent">' +
+            '<p>Onze verzendingen naar Amerika worden verder gedistributeerd vanaf Philadelphia airport door UPS.</p>' +
             '</div>' +
             '</div>'
 	}];
