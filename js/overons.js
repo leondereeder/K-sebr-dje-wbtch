@@ -26,8 +26,11 @@ function initMap() {
         Ram: {
             name: 'Ram',
             icon: 'img/marker-ram.png'
-        }
-
+        },
+		Distribution: {
+			name: 'Plane',
+			icon: 'img/marker-plane.png'
+		}
     };
 
     // Define features, positions, type for the markers, titles and content for the infowindow event
@@ -38,47 +41,108 @@ function initMap() {
         content: '<div id="content">' +
             '<div id="siteNotice">' +
             '</div>' +
-            '<h1 id="firstHeading" class="firstHeading">CPU</h1>' +
+            '<h3>CPU</h3>' +
             '<div id="bodyContent">' +
-            '<p>Dit is een van onze belangrijkste leveranciers voor CPUs</p>' +
+            '<p>Dit is een van onze belangrijkste leveranciers voor de Intel i3 en i5 processoren.</p>' +
             '</div>' +
             '</div>'
     }, {
         position: new google.maps.LatLng(13.7244426, 100.3529064),
         type: 'Gpu',
         title: "GPU",
-        content: 'Info over de cpu'
+        content: '<div id="content">' +
+            '<div id="siteNotice">' +
+            '</div>' +
+            '<h3>GPU</h3>' +
+            '<div id="bodyContent">' +
+            '<p>Dit is een van onze belangrijkste leveranciers voor onze Nvidea videokaarten. Hier worden de 1080 en 1070 kaarten geproduceerd.</p>' +
+            '</div>' +
+            '</div>'
     }, {
         position: new google.maps.LatLng(24.6822124, 121.7564334, 14),
         type: 'Ram',
         title: "RAM",
-        content: 'Info over de cpu'
+        content: '<div id="content">' +
+            '<div id="siteNotice">' +
+            '</div>' +
+            '<h3>Werkgeheugen</h3>' +
+            '<div id="bodyContent">' +
+            '<p>In Taiwan wordt ons Jawkill DDR4 werkgeheugen geproduceerd.</p>' +
+            '</div>' +
+            '</div>'
     }, {
         position: new google.maps.LatLng(52.0873639, 5.1631756, 17),
         type: 'Koleon',
         title: "Koleon",
-        content: 'Info over de cpu'
+        content: '<div id="content">' +
+            '<div id="siteNotice">' +
+            '</div>' +
+            '<h3>CPU</h3>' +
+            '<div id="bodyContent">' +
+            '<p>Hier worden de laptopts geassembleerd en verzonden. Tevens is het hoofdkwartier van Koleon gevestigd.</p>' +
+            '</div>' +
+            '</div>'
     }, {
         position: new google.maps.LatLng(30.567816, 114.0201867, 10),
         type: 'Cpu',
         title: 'CPU',
-        content: 'Info over de cpu'
+        content: '<div id="content">' +
+            '<div id="siteNotice">' +
+            '</div>' +
+            '<h3>CPU</h3>' +
+            '<div id="bodyContent">' +
+            '<p>Dit is een van onze belangrijkste leveranciers voor de intel I7 processoren.</p>' +
+            '</div>' +
+            '</div>'
     }, {
         position: new google.maps.LatLng(30.117174, 120.1193385, 10),
         type: 'Gpu',
         title: 'GPU',
-        content: 'Info over de cpu'
+        content: '<div id="content">' +
+            '<div id="siteNotice">' +
+            '</div>' +
+            '<h3>GPU</h3>' +
+            '<div id="bodyContent">' +
+            '<p>Hier wordt de Nvidea 1080 en 900- serie geproduceerd. </p>' +
+            '</div>' +
+            '</div>'
     }, {
         position: new google.maps.LatLng(34.527839, 133.5255459, 12),
         type: 'Ram',
         title: 'RAM',
-        content: 'Info over de cpu'
+        content: '<div id="content">' +
+            '<div id="siteNotice">' +
+            '</div>' +
+            '<h3>RAM</h3>' +
+            '<div id="bodyContent">' +
+            '<p>Hier wordt het DDR3 RAM geproduceerd dat nog in enkele oudere laptops in onze voorraad aanwezig is.</p>' +
+            '</div>' +
+            '</div>'
     }, {
-        position: new google.maps.LatLng(37.7109818, 126.2959495, 8),
+        position: new google.maps.LatLng(38.740167, 125.416148, 8),
         type: 'Cpu',
         title: 'CPU',
-        content: 'Info over de cpu'
-    }];
+        content: '<div id="content">' +
+            '<div id="siteNotice">' +
+            '</div>' +
+            '<h3>CPU</h3>' +
+            '<div id="bodyContent">' +
+            '<p>Onze AMD processoren worden hier geproduceerd met behulp van Noord-Koreaanse kinderarbeid zodat we ze zo goedkoop mogelijk aan de consument aan kunnen bieden.</p>' +
+            '</div>' +
+            '</div>'
+    }, {
+		position: new google.maps.LatLng(52.308477, 4.761560, 17),
+		type: 'Koleon',
+		title: 'Koleon distributie',
+		content: '<div id="content">' +
+            '<div id="siteNotice">' +
+            '</div>' +
+            '<h3>Distributie</h3>' +
+            '<div id="bodyContent">' +
+            '<p>Onze internationale verzendingen buiten Nederland en het Europese vasteland worden gedistributeerd vanaf Schiphol.</p>' +
+            '</div>' +
+            '</div>'
+	}];
 
     // Create an array of all the markers for the Clustermarkerer
     var markers = new Array();
