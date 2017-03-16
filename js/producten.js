@@ -51,12 +51,12 @@ var itemsInCart = 0;
 function createCookie(id, price) {
     itemsInCart++;
     document.getElementById("shoppingCartNumber").innerHTML = itemsInCart;
-    var cookieName = generateCname();
+    var cookieName = generateProductName();
     document.cookie = cookieName + "=" + id + ";path=/";
 }
 
 // Generate a unique cookiename for the product based on the total number of products
-function generateCname() {
+function generateProductName() {
     var x = decodeURIComponent(document.cookie);
     var ca = x.split("_");
     var counter = ca.length;
