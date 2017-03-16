@@ -3,9 +3,9 @@
    <head>
       <title>Producten</title>
       <link rel="stylesheet" type="text/css" href="stylesheet.css">
-	  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Aldrich">
-	  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Abel">
-      <meta name="description" content="Koleon is DE plek voor uw laptop op maat">
+      <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Aldrich">
+      <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Abel">
+      <meta name="description" content="Koop hier de beste kant-en-klare laptop voor de laagste prijs!">
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="keywords" content="Laptop, Koleon, op maat, hardware, CPU, GPU, customised, customized, pc, computer, memes, Harambe">
       <meta name="author" content="Koleon" />
@@ -15,13 +15,13 @@
       <meta http-equiv="default-style" content="stylesheet.css">
       <meta name="robots" content="index, follow">
       <link rel="icon" href="img/icon.png" sizes="256x172" type="image/png">
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	  <script src="js/generic.js" defer></script>
-	  <script src="js/producten.js"></script>
-	  <script src="js/comments.js" defer></script>
-	  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-	  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-	  <script src="https://cdn.jsdelivr.net/jquery.ui-contextmenu/1.14.0/jquery.ui-contextmenu.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="js/generic.js" defer></script>
+      <script src="js/producten.js"></script>
+      <script src="js/comments.js" defer></script>
+      <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/jquery.ui-contextmenu/1.14.0/jquery.ui-contextmenu.min.js"></script>
    </head>
    <body>
       <div class="container">
@@ -34,7 +34,10 @@
                <li><a href="contact.html">Contact</a></li>
                <li><a href="overons.html">Over Koleon</a></li>
             </ul>
-			<a href="winkelmandje.html"><img src="img/shopping-cart-white.png" alt="shopping cart" id="wínkelmandje"><div id="shoppingCartNumber">0</div></a>
+            <a href="winkelmandje.html">
+               <img src="img/shopping-cart-white.png" alt="shopping cart" id="wínkelmandje">
+               <div id="shoppingCartNumber">0</div>
+            </a>
             <input class="search" type="text" name="search" placeholder="Zoeken..">
          </nav>
          <section class="content">
@@ -83,38 +86,38 @@
                      </tr>
                   </tbody>
                </table>
-			   <div id="myModal" class="modal">
-				   <div class="modal-content">
-					  <div class="modal-header">
-						<span class="close">&times;</span>
-						<h2 id="modalheadertext">Modal Header</h2>
-					  </div>
-					  <div class="modal-body">
-						<img id="modalimg" src="javascript:void(0)" alt="modalimg">
-						<p id="modaltext">Some text in the Modal Body</p>
-						<br style="clear:both;"/>
-					  </div>
-					  <div class="modal-footer">
-						<button id="modalbestel">Bestel nu!</button>
-						<br style="clear:both;"/>
-					  </div>
-					</div>
-				</div>
+               <div id="myModal" class="modal">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <h2 id="modalheadertext">Modal Header</h2>
+                     </div>
+                     <div class="modal-body">
+                        <img id="modalimg" src="javascript:void(0)" alt="modalimg">
+                        <p id="modaltext">Some text in the Modal Body</p>
+                        <br style="clear:both;"/>
+                     </div>
+                     <div class="modal-footer">
+                        <button id="modalbestel">Bestel nu!</button>
+                        <br style="clear:both;"/>
+                     </div>
+                  </div>
+               </div>
             </div>
-			<article class = "commentsArticle">
-			<div class="container_comments">
-				<h2>Comments </h2>
-				<form onsubmit = "event.preventDefault();">
-				<input type = "text" id = "nickname" placeholder = "Nickname">
-				<input type = "text" id = "commentBox" placeholder = "Comment">
-				<button id="sendComment"> Verstuur </button>
-				<!-- Test button to delete comments
-				<button id="deleteComment"> Clear comments </button> -->
-				</form>
-				<br>
-				<p id = "commentText">No comments yet</p>
-			</div>
-			</article>
+            <article class = "commentsArticle">
+               <div class="container_comments">
+                  <h2>Comments </h2>
+                  <form onsubmit = "event.preventDefault();">
+                     <input type = "text" id = "nickname" placeholder = "Nickname">
+                     <input type = "text" id = "commentBox" placeholder = "Comment">
+                     <button id="sendComment"> Verstuur </button>
+                     <!-- Test button to delete comments
+                        <button id="deleteComment"> Clear comments </button> -->
+                  </form>
+                  <br>
+                  <p id = "commentText">No comments yet</p>
+               </div>
+            </article>
          </section>
          <footer>
             <ul>
