@@ -1,8 +1,8 @@
 node_modules
-package.json
+/package.json
 koleon/node_modules
 koleon/package.json
-node_modules
+node_modules/
 package.json
-koleon/node_modules
+koleon/node_modules/
 koleon/package.json
