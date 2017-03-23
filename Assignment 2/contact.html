@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Contact</title>
+      <link rel="stylesheet" type="text/css" href="stylesheet.css">
+      <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Aldrich">
+      <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Abel">
+      <meta name="description" content="Heeft u vragen? Opmerkingen? Of iets anders? Neem dan contact met ons op.">
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="keywords" content="Laptop, Koleon, op maat, hardware, CPU, GPU, customised, customized, pc, computer, memes, Harambe">
+      <meta name="author" content="Koleon" />
+      <meta name="copyright" content="© 2017 Koleon" />
+      <meta name="content-language" content="nl" />
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <meta http-equiv="default-style" content="stylesheet.css">
+      <meta name="robots" content="index, follow">
+      <link rel="icon" href="img/icon.png" sizes="256x172" type="image/png">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="js/generic.js" defer></script>
+      <script src="js/comments.js" defer></script>
+      <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/jquery.ui-contextmenu/1.14.0/jquery.ui-contextmenu.min.js"></script>
+   </head>
+   <body>
+      <div class="container">
+         <nav>
+            <ul>
+               <li><img id="logo" alt="koleon logo" src="img/logo_koleon.png"></li>
+               <li><a href="index.html">Koleon</a></li>
+               <li><a href="producten.html">Producten</a></li>
+               <li><a href="diensten.html">Laptop Samenstellen</a></li>
+               <li><a href="contact.html">Contact</a></li>
+               <li><a href="overons.html">Over Koleon</a></li>
+            </ul>
+            <a href="winkelmandje.html">
+               <img src="img/shopping-cart-white.png" alt="shopping cart" id="wínkelmandje">
+               <div id="shoppingCartNumber">0</div>
+            </a>
+            <input class="search" type="text" name="search" placeholder="Zoeken..">
+         </nav>
+         <section class="content">
+            <h2 class="w3-warning">W3</h2>
+            <div class="innercontent">
+               <p>Heb je een vraag of een opmerking? Daar willen we je graag vanaf helpen! Vul hieronder het formulier in zodat wij je zo snel mogelijk te woord kunnen staan.</p>
+               <div class="container-form">
+                  <form>
+                     <label for="fname">Voornaam:</label>
+                     <input type="text" id="fname" name="firstname" placeholder="Je voornaam..">
+                     <label for="lname">Achternaam:</label>
+                     <input type="text" id="lname" name="lastname" placeholder="Je achternaam..">
+                     <label for="email">Email:</label>
+                     <input type="email" id="email" name="email" placeholder="Je email..">
+                     <label for="land">Land</label>
+                     <select id="land" name="land">
+                        <option value="nl">Nederland</option>
+                        <option value="be">België</option>
+                        <option value="fr">France</option>
+                        <option value="de">Deutschland</option>
+                        <option value="usa">USA</option>
+                     </select>
+                     <label for="subject">Je vraag of opmerking:</label>
+                     <textarea id="subject" name="subject" placeholder="Plaats hier je vraag of opmerking.." style="height:200px"></textarea>
+                     <input type="submit" value="Verstuur">
+                  </form>
+               </div>
+            </div>
+            <article class = "commentsArticle">
+               <div class="container_comments">
+                  <h2>Comments </h2>
+                  <form onsubmit = "event.preventDefault();">
+                     <input type = "text" id = "nickname" placeholder = "Nickname">
+                     <input type = "text" id = "commentBox" placeholder = "Comment">
+                     <button id="sendComment"> Verstuur </button>
+                     <!-- Test button to delete comments
+                        <button id="deleteComment"> Clear comments </button> -->
+                  </form>
+                  <br>
+                  <p id = "commentText">No comments yet</p>
+               </div>
+            </article>
+         </section>
+         <footer>
+            <ul>
+               <li><a href="">Algemene voorwaarden</a></li>
+               <li><a href="">Cookies</a></li>
+               <li><a href="">Privacy</a></li>
+               <li><a href="">Carrière</a></li>
+               <li><a href="">Over Koleon</a></li>
+            </ul>
+            <br>
+            <a href="https://www.w3schools.com/" target="_blank" style="margin-right:-100px;">Deze site is mogelijk gemaakt door w3schools</a>	
+         </footer>
+      </div>
+   </body>
+</html>

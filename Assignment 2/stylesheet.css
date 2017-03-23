@@ -1,0 +1,528 @@
+/* Generic styling */
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    font-family: Arial, Verdana;
+}
+.container {
+    position: relative;
+    min-height: 100%;
+}
+.content {
+    padding-bottom: 110px;
+}
+.innercontent {
+    margin: 50px;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+    font-family: "trebuchet ms";
+}
+a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+a:hover {
+    color: red;
+}
+p {
+    font-family: arial;
+    font-size: 16px;
+}
+
+h3 {
+	font-family: Abel;
+	font-size: 20px;
+}
+
+nav {
+    text-align: center;
+    background-color: royalblue;
+    padding: 10px 0px 10px 0px;
+}
+#logo {
+    width: 50px;
+    height: auto;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    height: 70px;
+    background-color: royalblue;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+footer a:hover {
+    color: lightblue;
+}
+footer ul li a {
+    color: white;
+    font-family: arial;
+    font-size: 11px;
+    padding: 0px 20px 0px 20px;
+}
+ul {
+    display: inline-block;
+}
+li {
+    float: left;
+    list-style-type: none;
+}
+nav li a,
+nav li a:visited {
+    color: white;
+}
+li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px 10px 20px;
+    font: bold 15px Verdana;
+    font-family: "trebuchet ms";
+}
+nav ul {
+    margin: 0px;
+}
+nav ul li a:hover {
+    color: lightblue;
+}
+.search {
+    float: right;
+    margin-right: 5px;
+    width: 330px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 5px 5px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    margin-left: -100px;
+    background-image: url('img/search.png');
+    background-size: 30px 30px;
+}
+.container_comments {
+    margin: auto;
+    width: 66%;
+    padding: 10px;
+    padding-bottom: 30px;
+    font-family: Abel;
+    font-size: 20px;
+    overflow: hidden;
+    background-color: white;
+}
+.container_comments p {
+    font-family: Abel;
+}
+.container_comments input {
+    height: 50px;
+    width: 300px;
+}
+#nickname {
+    width: 100px;
+}
+#sendComment {
+    font-family: Aldrich;
+}
+.w3-warning {
+    display: none;
+}
+tr td img {
+    max-width: 250px;
+    font-family: Abel, Verdana;
+}
+button {
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: royalblue;
+}
+#wínkelmandje {
+    margin-right: -10px;
+    width: 50px;
+}
+#shoppingCartNumber,
+#shoppingCartNumber:hover {
+    background-color: yellow;
+    width: 16px;
+    border-radius: 100%;
+    display: inline;
+    color: black;
+    padding: 2px;
+    position: absolute;
+}
+.ui-menu {
+    z-index: 3;
+}
+.ui-menu-item {
+    float: none;
+    font-size: 15px;
+    padding: 2px;
+}
+.ui-state-active {
+    background: royalblue !important;
+    color: white !important;
+}
+/* End of generic styling */
+/* Producten page */
+
+.producten {
+    margin: auto;
+    border-collapse: collapse;
+    width: 10px;
+    font-family: Abel, Verdana;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.producten tr:nth-child(odd) {
+    background-color: #eee;
+}
+td button {
+    padding: 20px 80px;
+    background-color: lightblue;
+    color: white;
+    font-family: Abel;
+}
+td button:hover {
+    color: yellow;
+}
+td,
+.prijs {
+    padding: 20px;
+    border: 0px;
+    min-width: 300px;
+    width: auto;
+    height: auto;
+}
+/* End of producten page */
+/* Laptop samenstellen page */
+
+#howitsmade {
+    width: 600px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50px;
+    padding: 20px;
+}
+/* End of laptop samenstellen page */
+/* Index page */
+
+.promoBlock {
+    width: 100%;
+    height: 800px;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+.promoBlock p {
+    font-size: 50px;
+    width: 40%;
+    display: inline-block;
+    padding-left: 40px;
+    margin: 20% auto;
+    font-family: Aldrich, serif;
+    font-size: 50px;
+    text-align: justify;
+    float: right;
+    padding: 0px;
+    margin-right: 20px;
+}
+.promoBlock h2 {
+    font-size: 50px;
+    margin: 0;
+}
+.promoBlock:nth-child(even) p {
+    float: left;
+    padding-left: 40px;
+}
+.container_promoBlock {
+    position: relative;
+}
+.container_promoBlock::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    opacity: 0.4;
+}
+.promoPicture {
+    width: 50%;
+    height: auto;
+    margin-top: 100px;
+    opacity: 1;
+    z-index: 2;
+    float: left;
+}
+#promotext-wrapper {
+    width: 300px;
+    float: right;
+    margin-right: 100px;
+    margin-top: 150px;
+}
+#promotext {
+    font-size: 20px;
+    width: 300px;
+    margin: 20px 0px;
+    padding: 0px;
+}
+#msiText {
+    color: #bd0000;
+}
+#nvidiaText {
+    color: #2eff2e;
+}
+#alienwareText {
+    color: rgb(46, 0, 95);
+}
+.predatorx {
+    height: 600px;
+}
+.container_msi::before {
+    background: url('img/lol.jpg') no-repeat fixed 0% 0%;
+}
+.nvidiaBlock {
+    background-color: black;
+}
+.nvidiaBlock img {
+    float: right;
+}
+.container_alienware::before {
+    background: url('img/alienware.png') no-repeat fixed 50% 50%;
+}
+#alienwareImage {
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}
+/* End of index page */
+/* Contact page */
+
+#fname,
+#lname,
+#email,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+}
+input[type=submit] {
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: royalblue;
+}
+input[type=submit]:hover {
+    background-color: rgba(65, 105, 225, 0.9);
+}
+input[type=text]:hover,
+input[type="email"]:hover {
+    background-color: white;
+}
+input:hover {
+    background-color: rgba(65, 105, 225, 0.9);
+}
+.container-form {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-bottom: 80px;
+}
+/* End of contact page */
+/* Over ons page */
+
+.overons {
+    font-family: Abel;
+    text-align: center;
+}
+.overons img {
+    max-width: 400px;
+    max-height: 400px;
+}
+#map {
+    height: 600px;
+    width: 80%;
+    margin: 0 auto;
+}
+#legend {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    padding: 10px;
+    margin: 10px;
+    border: 3px solid #000;
+}
+.gm-style img{
+	max-width:none;
+	max-height:none;
+}
+#legend h3 {
+    margin-top: 0;
+}
+#legend img {
+    vertical-align: middle;
+}
+/* End of over ons page */
+/* The Modal (background) */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    
+    position: fixed;
+    /* Stay in place */
+    
+    z-index: 1;
+    /* Sit on top */
+    
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    
+    height: 100%;
+    /* Full height */
+    
+    overflow: auto;
+    /* Enable scroll if needed */
+    
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    
+    overflow: hidden;
+}
+/* The Close Button */
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* Modal Header */
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: royalblue;
+    color: white;
+}
+/* Modal Body */
+
+.modal-body {
+    padding: 2px 16px;
+}
+#modaltext {
+    font-size: 25px;
+    display: block;
+}
+#modalimg {
+    width: 50%;
+    float: left;
+}
+/* Modal Footer */
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: royalblue;
+    color: white;
+}
+/* Modal Content */
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    border: 1px solid royalblue;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+#modalbestel {
+    float: right;
+    margin: 10px;
+    background-color: white;
+    color: royalblue;
+}
+/* Add Animation */
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+/* End of modal */
+/* Winkelwagen page */
+
+#productentabel {
+    display: none;
+    margin: auto;
+    border-collapse: collapse;
+    width: 10px;
+    font-family: Abel, Verdana;
+    text-align: center;
+    margin-bottom: 50px;
+}
+#productentabel tr:nth-child(odd) {
+    background-color: #eee;
+}
+#afrekenen {
+    display: none;
+    float: right;
+    margin: 0px 10% 50px 0px;
+}
+/* End of winkelwagen page */
+
+@media screen and (max-width: 1200px) {
+    .search {
+        float: none;
+        margin: 10px 0px 0px 10px;
+        width: 90%
+    }
+}
