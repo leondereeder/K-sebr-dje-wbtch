@@ -1,0 +1,25 @@
+{
+  "name": "koleon",
+  "version": "1.0.0",
+  "description": "koleon webshop",
+  "main": "main.js",
+  "dependencies": {
+    "express": "^4.15.2",
+    "pm2": "^2.4.2",
+    "sqlite3": "^3.1.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leondereeder/K-sebr-dje-wbtch.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leondereeder/K-sebr-dje-wbtch/issues"
+  },
+  "homepage": "https://github.com/leondereeder/K-sebr-dje-wbtch#readme"
+}
