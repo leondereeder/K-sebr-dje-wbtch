@@ -1,0 +1,107 @@
+doctype html
+html
+  head
+    title Welkom bij Koleon
+    link(rel='stylesheet', type='text/css', href='stylesheets/stylesheet.css')
+    link(rel='stylesheet', type='text/css', href='https://fonts.googleapis.com/css?family=Aldrich')
+    link(rel='stylesheet', type='text/css', href='https://fonts.googleapis.com/css?family=Abel')
+    meta(name='description', content='Koleon is DE plek voor uw laptop op maat')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='keywords', content='Laptop, Koleon, op maat, hardware, CPU, GPU, customised, customized, pc, computer, memes, Harambe')
+    meta(name='author', content='Koleon')
+    meta(name='copyright', content='© 2017 Koleon')
+    meta(name='content-language', content='nl')
+    meta(http-equiv='content-type', content='text/html; charset=UTF-8')
+    meta(http-equiv='default-style', content='stylesheets/stylesheet.css')
+    meta(name='robots', content='index, follow')
+    link(rel='icon', href='images/icon.png', sizes='256x172', type='images/png')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    link(rel='stylesheet', href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js')
+    script(src='javascripts/generic.js', defer='')
+    script(src='https://cdn.jsdelivr.net/jquery.ui-contextmenu/1.14.0/jquery.ui-contextmenu.min.js')
+    script(src='javascripts/comments.js', defer='')
+  body
+    .container
+      nav
+        ul
+          li
+            img#logo(alt='koleon logo', src='images/logo_koleon.png')
+          li
+            a(href='index.html') Koleon
+          li
+            a(href='producten.html') Producten
+          li
+            a(href='diensten.html') Laptop Samenstellen
+          li
+            a(href='contact.html') Contact
+          li
+            a(href='overons.html') Over Koleon
+        a(href='winkelmandje.html')
+          img(src='images/shopping-cart-white.png', alt='shopping cart', id='wínkelmandje')
+          #shoppingCartNumber 0
+        input.search(type='text', name='search', placeholder='Zoeken..')
+      section.content
+        h6.w3-warning W3
+        article.promoBlock.predatorx
+          h6.w3-warning W3
+          img.promoPicture(src='images/gaminglaptop.jpg', alt='predatorx')
+          section#promotext-wrapper
+            h2#promoheader
+              i The future is here
+            p#promotext
+              | Krachtiger dan ooit tevoren. De Predator X is de nieuwste laptop van Koleon.
+              | Met een Intel i7 processor en Nvidea gtx 1070 videokaart kun je elke nieuwe game op de hoogste instellingen 
+              | spelen
+              br
+              br
+              a(href='producten.html') Koop nu >
+        .container_promoBlock.container_msi
+          article.promoBlock
+            h6.w3-warning W3
+            p#msiText
+              | De nieuwste gaming gear van MSI voor de laagste prijs
+              br
+              br
+              a(href='producten.html') Bekijk alles van MSI >
+            img.promoPicture(alt='msi laptop', src='images/msi.png')
+        article.promoBlock.nvidiaBlock
+          h6.w3-warning W3
+          p#nvidiaText
+            | Versla je vijanden met de nieuwe GTX 1080
+            br
+            br
+            a(href='producten.html') Bekijk de laptops >
+          img.promoPicture(alt='nvidia 1080', src='images/nvidia.jpg')
+        .container_promoBlock.container_alienware
+          article.promoBlock
+            h6.w3-warning W3
+            p#alienwareText
+              | Alienware 17 met GTX 1080 - Onze krachtigste laptop ooit
+              br
+              br
+              a(href='producten.html') Koop nu >
+            img#alienwareImage.promoPicture(alt='alienware laptop', src='images/alienware-laptop.png')
+        article.commentsArticle
+          .container_comments
+            h2 Comments 
+            form(onsubmit='event.preventDefault();')
+              input#nickname(type='text', placeholder='Nickname')
+              input#commentBox(type='text', placeholder='Comment')
+              button#sendComment  Verstuur 
+            br
+            p#commentText No comments yet
+      footer
+        ul
+          li
+            a(href='') Algemene voorwaarden
+          li
+            a(href='') Cookies
+          li
+            a(href='') Privacy
+          li
+            a(href='') Carrière
+          li
+            a(href='') Over Koleon
+        br
+        a(href='https://www.w3schools.com/', target='_blank', style='margin-right:-100px;') Deze site is mogelijk gemaakt door w3schools
