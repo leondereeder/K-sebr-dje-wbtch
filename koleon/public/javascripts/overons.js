@@ -13,27 +13,27 @@ function initMap() {
     var icons = {
         Koleon: {
             name: 'Koleon',
-            icon: 'images//marker-koleon.png'
+            icon: 'images/marker-koleon.png'
         },
         Cpu: {
             name: 'Cpu',
-            icon: 'images//marker-cpu.png'
+            icon: 'images/marker-cpu.png'
         },
         Gpu: {
             name: 'Gpu',
-            icon: 'images//marker-gpu.png'
+            icon: 'images/marker-gpu.png'
         },
         Ram: {
             name: 'Ram',
-            icon: 'images//marker-ram.png'
+            icon: 'images/marker-ram.png'
         },
 		Distribution1: {
 			name: 'Plane',
-			icon: 'images//marker-plane.png'
+			icon: 'images/marker-plane.png'
 		},
 		Ups: {
 			name: 'Ups',
-			icon: 'images//marker-ups.png'
+			icon: 'images/marker-ups.png'
 		}
     };
 
@@ -201,7 +201,7 @@ function initMap() {
 
     // Markerclusterer based on array of all markers
     var markerCluster = new MarkerClusterer(map, markers, {
-        imagePath: 'images//markers/m'
+        imagePath: 'images/markers/m'
     });
 
     // Add legend to the map
@@ -211,7 +211,7 @@ function initMap() {
         var name = type.name;
         var icon = type.icon;
         var div = document.createElement('div');
-        div.innerHTML = '<images/ src="' + icon + '"> ' + name;
+        div.innerHTML = '<img src="' + icon + '"> ' + name;
         legend.appendChild(div);
     }
 
