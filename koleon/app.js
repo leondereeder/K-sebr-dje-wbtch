@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var app = express();
 
 var index = require('./routes/index');
 var winkelmandje = require('./routes/winkelmandje');
@@ -12,19 +13,32 @@ var diensten = require('./routes/diensten');
 var overons = require('./routes/overons');
 var producten = require('./routes/producten');
 
-var app = express();
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+function isUserAllowed(req, res) {
+	// False is forbidden
+	return true;
+}
+
+app.use('/protected/*', function(req, res, next){
+	var allowed = isUserAllowed(req, res);
+	if (allowed) {
+		next();
+	}
+	else {
+		res.status(403).send('Error 403. Access forbidden');
+		res.end();
+	}
+});
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/index.html', index);
