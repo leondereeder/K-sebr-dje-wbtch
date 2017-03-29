@@ -14,12 +14,12 @@ var overons = require('./routes/overons');
 var producten = require('./routes/producten');
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views'));	
 app.set('view engine', 'jade');
 
 function isUserAllowed(req, res) {
 	// False is forbidden
-	return true;
+	return false;
 }
 
 app.use('/protected/*', function(req, res, next){

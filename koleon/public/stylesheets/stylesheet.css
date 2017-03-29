@@ -148,6 +148,9 @@ button {
     cursor: pointer;
     background-color: royalblue;
 }
+button:hover {
+	opacity:0.8;
+}
 #wínkelmandje {
     margin-right: -10px;
     width: 50px;
@@ -338,8 +341,17 @@ input[type=submit]:hover {
     background-color: rgba(65, 105, 225, 0.9);
 }
 input[type=text]:hover,
-input[type="email"]:hover {
+input[type="email"]:hover,
+input[type="password"]:hover {
     background-color: white;
+}
+input[type="password"] {
+	width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 input:hover {
     background-color: rgba(65, 105, 225, 0.9);
@@ -385,7 +397,18 @@ input:hover {
 }
 /* End of over ons page */
 /* The Modal (background) */
-
+.startLogin, .startlogin:focus {
+	float:left;
+	font-weight:bold;
+	-webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+	margin-bottom:0px;
+	outline:0;
+	text-decoration:underline;
+}
 .modal {
     display: none;
     /* Hidden by default */
@@ -393,7 +416,7 @@ input:hover {
     position: fixed;
     /* Stay in place */
     
-    z-index: 1;
+    z-index: 3;
     /* Sit on top */
     
     left: 0;
@@ -429,6 +452,13 @@ input:hover {
     text-decoration: none;
     cursor: pointer;
 }
+/* The Cancel Button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
 /* Modal Header */
 
 .modal-header {
@@ -440,6 +470,14 @@ input:hover {
 
 .modal-body {
     padding: 2px 16px;
+}
+#username {
+	width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 #modaltext {
     font-size: 25px;
@@ -462,18 +500,28 @@ input:hover {
     background-color: #fefefe;
     margin: 5% auto;
     border: 1px solid royalblue;
-    width: 80%;
+    width: 40%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
     animation-duration: 0.4s
 }
+.modal-container {
+	padding:16px;
+}
+.loginbutton {
+	width:100%;
+}
 #modalbestel {
     float: right;
     margin: 10px;
     background-color: white;
     color: royalblue;
+}
+span.psw {
+    float: right;
+    padding-top: 16px;
 }
 /* Add Animation */
 
