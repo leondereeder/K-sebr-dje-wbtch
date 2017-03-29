@@ -1,0 +1,62 @@
+INSERT INTO USERS
+VALUES 	
+	(1,'Koen','ww','RS','Koen','Niemeijer','Deurne','6734AD'),
+	(2,'Leon','ww','RS','Leon','Reeder','Utrecht','3571AH'),
+	(3,'Pietje','ww','RS','Piet','Zwarte','Amsterdam','3857KO'),
+	(4,'Marietje','ww','RS','Marie','Tje','Den Haag','9372KP'),
+	(5,'Grietje','ww','RS','Grie','Tje','Den Haag','9372KP'),
+	(6,'Karel','ww','RB','Karel','de Vijfde','Parijs','3857FR'),
+	(7,'Willem','ww','RB','Willem','Van Oranje','Rotterdam','3857RD'),
+	(8,'Cunthunter','ww','RB','Cunt','Hunter','Roosendaal','9757RS'),
+	(9,'Hans','ww','RB','Hans','Worst','Groningen','5242GD'),
+	(10,'Kim','ww','RB','Kim','Holland','Den Briel','7733DB'),
+	(11,'Koleon','ww','RS','Koleon','BV','Utrecht','3571AH');
+
+INSERT INTO PRODUCTS 
+VALUES
+	(1,'Alienware 17',' ',10,1,1,1,5,7),	
+	(2,'MSI 5','  ',10,2,5,1,5,7),
+	(3,'Predator X','  ',5,2,6,1,6,8),
+	
+	(4,'HP PowerHouse 36','  ',3,1,2,3,'','')
+;
+	
+	
+
+INSERT INTO PURCHASES
+VALUES 	
+	(1,6,1),
+	(2,6,2),
+	(3,7,1),
+	(4,8,3)
+;
+
+INSERT INTO CATEGORIES
+VALUES 	
+	(1,'Gaming Laptops'),
+	(2,'Gaming Desktops'),
+	(3,'Workstation'),
+	(4,'Randapperatuur')
+;
+
+INSERT INTO SUBCATEGORIES
+VALUES 	
+	(1,'Gaming Muizen'),
+	(2,'Koptelefoons'),
+	(3,'Toetsenborden'),
+	(4,'13-inch'),
+	(5,'15-inch'),
+	(6,'17-inch'),
+	(7,'Nvidea'),
+	(8,'AMD')
+;
+
+INSERT INTO MANUFACTURERS
+VALUES 	
+	(1,'Dell'),
+	(2,'HP'),
+	(3,'Asus'),
+	(4,'Acer'),
+	(5,'MSI'),
+	(6,'Koleon')
+;
