@@ -14,21 +14,23 @@ VALUES
 
 INSERT INTO PRODUCTS 
 VALUES
-	(1,'Alienware 17',' ',10,1,1,1,5,7),	
-	(2,'MSI 5','  ',10,2,5,1,5,7),
-	(3,'Predator X','  ',5,2,6,1,6,8),
-	
-	(4,'HP PowerHouse 36','  ',3,1,2,3,'','')
+	('Alien17','Alienware 17','Enorm beeldscherm. Overweldigende grafische prestaties. De Alienware 17 is de perfecte gaminglaptop voor kracht en prestaties. Voeg de optionele Graphics Amplifier toe om de ervaring nog beter te maken.',10,1,1,1,5,7,900,'Alienware17.png'),	
+	('MSI5','MSI 5','De GL72 notebook van MSI is een krachtige notebook, ideaal voor zowel multimedia als gaming. Dankzij de laatste Intel Core i7 processor, 8 GB geheugen en een harde schijf van 1 TB is deze snelle notebook een echte alleskunner. Deze notebook is ook voorzien van de nieuwste NVIDIA GTX960M videokaart en voorzien van Windows 10. Kortom deze notebook heeft alles in huis voor de complete game-ervaring!',10,2,5,1,5,7,800,'msi5.png'),
+	('PredX','Predator X','De Predator X brengt je game-ervaring tot ongekende hoogtes dankzij de nieuwste Intel-i7 processor en gtx 1080 videokaart. Samen met een full HD scherm en 16 gigabyte RAM geheugen kan niks je stoppen. ',5,2,6,1,6,8,1200,'PredatorX.png'),
+	('PowerH36','HP PowerHouse 36','De HP PowerHouse36 biedt een unieke 13 inch 2-in-1 laptop die je gemakkelijk onderweg gebruikt, de batterij gaat wel tot 12.5 uur mee. Dankzij de 256 GB SSD-schijf, is de HP PowerHouse36 ook razendsnel. Je geniet optimaal van multimedia, deelt bestanden en werkt productief met allerlei programmas.',3,1,2,1,5,7,1400,'PowerH36.png'),
+	('80UD0164MH','Lenovo IdeaPad 110-15ISK 80UD0164MH','Een laptop voor het dagelijks gebruik die snel functioneert, dankzij de ingebouwde 256 GB SSD-schijf. De Lenovo IdeaPad 110-15ISK bewijst dat. De laptop heeft een vlotte Intel Core i3 processor, die snel genoeg is voor het dagelijks gebruik. De ingebouwde SSD zorgt ervoor dat Windows 10 snel opstart en programmas vlot werken. Een SSD is niet alleen veel sneller dan een harde schijf, het werkt ook volledig stil en bovendien betrouwbaar.',10,11,7,1,5,8,499,'80UD0164MH.jpg')
 ;
 	
 	
 
-INSERT INTO PURCHASES
+INSERT INTO ORDERS
 VALUES 	
-	(1,6,1),
-	(2,6,2),
-	(3,7,1),
-	(4,8,3)
+	(1,6,1,'2017-2-11'),
+	(2,6,2,'2017-2-19'),
+	(3,7,1,'2017-2-23'),
+	(4,8,3,'2017-2-25'),
+	(5,9,4,'2017-3-01'),
+	(6,10,5,'2017-3-05')
 ;
 
 INSERT INTO CATEGORIES
@@ -58,5 +60,6 @@ VALUES
 	(3,'Asus'),
 	(4,'Acer'),
 	(5,'MSI'),
-	(6,'Koleon')
+	(6,'Koleon'),
+	(7,'Lenovo')
 ;

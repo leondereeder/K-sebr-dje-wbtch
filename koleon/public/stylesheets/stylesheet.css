@@ -188,9 +188,7 @@ button:hover {
     text-align: center;
     margin-bottom: 50px;
 }
-.producten tr:nth-child(odd) {
-    background-color: #eee;
-}
+
 td button {
     padding: 20px 80px;
     background-color: lightblue;
@@ -207,6 +205,13 @@ td,
     min-width: 300px;
     width: auto;
     height: auto;
+}
+.producten td {
+	border:1px solid grey;
+	cursor:pointer;
+}
+.producten td:hover {
+	border: 1px solid black;
 }
 /* End of producten page */
 /* Laptop samenstellen page */
@@ -500,12 +505,15 @@ input:hover {
     background-color: #fefefe;
     margin: 5% auto;
     border: 1px solid royalblue;
-    width: 40%;
+    width: 80%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
     animation-duration: 0.4s
+}
+#id01 .modal-content {
+	width:40%;
 }
 .modal-container {
 	padding:16px;
