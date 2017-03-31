@@ -16,7 +16,6 @@ function loadDB() {
 		var db = new sqlite3.Database('public/protected/db.sqlite3');
 		// DB logic
 		db.each("SELECT ProductID AS productID, ProductName AS productName, Description AS description, Stock AS stock, Price AS price, Image as image FROM PRODUCTS", function(err, row) {
-			//console.log(row.ProductID + " | " + row.ProductName + " | " + row.Description + " | " + row.Stock);
 			data.push(row);
 			console.log(data[x]);
 		});
