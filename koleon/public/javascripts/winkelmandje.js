@@ -52,7 +52,7 @@ $(document).ready(function getCookie() {
 // Get the proper piece of HTML for the cookie and add it to the page
 function displayInCart() {
 	var http = new XMLHttpRequest();
-	var url = "/winkelmandje.html";
+	var url = "winkelmandje.html";
 	var params = data;
 	http.open("POST", url, true);
 
