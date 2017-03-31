@@ -53,7 +53,6 @@ function generateProductName() {
 
 $(document).ready(function(){
 	var count = $(".producten").find($("td")).length;
-	alert(count);
 	for(i=0;i<count;i+=3) {
 		$("tbody").find("tr:last-child").after("<tr id='productsContainer"+i+"'></tr>");
 		$("#product"+i+", #product"+(i+1)+", #product"+(i+2)).appendTo("#productsContainer"+i);
