@@ -1,0 +1,9 @@
+SELECT ProductName, CategoryName, SCG.SubCategoryName, SCG2.SubCateGoryName, ManufacturerName 
+FROM 
+PRODUCTS AS P INNER JOIN CATEGORIES AS CG ON P.CategoryID=CG.CategoryID
+
+INNER JOIN SUBCATEGORIES AS SCG ON P.SubCategoryID=SCG.SubCategoryID
+INNER JOIN SUBCATEGORIES AS SCG2 ON P.SubCategory2ID=SCG2.SubCategoryID
+
+INNER JOIN MANUFACTURERS AS M ON P.ManufacturerID=M.ManufacturerID
+;

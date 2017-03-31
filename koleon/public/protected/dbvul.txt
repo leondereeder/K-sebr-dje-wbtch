@@ -1,0 +1,78 @@
+INSERT INTO USERS
+VALUES 	
+	(1,'Koen','ww','RS','Koen','Niemeijer','Deurne','6734AD'),
+	(2,'Leon','ww','RS','Leon','Reeder','Utrecht','3571AH'),
+	(3,'Pietje','ww','RS','Piet','Zwarte','Amsterdam','3857KO'),
+	(4,'Marietje','ww','RS','Marie','Tje','Den Haag','9372KP'),
+	(5,'Grietje','ww','RS','Grie','Tje','Den Haag','9372KP'),
+	(6,'Karel','ww','RB','Karel','de Vijfde','Parijs','3857FR'),
+	(7,'Willem','ww','RB','Willem','Van Oranje','Rotterdam','3857RD'),
+	(8,'Cunthunter','ww','RB','Cunt','Hunter','Roosendaal','9757RS'),
+	(9,'Hans','ww','RB','Hans','Worst','Groningen','5242GD'),
+	(10,'Kim','ww','RB','Kim','Holland','Den Briel','7733DB'),
+	(11,'Koleon','ww','RS','Koleon','BV','Utrecht','3571AH');
+
+INSERT INTO PRODUCTS 
+VALUES
+	/*Gaming laptops*/
+	('Alien17','Alienware 17','Enorm beeldscherm. Overweldigende grafische prestaties. De Alienware 17 is de perfecte gaminglaptop voor kracht en prestaties. Voeg de optionele Graphics Amplifier toe om de ervaring nog beter te maken.',10,1,1,1,5,7,900,'Alienware17.png'),	
+	('MSI5','MSI 5','De GL72 notebook van MSI is een krachtige notebook, ideaal voor zowel multimedia als gaming. Dankzij de laatste Intel Core i7 processor, 8 GB geheugen en een harde schijf van 1 TB is deze snelle notebook een echte alleskunner. Deze notebook is ook voorzien van de nieuwste NVIDIA GTX960M videokaart en voorzien van Windows 10. Kortom deze notebook heeft alles in huis voor de complete game-ervaring!',10,2,5,1,5,7,800,'msi5.png'),
+	('PredX','Predator X','De Predator X brengt je game-ervaring tot ongekende hoogtes dankzij de nieuwste Intel-i7 processor en gtx 1080 videokaart. Samen met een full HD scherm en 16 gigabyte RAM geheugen kan niks je stoppen. ',5,2,6,1,6,8,1200,'PredatorX.png'),
+	('PowerH36','HP PowerHouse 36','De HP PowerHouse36 biedt een unieke 13 inch 2-in-1 laptop die je gemakkelijk onderweg gebruikt, de batterij gaat wel tot 12.5 uur mee. Dankzij de 256 GB SSD-schijf, is de HP PowerHouse36 ook razendsnel. Je geniet optimaal van multimedia, deelt bestanden en werkt productief met allerlei programmas.',3,1,2,1,5,7,1400,'PowerH36.png'),
+	('80UD0164MH','Lenovo IdeaPad 110-15ISK 80UD0164MH','Een laptop voor het dagelijks gebruik die snel functioneert, dankzij de ingebouwde 256 GB SSD-schijf. De Lenovo IdeaPad 110-15ISK bewijst dat. De laptop heeft een vlotte Intel Core i3 processor, die snel genoeg is voor het dagelijks gebruik. De ingebouwde SSD zorgt ervoor dat Windows 10 snel opstart en programmas vlot werken. Een SSD is niet alleen veel sneller dan een harde schijf, het werkt ook volledig stil en bovendien betrouwbaar.',10,11,7,1,5,8,499,'80UD0164MH.jpg'),
+	('AsusROG','Asus ROG GL553W','De Asus Republic Of Gamers GL553VW laptop is hét wapen van iedere gamer. Voorzien van een Intel Core i7-6700HQ en een NVIDIA GeForce GTX 960M (4 GB GDDR5), is deze gaming-laptop krachtig genoeg om de meeste games op hoge instellingen te spelen. Het kenmerkende ROG-design met badge op de achterzijde maakt dit een ware gaming-laptop.',8,11,3,1,5,7,1099,'AsusROG.jpg'),
+	('AcerAspireVX','Acer Aspire VX5-591G-54PD','De Acer Aspire VX5-591G-54PD biedt je de game-ervaring waar je naar op zoek bent! Deze gaming laptop beschikt over een NVIDIA® GeForce® 1050 videokaart met 4 GB GDDR5 videokaartgeheugen. Met een krachtige Intel Core i5-7300HQ processor met 8 GB intern geheugen, een 1 TB harde schijf en een 128 GB SSD is de Acer Aspire VX5-591G-54PD voorbereid voor iedere game die jij wilt spelen!',5,1,4,1,5,8,999,'AcerAspireVX.jpg'),
+	('MSIGL72','MSI GL72','De GL72 notebook van MSI is een krachtige notebook, ideaal voor zowel multimedia als gaming. Dankzij de laatste Intel Core i7 processor, 8 GB geheugen en een harde schijf van 1 TB is deze snelle notebook een echte alleskunner. Deze notebook is ook voorzien van de nieuwste NVIDIA GTX960M videokaart en voorzien van Windows 10. Kortom deze notebook heeft alles in huis voor de complete game-ervaring!',3,2,5,1,5,8,999,'MSIGL72.jpg'),
+	('MSIGS30','MSI GS30','Er zijn geen compromissen nodig wanneer het komt op de MSI GS30 2m-019BE. Deze awardwinning laptop serie is simpelweg één van de beste gaming laptops van 2015. Gedaan met die dikkere gaming laptops; stijl, design & gaming specs gaan wel degelijk samen! Deze gaming laptop ondersteund top-level graphics: GTX 980 en Titan. Om je gaming ervaring extra aangenaam te maken, bevat deze laptop over een mat beeldscherm. Geen lastige reflecties meer dus! Vind alles wat je ooit wou in je gaming laptop in de MSI GS30 serie.',3,4,5,1,4,7,1900,'MSIGS30.jpg'),
+	
+	/*gaming desktops*/
+	('AcerPredatorG3-710','Acer Predatir G3-710','Neem jij Gaming serieus? Dan is de Acer Predator G3-710 I10602 NL de gaming desktops voor jou! Deze machine is klaar voor de strijd en is de ideale partner bij het gamen. De Acer Predator G3-710 I10602 NL beschikt over een Intel Core i5-6400 met 8 GB intern geheugen, 1 TB harde schijf, 256 GB SSD en een NVIDIA GeForce GTX 1060 videokaart met 3 GB videokaartgeheugen. Dit allemaal maakt het een innerlijk beest.',5,11,4,2,7,9,899,'AcerPredatorG3710.jpg'),
+	('Omen870','HP OMEN 870','Klaar om jezelf te ontwikkelen tot een echte gamelegende? Deze OMEN desktop, met zijn schitterende design en de allernieuwste hardware, is een echte krachtpatser die de zwaarste AAA-games moeiteloos aankan en er ook nog eens geweldig uitziet. De perfecte combinatie van kracht en snelheid voor een sublieme entertainment-, game- en multitasking ervaring.',2,4,2,2,7,9,1199,'Omen870.jpg'),
+	('AsusROGGR8','Asus ROG GR8 II','Uit de serie van vernieuwde Asus ROG desktops komt o.a. de GR8 II. Deze mini-PC met een inhoud van slechts 4 liter zorgt voor uitstekende gaming-prestaties. De GR8 II is voorzien van een krachtige Intel® Core™ i7-7700 Processor van de zevende generatie Intel Kaby Lake. Daarnaast beschikt de GR8 II over een NVIDIA GeForce GTX 1060, 16 GB werkgeheugen en een 256 GB SSD.',5,5,3,2,10,7,1400,'AsusROGGR8.jpg'),
+	('LenovoY710','Lenovo Y710','De Lenovo Y710 gamingdesktop is gemaakt voor de echte gamer. Deze desktop is voorzien van een Intel Core i7-6700 quadcore processor, 16 GB werkgeheugen en een NVIDIA GeForce GTX 1070 videokaart. Daarmee is deze desktop in staat om de nieuwste games op hoge instellingen te spelen, zodat jij volledig gefocust kunt gamen. De Y710 beschikt ook over een 1 TB harde schijf en een 256 GB SSD, die ervoor zorgt dat Windows 10 snel is opgestart. De 1 TB harde schijf heeft een rotatiesnelheid van 7200 rpm, waardoor het snel presteert.',3,5,7,2,7,10,1699,'LenovoY710.jpg')
+;
+	
+	
+
+INSERT INTO ORDERS
+VALUES 	
+	(1,6,1,'2017-2-11'),
+	(2,6,2,'2017-2-19'),
+	(3,7,1,'2017-2-23'),
+	(4,8,3,'2017-2-25'),
+	(5,9,4,'2017-3-01'),
+	(6,10,5,'2017-3-05')
+;
+
+INSERT INTO CATEGORIES
+VALUES 	
+	(1,'Gaming Laptops'),
+	(2,'Gaming Desktops'),
+	(3,'Workstation'),
+	(4,'Randapperatuur')
+;
+
+INSERT INTO SUBCATEGORIES
+VALUES 	
+	(1,'Gaming Muizen'),
+	(2,'Koptelefoons'),
+	(3,'Toetsenborden'),
+	(4,'13-inch'),
+	(5,'15-inch'),
+	(6,'17-inch'),
+	(7,'Nvidea'),
+	(8,'AMD'),
+	(9,'DDR4 RAM'),
+	(10,'DDR3 RAM')
+;
+
+INSERT INTO MANUFACTURERS
+VALUES 	
+	(1,'Dell'),
+	(2,'HP'),
+	(3,'Asus'),
+	(4,'Acer'),
+	(5,'MSI'),
+	(6,'Koleon'),
+	(7,'Lenovo')
+;

@@ -1,0 +1,90 @@
+doctype html
+html
+  head
+    title Contact
+    link(rel='stylesheet', type='text/css', href='stylesheets/stylesheet.css')
+    link(rel='stylesheet', type='text/css', href='https://fonts.googleapis.com/css?family=Aldrich')
+    link(rel='stylesheet', type='text/css', href='https://fonts.googleapis.com/css?family=Abel')
+    meta(name='description', content='Heeft u vragen? Opmerkingen? Of iets anders? Neem dan contact met ons op.')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='keywords', content='Laptop, Koleon, op maat, hardware, CPU, GPU, customised, customized, pc, computer, memes, Harambe')
+    meta(name='author', content='Koleon')
+    meta(name='copyright', content='© 2017 Koleon')
+    meta(name='content-language', content='nl')
+    meta(http-equiv='content-type', content='text/html; charset=UTF-8')
+    meta(http-equiv='default-style', content='stylesheets/stylesheet.css')
+    meta(name='robots', content='index, follow')
+    link(rel='icon', href='images/icon.png', sizes='256x172', type='image/png')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    script(src='javascripts/generic.js', defer='')
+    script(src='javascripts/comments.js', defer='')
+    link(rel='stylesheet', href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js')
+    script(src='https://cdn.jsdelivr.net/jquery.ui-contextmenu/1.14.0/jquery.ui-contextmenu.min.js')
+  body
+    .container
+      nav
+	  button.startLogin(onclick="document.getElementById('id01').style.display='block'") Login
+        ul
+          li
+            img#logo(alt='koleon logo', src='images/logo_koleon.png')
+          li
+            a(href='index.html') Koleon
+          li
+            a(href='producten.html') Producten
+          li
+            a(href='diensten.html') Laptop Samenstellen
+          li
+            a(href='contact.html') Contact
+          li
+            a(href='overons.html') Over Koleon
+        a(href='winkelmandje.html')
+          img(src='images/shopping-cart-white.png', alt='shopping cart', id='wínkelmandje')
+          #shoppingCartNumber 0
+        input.search(type='text', name='search', placeholder='Zoeken..')
+      section.content
+        h2.w3-warning W3
+        .innercontent
+          p
+            | Heb je een vraag of een opmerking? Daar willen we je graag vanaf helpen! Vul hieronder het formulier in zodat wij je zo snel mogelijk te woord kunnen staan.
+          .container-form
+            form
+              label(for='fname') Voornaam:
+              input#fname(type='text', name='firstname', placeholder='Je voornaam..')
+              label(for='lname') Achternaam:
+              input#lname(type='text', name='lastname', placeholder='Je achternaam..')
+              label(for='email') Email:
+              input#email(type='email', name='email', placeholder='Je email..')
+              label(for='land') Land
+              select#land(name='land')
+                option(value='nl') Nederland
+                option(value='be') België
+                option(value='fr') France
+                option(value='de') Deutschland
+                option(value='usa') USA
+              label(for='subject') Je vraag of opmerking:
+              textarea#subject(name='subject', placeholder='Plaats hier je vraag of opmerking..', style='height:200px')
+              input(type='submit', value='Verstuur')
+        article.commentsArticle
+          .container_comments
+            h2 Comments 
+            form(onsubmit='event.preventDefault();')
+              input#nickname(type='text', placeholder='Nickname')
+              input#commentBox(type='text', placeholder='Comment')
+              button#sendComment  Verstuur 
+            br
+            p#commentText No comments yet
+      footer
+        ul
+          li
+            a(href='') Algemene voorwaarden
+          li
+            a(href='') Cookies
+          li
+            a(href='') Privacy
+          li
+            a(href='') Carrière
+          li
+            a(href='') Over Koleon
+        br
+        a(href='https://www.w3schools.com/', target='_blank', style='margin-right:-100px;') Deze site is mogelijk gemaakt door w3schools

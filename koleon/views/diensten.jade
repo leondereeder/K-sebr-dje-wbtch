@@ -1,0 +1,99 @@
+doctype	html
+html
+	head
+		title	Diensten
+		link(rel='stylesheet',	type='text/css',	href='stylesheets/stylesheet.css')
+		link(rel='stylesheet',	type='text/css',	href='https://fonts.googleapis.com/css?family=Aldrich')
+		link(rel='stylesheet',	type='text/css',	href='https://fonts.googleapis.com/css?family=Abel')
+		meta(name='description',	content='Stel	uw	eigen	laptop	samen.	Helemaal	naar	uw	wens.')
+		meta(name='viewport',	content='width=device-width,	initial-scale=1')
+		meta(name='keywords',	content='Laptop,	Koleon,	op	maat,	hardware,	CPU,	GPU,	customised,	customized,	pc,	computer,	memes,	Harambe')
+		meta(name='author',	content='Koleon')
+		meta(name='copyright',	content='©	2017	Koleon')
+		meta(name='content-language',	content='nl')
+		meta(http-equiv='content-type',	content='text/html;	charset=UTF-8')
+		meta(http-equiv='default-style',	content='stylesheets/stylesheet.css')
+		meta(name='robots',	content='index,	follow')
+		link(rel='icon',	href='images/icon.png',	sizes='256x172',	type='image/png')
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+		script(src='javascripts/generic.js',	defer='')
+		script(src='javascripts/diensten.js',	defer='')
+		script(src='javascripts/comments.js',	defer='')
+		link(rel='stylesheet',	href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css')
+		script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js')
+		script(src='https://cdn.jsdelivr.net/jquery.ui-contextmenu/1.14.0/jquery.ui-contextmenu.min.js')
+	body
+		.container
+			nav
+				button.startLogin(onclick="document.getElementById('id01').style.display='block'")	Login
+				ul
+					li
+						img#logo(alt='koleon	logo',	src='images/logo_koleon.png')
+					li
+						a(href='index.html')	Koleon
+					li
+						a(href='producten.html')	Producten
+					li
+						a(href='diensten.html')	Laptop	Samenstellen
+					li
+						a(href='contact.html')	Contact
+					li
+						a(href='overons.html')	Over	Koleon
+				a(href='winkelmandje.html')
+						img(src='images/shopping-cart-white.png',	alt='shopping	cart',	id='wínkelmandje')
+						#shoppingCartNumber	0
+				input.search(type='text',	name='search',	placeholder='Zoeken..')
+			section.content
+				h2.w3-warning	W3
+				.innercontent
+					p
+						|	Koleon	biedt	diensten	op	maat.	Kijk	hieronder	hoe	uw	laptop	door	ons	geassembleerd	wordt.
+					video#howitsmade(src="https://www.students.science.uu.nl/~4288521/video/Computer-HowIt'sMade.webm",	controls='')
+						|	Your	browser	does	not	support	this	type	of	video
+					.container-form
+						form#laptop-samenstellen(onchange='calculate()',	onsubmit='event.preventDefault();')
+							label(for='cpu')	CPU:
+							select#cpu(name='cpu')
+									option(value='180')	Intel	Core	i3-7350K	@	4.20GHz	-	€180
+									option(value='240')	Intel	Core	i5-7600K	@	3.80GHz	-	€240
+									option(value='380')	Intel	Core	i7-7820HK	@	2.90GHz	-	€380
+							label(for='gpu')	GPU:
+							select#gpu(name='gpu')
+									option(value='240')	GeForce	GTX	1060	-	€240
+									option(value='370')	GeForce	GTX	1070	-	€370
+									option(value='580')	GeForce	GTX	1080	-	€580
+							label(for='ram')	RAM:
+							select#ram(name='ram')
+									option(value='60')	8GB	-	€60
+									option(value='130')	16GB	-	€130
+									option(value='260')	32GB	-	€260
+							label(for='scherm')	Schermgrootte:
+							select#scherm(name='scherm')
+									option(value='0')	13	inch	-	€0
+									option(value='100')	15	inch	-	€100
+									option(value='150')	17	inch	-	€150
+							p#totaalbedrag	Uw	geselecteerde	laptop	kost:	€680
+							input#customBetalen(type='submit',	value='Betalen')
+					article.commentsArticle
+						.container_comments
+							h2	Comments	
+							form(onsubmit='event.preventDefault();')
+									input#nickname(type='text',	placeholder='Nickname')
+									input#commentBox(type='text',	placeholder='Comment')
+									button#sendComment		Verstuur	
+							br
+							p#commentText	No	comments	yet
+			footer
+				ul
+					li
+						a(href='')	Algemene	voorwaarden
+					li
+						a(href='')	Cookies
+					li
+						a(href='')	Privacy
+					li
+						a(href='')	Carrière
+					li
+						a(href='')	Over	Koleon
+				br
+				a(href='https://www.w3schools.com/',	target='_blank',	style='margin-right:-100px;')	Deze	site	is	mogelijk	gemaakt	door	w3schools

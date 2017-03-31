@@ -1,0 +1,7 @@
+/*Get order history from a certain user (should be the user requesting this query, placeholder ATM!!!)*/
+
+SELECT U.Username, O.OrderID, P.ProductID, P.ProductName, O.Date
+FROM
+USERS AS U INNER JOIN ORDERS AS O ON U.UserID=O.UserID
+INNER JOIN PRODUCTS AS P ON O.ProductID=P.ProductID
+WHERE U.UserID=6; 
