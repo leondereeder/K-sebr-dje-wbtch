@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var app = express();
+var sqlite3 = require('sqlite3').verbose();
+var data;
 
 var index = require('./routes/index');
 var winkelmandje = require('./routes/winkelmandje');
@@ -33,6 +35,27 @@ app.use('/protected/*', function(req, res, next){
 	}
 });
 
+var bodyParser = require('body-parser')
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
+
+app.post('/*', function(req, res, next) {
+	var db = new sqlite3.Database('public/protected/db.sqlite3');
+	// DB logic
+	db.each("SELECT UserName AS userName, Password AS password, FirstName AS firstName, LastName AS lastName FROM USERS WHERE UserName = '" + req.body.username + "' AND Password = '" + req.body.password + "'", function(err, row) {
+		var data = row;
+		console.log(row);
+	});
+	if (data != null) {
+		next();
+	}
+	else {
+		res.end('It worked');
+	}
+});
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -47,6 +70,7 @@ app.use('/contact.html', contact);
 app.use('/diensten.html', diensten);
 app.use('/overons.html', overons);
 app.use('/producten.html', producten);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

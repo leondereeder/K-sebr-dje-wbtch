@@ -25,6 +25,7 @@ html
 	body
 		.container
 			nav
+				button.startLogin(onclick="document.getElementById('id01').style.display='block'") Login
 				ul
 					li
 						img#logo(alt='koleon logo', src='images/logo_koleon.png')
@@ -47,23 +48,13 @@ html
 				div(style='overflow-x:auto;')
 					table.producten
 						tbody
-							tr
-								each product, i in products
-									if i%3==0&&i!=0
-										tr
-											td(onclick='activateModal("#{product.productID}", "#{product.productName}", #{product.price}, "#{product.description}", "#{product.image}")')
-												img(src='images/products/#{product.image}', alt='#{product.productName}')
-												br
-												| #{product.productName}
-												br
-												| €#{product.price}-
-									else
-										td(onclick='activateModal("#{product.productID}", "#{product.productName}", #{product.price}, "#{product.description}", "#{product.image}")')
-											img(src='images/products/#{product.image}', alt='#{product.productName}')
-											br
-											| #{product.productName}
-											br
-											| €#{product.price}-
+							each product, i in products
+								td(id='product#{i}' onclick='activateModal("#{product.productID}", "#{product.productName}", #{product.price}, "#{product.description}", "#{product.image}")')
+									img(src='images/products/#{product.image}', alt='#{product.productName}')
+									br
+									| #{product.productName}
+									br
+									| €#{product.price}-
 					#myModal.modal
 						.modal-content
 							.modal-header
