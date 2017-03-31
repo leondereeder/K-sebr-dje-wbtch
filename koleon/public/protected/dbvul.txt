@@ -29,7 +29,32 @@ VALUES
 	('AcerPredatorG3-710','Acer Predatir G3-710','Neem jij Gaming serieus? Dan is de Acer Predator G3-710 I10602 NL de gaming desktops voor jou! Deze machine is klaar voor de strijd en is de ideale partner bij het gamen. De Acer Predator G3-710 I10602 NL beschikt over een Intel Core i5-6400 met 8 GB intern geheugen, 1 TB harde schijf, 256 GB SSD en een NVIDIA GeForce GTX 1060 videokaart met 3 GB videokaartgeheugen. Dit allemaal maakt het een innerlijk beest.',5,11,4,2,7,9,899,'AcerPredatorG3710.jpg'),
 	('Omen870','HP OMEN 870','Klaar om jezelf te ontwikkelen tot een echte gamelegende? Deze OMEN desktop, met zijn schitterende design en de allernieuwste hardware, is een echte krachtpatser die de zwaarste AAA-games moeiteloos aankan en er ook nog eens geweldig uitziet. De perfecte combinatie van kracht en snelheid voor een sublieme entertainment-, game- en multitasking ervaring.',2,4,2,2,7,9,1199,'Omen870.jpg'),
 	('AsusROGGR8','Asus ROG GR8 II','Uit de serie van vernieuwde Asus ROG desktops komt o.a. de GR8 II. Deze mini-PC met een inhoud van slechts 4 liter zorgt voor uitstekende gaming-prestaties. De GR8 II is voorzien van een krachtige Intel® Core™ i7-7700 Processor van de zevende generatie Intel Kaby Lake. Daarnaast beschikt de GR8 II over een NVIDIA GeForce GTX 1060, 16 GB werkgeheugen en een 256 GB SSD.',5,5,3,2,10,7,1400,'AsusROGGR8.jpg'),
-	('LenovoY710','Lenovo Y710','De Lenovo Y710 gamingdesktop is gemaakt voor de echte gamer. Deze desktop is voorzien van een Intel Core i7-6700 quadcore processor, 16 GB werkgeheugen en een NVIDIA GeForce GTX 1070 videokaart. Daarmee is deze desktop in staat om de nieuwste games op hoge instellingen te spelen, zodat jij volledig gefocust kunt gamen. De Y710 beschikt ook over een 1 TB harde schijf en een 256 GB SSD, die ervoor zorgt dat Windows 10 snel is opgestart. De 1 TB harde schijf heeft een rotatiesnelheid van 7200 rpm, waardoor het snel presteert.',3,5,7,2,7,10,1699,'LenovoY710.jpg')
+	('LenovoY710','Lenovo Y710','De Lenovo Y710 gamingdesktop is gemaakt voor de echte gamer. Deze desktop is voorzien van een Intel Core i7-6700 quadcore processor, 16 GB werkgeheugen en een NVIDIA GeForce GTX 1070 videokaart. Daarmee is deze desktop in staat om de nieuwste games op hoge instellingen te spelen, zodat jij volledig gefocust kunt gamen. De Y710 beschikt ook over een 1 TB harde schijf en een 256 GB SSD, die ervoor zorgt dat Windows 10 snel is opgestart. De 1 TB harde schijf heeft een rotatiesnelheid van 7200 rpm, waardoor het snel presteert.',3,5,7,2,7,10,1699,'LenovoY710.jpg'),
+	('AcerAspireGX-781','Acer Aspire GX-781','De Acer Aspire GX-781 I106032 NL is een instap gaming desktop met toch alle hardware in huis om de nieuwste games te kunnen spelen. De desktop beschikt over een Intel Core i7-7700 processor met 16 GB werkgeheugen en op het gebied van grafische kracht is de Acer Aspire GX-781 I10603 NL met een NVIDIA GeForce GTX 1060 videokaart met 3 GB aan videokaartgeheugen klaar voor de strijd. Je hebt natuurlijk genoeg opslagcapaciteit nodig voor al jouw games en met een 2 TB HDD en 256 GB SSD heb je genoeg ruimte.',1,3,4,2,7,10,1345,'AcerAspireGX-781.jpg'),	
+
+	/*Gaming Muizen*/
+	('TrustGXT152','Trust GXT 152','De Trust GXT 152 Illuminated Gaming Muis is ergonomisch gevormd, wat zorgt voor een comfortabele bediening, ook tijdens urenlange game sessies. Bovendien is de gaming muis volledig voorzien van een no-sweat rubberen coating voor langdurig optimale grip. Deze multi-colour verlichte gaming muis kan elke situatie aan. Door de opvallende LED-verlichting past deze muis perfect in iedere setting.',5,11,8,4,11,12,22,'TrustGXT-152.jpg'),
+	('LogitechG502','Logitech G502 Proteus','De Logitech G502 Proteus Spectrum RGB Gaming Muis is jouw favoriete high-performance gamingmuis en levert meer vermogen, meer controle en meer overwinningen. Dankzij 11 programmeerbare knoppen kun je de toetsenbordopdrachten uitvoeren met knoppen die eenvoudig te bereiken zijn.Profiteer van optimale trackingprecisie dankzij onze meest responsieve optische sensor (PMW3366). De exclusieve Logitech G Delta Zero™-technologie van de optische sensor minimaliseert muisversnelling en verhoogt betrouwbaar richten. Schakel tijdens de game tussen dpi-modi met vijf instellingen van 200 tot 12.000 dpi. ',5,11,9,4,11,13,50,'LogitechG502.jpg'),
+	('TrustGXT130','Trust GXT 130','De Trust GXT 130 draadloze gaming muis is voorzien van negen game-knoppen, LED verlichting op de scroll-button en knoppen om de snelheid van de muis aan te passen. nel wisselen tussen dpi-standen met de plus/min-knoppen (800/1200/1600/2000/2400 dpi). Drie extra duimknoppen: vooruit, achteruit en Ctrl. Praktische knop voor twee keer schieten met 1 klik.',3,11,8,4,11,12,25,'TrustGXT130.jpg'),
+	('LogitechG403','Logitech G403 Prodigy','De Logitech G403 Prodigy Gaming Muis is ontworpen voor elke game en elke gamer, en levert draadloze gamingprestaties in een lichtgewicht, ergonomisch ontworpen behuizing. Aanpasbaar met maar liefst 16,8 miljoen kleuren.De Logitech G403 Prodigy is tot 8 keer sneller dan een standaardmuis. Dit betekent dat wanneer je de muis beweegt of ermee klikt, je bijna onmiddellijk een reactie krijgt op het scherm. Door de geavanceerde springveren achter de knoppen staan de linker- en rechtermuisknop altijd op de juiste spanning, zodat er minder kracht nodig is bij het klikken.',3,11,9,4,11,13,52,'LogitechG403.jpg'),
+	('LogitechG900','Logitech G900 Chaos Spectrum','Logitech G900 Chaos Spectrum Bedrade / Draadloze Professionele Gaming Muis is voorzien van de toonaangevende optische PMW3366-sensor van Logitech G en interpreteert elke handbeweging met superieure trackingprecisie en consistente reactietijden bij elke snelheid. De beste eSports-professionals vertrouwen op de G900 Chaos Spectrum: de vrijwel vertragingsvrije gamingmuis met een rapportagesnelheid van 1 milliseconde. Dankzij een flexibel symmetrisch ontwerp, aanpasbare verlichting en een zorgvuldig overwogen vorm die voor vrijwel elke grip werkt, geeft de Logitech G900 je de vrijheid je muis helemaal aan jouw wensen aan te passen.',6,11,9,4,11,13,119,'LogitechG900.jpg'),	
+	('TrustGXT105','Trust GXT 105','De Trust GXT 105 Gaming Muis heeft een uniek ontwerp met LED-verlichting en 6 knoppen voor PC-gaming. Dankzij de snelheidsselectieknop kun je gemakkelijk switchen van muissnelheid (600-2400 DPI). De rubberen bovenkant zorgt voor stevige grip.',3,11,8,4,11,13,22,'TrustGXT105.jpg'),
+	('RazerDeathadder','Razer Deathadder','Razer DeathAdder Gaming Muis 2013 met 6400 dpi 4G Optische Sensor. De compleet vernieuwde Razer DeathAdder is geüpgrade met de eerste 6400 dpi Optische Sensor ter wereld. Bereik hoge prestatieniveaus en behoud het gevoel van de optische sensor waar de meeste gebruikers van de DeathAdder van zijn gaan houden. De 4G sensor van deze muis is ook geoptimaliseerd zodat hij perfect functioneert met alle Razer muismatten. Kies een van de vooraf ingestelde Razer muismatten in Synapse 2.0 om de sensor te kalibreren, of maak gebruik van de handmatige kalibreermodus als u gebruik maakt van een aangepast oppervlak. ',4,11,10,4,11,12,65,'RazerDeathadder.jpg'),	
+	
+	/*Toetsenborden*/
+	('LogitechMK235','Logitech MK235','Het Logitech MK235 Draadloos Toetsenbord en muis is van een normaal formaat die eenvoudig, duurzaam en betrouwbaar draadloos zijn en een extra lange batterijlevensduur hebben.',5,11,9,4,14,15,25,'LogitechMK235.jpg'),
+	('LogitechMK850','Logitech MK850 Performance','Met het Logitech MK850 Draadloos Toetsenbord en Muis ervaar je meer productiviteit en comfort. Je vliegt door documenten en webpaginas met supersnel scrollen. Type stil en efficiënt op een toetsenbord van normaal formaat met zorgvuldig ontworpen toetsen. De zachte handsteun en het geronde toetsenframe geven jou de ondersteuning die je nodig hebt. De aanpasbare kantelpootjes zorgen voor de perfecte typestand, en de ergonomisch ontworpen muis ligt comfortabel in de hand. Type en schakel naadloos tussen jouw computer, tablet en telefoon. Koppel jouw muis met maximaal 3 apparaten met een USB-aansluiting of Bluetooth® Smart-apparaten die externe toetsenborden ondersteunen (HID-profiel).',3,11,9,4,14,15,110,'LogitechMK850.jpg'),
+	('LogitechK380','Logitech K380','Het Logitech K380 Draadloos Bluetooth Toetsenbord biedt het comfort en gemak van typen met een desktop-toetsenbord op uw smartphone, tablet en meer. Omdat het toetsenbord compact en lichtgewicht is, kunt u het gebruiken om te typen met een apparaat naar keuze, overal in en rond uw huis.',8,11,9,4,14,15,43,'LogitechK830.jpg'),
+	('TrustGXT285','Trust GXT 285','Dit QWERTY gaming toetsenbord is geschikt voor de fanatieke gamer. Gemakkelijk je gameprofielen opslaan doe je met dit toetsenbord. De instelbare LED verlichting geeft een extra dimensie aan je game ervaring. ',10,11,8,4,14,16,46,'TrustGXT285.jpg'),
+	('TrustClassicline','Trust Classicline','Duurzaam, morsbestendig toetsenbord dat probleemloos werkt en lang meegaat. Toetsenbord in normaal formaat met klassieke indeling waarmee comfortabel en nauwkeurig kan worden getypt. Direct inpluggen en starten, geen software nodig, USB-aansluiting. Speciale knoppen voor aan/uit, slaapstand en activatie.',5,11,8,4,14,16,11,'TrustClassicline.jpg'),
+	('LogitechG910','Logitech G910 Orion Spectrum','De Logitech G910 Orion Spectrum is ons snelste mechanische RGB-gamingtoetsenbord met mechanische schakelaars van Romer-G die tot 25 procent snellere bediening bieden. Elke toets is aanpasbaar met een van de 16 miljoen beschikbare kleuren en wordt centraal verlicht voor heldere, aantrekkelijke verlichting. Dankzij de 9 individueel programmeerbare G-toetsen heb je meteen toegang tot belangrijke opdrachten en macros. Met Arx Control-integratie kunnen je iOS- en Android-apparaten updates in de game, controle over mediafuncties en veel meer geven. Comfortabele handsteun en optimale indeling van de toetsen zorgen voor comfort en precisie. Dit is ons meest geavanceerde toetsenbord ooit. Orion Spectrum verlicht de toekomst.',3,11,9,4,14,16,130,'LogitechG910.jpg'),
+	('RazerOrnataChroma','Razer Ornata Chroma',' Het volledig nieuw ontworpen Razer Mecha-Membrane-toetsenbord combineert zacht aanvoelende rubberen dome-toetsen met de duidelijk voelbare klik van mechanische schakelaars voor een snelle toetsregistratie. Middelhoge toetsen voor snellere Toetsregistratie. De Razer Ornata Chroma heeft speciaal ontworpen kortere toetsen, zodat je handelingen sneller worden geregistreerd. Dit betekent dat je vingers vrij over de toetsen kunnen bewegen zonder dat je een toetsaanslag overslaat.',5,11,10,4,14,16,109,'RazerOrnataChroma.jpg'),
+
+	/*Headsets*/
+	('TrustGXT310','Trust GXT 310','De Trust GXT 310 is een gaming headset die je zowel voor PC, PS4 als Xbox One kunt gebruiken. Ideaal voor de allround gamer. De comfortabele oorkussens, verstelbare microfoon en hoofdband zorgen voor de ultiem gaming ervaring.',5,11,8,4,17,16,27,'TrustGXT310.jpg'),
+	('LogitechG231','Logitech G231 Prodigy','De Logitech De G231 Stereo Gaming Headset levert hoogwaardig stereogeluid met comfortabele oorstukjes van stof en een ultralicht ontwerp. De G231 werkt met Xbox One, Playstation 4 en pc.',6,11,9,4,17,16,38,'LogitechG321.jpg'),
+	('RazerAdaro','Razer Adaro','Bluetooth 4.0 connectiviteit met aptX-technologie: Met de Razer Adaro Wireless verlos je jezelf van al je ergernissen die je door kabels kunt hebben. De Razer Adaro ondersteunt de geavanceerde Bluetooth 4.0 standaard met aptX-technologie, met als resultaat moeiteloze verbindingen en extreem laag energieverbruik voor tot wel 20 uur afspelen. ',3,3,10,4,14,15,179,'RazerAdaro.jpg'),
+	('TrustGXT320','Trust GXT 320','Haal het meeste uit online gaming met de voor de Playstation 3 en PC ontworpen GXT 320 bluetooth Headset. De ideale headset om gemakkelijk te overleggen met je teamgenoten in online battles dankzij de microfoon en comfortabele pasvorm. ',3,11,8,4,17,15,25,'TrustGXT320.jpg')
 ;
 	
 	
@@ -54,16 +79,21 @@ VALUES
 
 INSERT INTO SUBCATEGORIES
 VALUES 	
-	(1,'Gaming Muizen'),
 	(2,'Koptelefoons'),
-	(3,'Toetsenborden'),
 	(4,'13-inch'),
 	(5,'15-inch'),
 	(6,'17-inch'),
 	(7,'Nvidea'),
 	(8,'AMD'),
 	(9,'DDR4 RAM'),
-	(10,'DDR3 RAM')
+	(10,'DDR3 RAM'),
+	(11,'Gaming Muis'),
+	(12,'Optisch'),
+	(13,'Laser'),
+	(14,'Toetsenbord'),
+	(15,'Draadloos'),
+	(16,'Bedraad'),
+	(17,'Headset')
 ;
 
 INSERT INTO MANUFACTURERS
@@ -74,5 +104,8 @@ VALUES
 	(4,'Acer'),
 	(5,'MSI'),
 	(6,'Koleon'),
-	(7,'Lenovo')
+	(7,'Lenovo'),
+	(8,'Trust'),
+	(9,'Logitech'),
+	(10,'Razer')
 ;
