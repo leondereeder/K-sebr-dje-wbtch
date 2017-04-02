@@ -214,6 +214,38 @@ td,
 .producten td:hover {
 	border: 1px solid black;
 }
+.orderProductsContainer {
+	width:100%;
+	height:100px;
+	position:relative;
+}
+.orderProducts {
+	width:auto;
+	position:absolute;
+	right:10%;
+	top: 50%;
+    transform: translateY(-50%);
+}
+.orderProducts select {
+	width:auto;
+}
+.sortProductsContainer {
+	height:100%;
+	width:200px;
+	position:relative;
+	display:inline;
+	float:left
+}
+.sortProducts {
+	position:relative;
+	left:50%;
+	transform: translateX(-50%);
+	width:120px;
+	border:1px solid grey;
+	border-radius:5px;
+	padding:5px 20px 20px 20px;
+	margin-bottom:20px;
+}
 /* End of producten page */
 /* Laptop samenstellen page */
 

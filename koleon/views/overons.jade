@@ -1,95 +1,96 @@
 doctype html
 html
-  head
-    title Over Koleon
-    link(rel='stylesheet', type='text/css', href='stylesheets/stylesheet.css')
-    link(rel='stylesheet', type='text/css', href='https://fonts.googleapis.com/css?family=Aldrich')
-    link(rel='stylesheet', type='text/css', href='https://fonts.googleapis.com/css?family=Abel')
-    meta(name='description', content='De geschiedenis van Koleon.')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    meta(name='keywords', content='Laptop, Koleon, op maat, hardware, CPU, GPU, customised, customized, pc, computer, memes, Harambe')
-    meta(name='author', content='Koleon')
-    meta(name='copyright', content='© 2017 Koleon')
-    meta(name='content-language', content='nl')
-    meta(http-equiv='content-type', content='text/html; charset=UTF-8')
-    meta(http-equiv='default-style', content='stylesheets/stylesheet.css')
-    meta(name='robots', content='index, follow')
-    link(rel='icon', href='images/icon.png', sizes='256x172', type='image/png')
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
-    script(src='javascripts/generic.js', defer='')
-    script(src='javascripts/overons.js')
-    script(src='javascripts/comments.js', defer='')
-    script(src='https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js')
-    link(rel='stylesheet', href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css')
-    script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js')
-    script(src='https://cdn.jsdelivr.net/jquery.ui-contextmenu/1.14.0/jquery.ui-contextmenu.min.js')
-  body
-    .container
-      nav
-	  button.startLogin(onclick="document.getElementById('id01').style.display='block'") Login
-        ul
-          li
-            img#logo(alt='koleon logo', src='images/logo_koleon.png')
-          li
-            a(href='index.html') Koleon
-          li
-            a(href='producten.html') Producten
-          li
-            a(href='diensten.html') Laptop Samenstellen
-          li
-            a(href='contact.html') Contact
-          li
-            a(href='overons.html') Over Koleon
-        a(href='winkelmandje.html')
-          img(src='images/shopping-cart-white.png', alt='shopping cart', id='wínkelmandje')
-          #shoppingCartNumber 0
-        input.search(type='text', name='search', placeholder='Zoeken..')
-      section.content.overons
-        h1 Oprichting 
-        |             Harambe 
-        br
-        |             1999 - 2016 
-        br
-        img(src='images/Harambe.jpg', alt='this is harambe')
-        p
-          | Koleon werd opgericht in 2016 in herdenking van de aap Harambe. 
-          br
-          |                Harambe was een uitgesproken activist in de gaming industrie die vond dat gamen ook op laptops gewoon moest kunnen. 
-          br
-          |                Hierom wordt Harambe ook wel gezien als spirituele oprichter van Koleon, dat technisch gezien opgericht is door Koen en Leon. 
-          br
-          br
-        h2 Ons doel 
-        p
-          | Wij van Koleon streven naar het mobiliseren van gaming door de klant te verbinden met de beste gaming laptops voor het minste geld. 
-          br
-          |                Tot dusver hebben we al 0 klanten bereikt met ons streven, en we verwachten dat dit de komende jaren zal groeien met 1136 procent. 
-          br
-          |                Dit betekent dat in 2020 maar liefst 0 klanten de beste gaming laptops voor het minste geld ontvangen hebben.
-        #map
-        #legend
-          h3 Legend
-        article.commentsArticle
-          .container_comments
-            h2 Comments 
-            form(onsubmit='event.preventDefault();')
-              input#nickname(type='text', placeholder='Nickname')
-              input#commentBox(type='text', placeholder='Comment')
-              button#sendComment  Verstuur 
-            br
-            p#commentText No comments yet
-      footer
-        ul
-          li
-            a(href='') Algemene voorwaarden
-          li
-            a(href='') Cookies
-          li
-            a(href='') Privacy
-          li
-            a(href='') Carrière
-          li
-            a(href='') Over Koleon
-        br
-        a(href='https://www.w3schools.com/', target='_blank', style='margin-right:-100px;') Deze site is mogelijk gemaakt door w3schools
-    script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC7nSkYhgNYQ_8yybsYIEpQrJ8GZKS2c2I&callback=initMap', async='', defer='')
+	head
+		title Over Koleon
+		link(rel='stylesheet', type='text/css', href='stylesheets/stylesheet.css')
+		link(rel='stylesheet', type='text/css', href='https://fonts.googleapis.com/css?family=Aldrich')
+		link(rel='stylesheet', type='text/css', href='https://fonts.googleapis.com/css?family=Abel')
+		meta(name='description', content='De geschiedenis van Koleon.')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		meta(name='keywords', content='Laptop, Koleon, op maat, hardware, CPU, GPU, customised, customized, pc, computer, memes, Harambe')
+		meta(name='author', content='Koleon')
+		meta(name='copyright', content='© 2017 Koleon')
+		meta(name='content-language', content='nl')
+		meta(http-equiv='content-type', content='text/html; charset=UTF-8')
+		meta(http-equiv='default-style', content='stylesheets/stylesheet.css')
+		meta(name='robots', content='index, follow')
+		link(rel='icon', href='images/icon.png', sizes='256x172', type='image/png')
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+		script(src='javascripts/generic.js', defer='')
+		script(src='javascripts/overons.js')
+		script(src='javascripts/comments.js', defer='')
+		script(src='https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js')
+		link(rel='stylesheet', href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css')
+		script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js')
+		script(src='https://cdn.jsdelivr.net/jquery.ui-contextmenu/1.14.0/jquery.ui-contextmenu.min.js')
+	body
+		.container
+			nav
+				button.startLogin(onclick="document.getElementById('id01').style.display='block'")
+				| Login
+				ul
+					li
+						img#logo(alt='koleon logo', src='images/logo_koleon.png')
+					li
+						a(href='index.html') Koleon
+					li
+						a(href='producten.html') Producten
+					li
+						a(href='diensten.html') Laptop Samenstellen
+					li
+						a(href='contact.html') Contact
+					li
+						a(href='overons.html') Over Koleon
+				a(href='winkelmandje.html')
+					img(src='images/shopping-cart-white.png', alt='shopping cart', id='wínkelmandje')
+					#shoppingCartNumber 0
+				input.search(type='text', name='search', placeholder='Zoeken..')
+			section.content.overons
+				h1 Oprichting 
+				|             Harambe 
+				br
+				|             1999 - 2016 
+				br
+				img(src='images/Harambe.jpg', alt='this is harambe')
+				p
+					| Koleon werd opgericht in 2016 in herdenking van de aap Harambe. 
+					br
+					|                Harambe was een uitgesproken activist in de gaming industrie die vond dat gamen ook op laptops gewoon moest kunnen. 
+					br
+					|                Hierom wordt Harambe ook wel gezien als spirituele oprichter van Koleon, dat technisch gezien opgericht is door Koen en Leon. 
+					br
+					br
+				h2 Ons doel 
+				p
+					| Wij van Koleon streven naar het mobiliseren van gaming door de klant te verbinden met de beste gaming laptops voor het minste geld. 
+					br
+					|                Tot dusver hebben we al 0 klanten bereikt met ons streven, en we verwachten dat dit de komende jaren zal groeien met 1136 procent. 
+					br
+					|                Dit betekent dat in 2020 maar liefst 0 klanten de beste gaming laptops voor het minste geld ontvangen hebben.
+				#map
+				#legend
+					h3 Legend
+				article.commentsArticle
+					.container_comments
+						h2 Comments 
+						form(onsubmit='event.preventDefault();')
+							input#nickname(type='text', placeholder='Nickname')
+							input#commentBox(type='text', placeholder='Comment')
+							button#sendComment  Verstuur 
+						br
+						p#commentText No comments yet
+			footer
+				ul
+					li
+						a(href='') Algemene voorwaarden
+					li
+						a(href='') Cookies
+					li
+						a(href='') Privacy
+					li
+						a(href='') Carrière
+					li
+						a(href='') Over Koleon
+				br
+				a(href='https://www.w3schools.com/', target='_blank', style='margin-right:-100px') Deze site is mogelijk gemaakt door w3schools
+		script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC7nSkYhgNYQ_8yybsYIEpQrJ8GZKS2c2I&callback=initMap', async='', defer='')

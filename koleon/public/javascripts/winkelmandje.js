@@ -53,16 +53,15 @@ $(document).ready(function getCookie() {
 function displayInCart() {
 	var http = new XMLHttpRequest();
 	var url = "winkelmandje.html";
-	var params = data;
 	http.open("POST", url, true);
 
 	//Send the proper header information along with the request
-	http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	http.setRequestHeader("Content-type", "application/json");
 
 	http.onreadystatechange = function() {//Call a function when the state changes.
 		if(http.readyState == 4 && http.status == 200) {
-			console.log(http.responseText);
+			console.log(JSON.parse(http.responseText));
 		}
 	}
-	http.send(params);
+	http.send(JSON.stringify(data));
 }

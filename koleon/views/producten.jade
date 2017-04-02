@@ -46,6 +46,38 @@ html
 			section.content
 				h2.w3-warning W3
 				div(style='overflow-x:auto;')
+					section.orderProductsContainer
+						div.orderProducts 	
+							| Sorteren op: 
+							select
+								option(value='priceLow') Prijs - Laag naar hoog
+								option(value='priceHigh') Prijs - Hoog naar Laag
+								option(value='naamAZ') Naam - van A tot Z
+								option(value='naamZA') Naam - van Z tot A
+					aside.sortProductsContainer
+						div.sortProducts
+							p Schermgrootte
+							input(type='checkbox', name='13in', value='13 inch')
+							| 13 inch
+							br
+							input(type='checkbox', name='15in', value='15 inch')
+							| 15 inch
+							br
+							input(type='checkbox', name='17in', value='17 inch')
+							| 17 inch						
+						div.sortProducts
+							p Merk
+							input(type='checkbox', name='13in', value='Dell')
+							| Dell
+							br
+							input(type='checkbox', name='15in', value='HP')
+							| HP
+							br
+							input(type='checkbox', name='17in', value='Asus')
+							| Asus
+							br
+							input(type='checkbox', name='17in', value='Acer')
+							| Acer
 					table.producten
 						tbody
 							each product, i in products

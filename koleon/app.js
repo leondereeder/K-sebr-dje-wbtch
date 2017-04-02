@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var app = express();
 var sqlite3 = require('sqlite3').verbose();
-var data;
 
 var index = require('./routes/index');
 var winkelmandje = require('./routes/winkelmandje');
@@ -45,35 +44,10 @@ app.post('/index.html', function(req, res, next) {
 	var db = new sqlite3.Database('public/protected/db.sqlite3');
 	// DB logic
 	db.each("SELECT UserName AS userName, Password AS password, FirstName AS firstName, LastName AS lastName FROM USERS WHERE UserName = '" + req.body.username + "' AND Password = '" + req.body.password + "'", function(err, row) {
-		var data = row;
 		console.log(row);
+		res.end("It worked!");
 	});
-	if (data != null) {
-		next();
-	}
-	else {
-		res.end('It worked');
-	}
-});
-
-app.post('/winkelmandje.html', function(req, res, next) {
-	var x = data.length;
-	console.log("works");
-	if (x==0) {
-		var db = new sqlite3.Database('public/protected/db.sqlite3');
-		var products = [];
-		products = req.body.data;
-		for(i=0;i<products.length;i++) {
-			db.each("SELECT ProductID AS productID, ProductName AS productName, Description AS description, Stock AS stock, Price AS price, Image as image FROM PRODUCTS WHERE ProductID = '" + products[i] + "'", function(err, row) {
-				data.push(row);
-				console.log(data[x]);
-			});
-		}
-		console.log(data.length);
-		db.close();
-	}
-	res.status(200);
-	res.write(data);
+	next();
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
