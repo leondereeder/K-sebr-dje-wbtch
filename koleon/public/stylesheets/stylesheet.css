@@ -6,6 +6,8 @@ body {
     margin: 0;
     height: 100%;
     font-family: Arial, Verdana;
+	-webkit-transition: ease 0.45s;
+	transition: ease 0.45s;
 }
 .container {
     position: relative;

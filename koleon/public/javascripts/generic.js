@@ -8,16 +8,29 @@ $(document).ready(function getCookie() {
             if (str.substring(0, 7) == "product") {
                 cookie01 = cookies[i].split("=");
                 value01 = decodeURIComponent(cookie01[1]);
-                addToShoppingCart(value01, 1);
+                addToShoppingCart(value01);
             }
         }
     }
 });
 
+$(document).ready(function getSession() {
+	var cookies = document.cookie.split("; ")
+	cookieCnt = document.cookie.split(";").length;
+        for (i = 0; i < cookieCnt; i += 1) {
+            str = cookies[i];
+            if (str.substring(0, 2) == "id") {
+                cookie01 = cookies[i].split("=");
+                value01 = decodeURIComponent(cookie01[1]);
+                document.getElementsByClassName("startLogin")[0].innerHTML = "Mijn account";
+            }
+        }
+});
+
 // Add all found products to the shopping cart as a number
 var itemsInCart = 0;
 
-function addToShoppingCart(id, price) {
+function addToShoppingCart(id) {
     itemsInCart += 1;
     document.getElementById("shoppingCartNumber").innerHTML = itemsInCart;
 }

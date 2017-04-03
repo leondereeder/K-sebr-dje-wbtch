@@ -15,7 +15,6 @@ router.post('/', function(req, res, next) {
 	
 		db.each(makeQuery(), function(err, row) {
 			data.push(row);
-			console.log(row);
 		});
 	
 		function makeQuery() {
@@ -23,7 +22,6 @@ router.post('/', function(req, res, next) {
 			for (i=1;i<products.length;i++) {
 				staticStr += " OR ProductID = '" + products[i] + "'";
 			}
-			console.log(staticStr);
 			return staticStr;
 		}
 		sendData();
@@ -32,7 +30,6 @@ router.post('/', function(req, res, next) {
 		db.close(function(){
 			res.setHeader('Content-Type', 'application/json')
 			res.send(JSON.stringify(data));
-			console.log(JSON.stringify(data));
 		});
 	}
 });

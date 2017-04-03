@@ -1,5 +1,5 @@
 // When a price has been clicked on, activate its modal
-function activateModal(id, productName, price, description, image) {
+function activateModal(id, productName, price, description, image, cookieNmbr) {
     var modal = document.getElementById('myModal');
     var modalheader = document.getElementById('modalheadertext');
     var modalbody = document.getElementById('modaltext');
@@ -16,7 +16,13 @@ function activateModal(id, productName, price, description, image) {
     // When a user clicks 'delete from shopping cart' close the modal. This function is still in development
     modalbestel.onclick = function () {
         modal.style.display = "none";
+		deleteProduct();
     }
+	
+	function deleteProduct() {
+		document.cookie = "product_" + cookieNmbr + "=; expires=Thu, 18 Dec 2014 12:00:00 UTC;path=/";
+		window.location.reload();
+	}
 
     // When the user clicks the close button, close the modal
     span.onclick = function () {
@@ -70,7 +76,7 @@ function displayInCart() {
 				"<td>" + products[i].description + 
 				"</td>" +
 				"<td>" +
-				"<button id = '" + products[i].productID + "' onclick=\"activateModal(" + products[i].productID + ", " + products[i].productName + ", " + products[i].price +  ", " + products[i].description  +  ", " + products[i].price + ")\"> €1299-</button>" +
+				"<button id = '" + products[i].productID + "' onclick=\"activateModal('" + products[i].productID + "', '" + products[i].productName + "', '" + products[i].price +  "', '" + products[i].description  +  "', '" + products[i].image + "', " + i + ")\"> €" + products[i].price + "-</button>" +
 				"</td>" +
 				"</tr>");
 			}
