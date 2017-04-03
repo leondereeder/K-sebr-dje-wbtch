@@ -60,7 +60,20 @@ function displayInCart() {
 
 	http.onreadystatechange = function() {//Call a function when the state changes.
 		if(http.readyState == 4 && http.status == 200) {
-			console.log(JSON.parse(http.responseText));
+			var products = (JSON.parse(http.responseText));
+			for(i=0;i<products.length;i++) {
+				$("#productentabel").css("display", "table");
+				$("#afrekenen").css("display", "block");
+				$("#productentabel").find("tbody").append("<tr>" +
+				"<td><img src='images/products/" + products[i].image + "' alt='" + products [i].productID + "'>" +
+				"<br>" + products[i].productName + 
+				"<td>" + products[i].description + 
+				"</td>" +
+				"<td>" +
+				"<button id = '" + products[i].productID + "' onclick=\"activateModal(" + products[i].productID + ", " + products[i].productName + ", " + products[i].price +  ", " + products[i].description  +  ", " + products[i].price + ")\"> €1299-</button>" +
+				"</td>" +
+				"</tr>");
+			}
 		}
 	}
 	http.send(JSON.stringify(data));
