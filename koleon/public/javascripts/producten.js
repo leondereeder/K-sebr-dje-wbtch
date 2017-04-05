@@ -51,6 +51,28 @@ function generateProductName() {
     return name;
 }
 
+$(document).ready(function (){
+	var data = [];
+	
+	var http = new XMLHttpRequest();
+	var url = "producten.html";
+	http.open("POST", url, true);
+
+	//Send the proper header information along with the request
+	http.setRequestHeader("Content-type", "application/json");
+
+	http.onreadystatechange = function() {//Call a function when the state changes.
+		if(http.readyState == 4 && http.status == 200) {
+			var products = (JSON.parse(http.responseText));
+			for(i=0;i<products.length;i++) {
+				$(".producten").css("display", "table");
+				$(".producten").find("tbody").append("<td(id=" + products[i].productID + " onclick='activateModal('" + products[i].productID + "', '" + products[i].productName + "', " + products[i].price + ", '" + products[i].description + "', '" + product[i].image + "')>+<img src='images/products/" + products[i].image  + "' alt='" + products[i].productName + "'<br>" + products[i].productName + "<br>€" + products[i].price + "-");
+			}
+		}
+	}
+	http.send(JSON.stringify(data));
+});
+
 $(document).ready(function(){
 	var count = $(".producten").find($("td")).length;
 	for(i=0;i<count;i+=3) {

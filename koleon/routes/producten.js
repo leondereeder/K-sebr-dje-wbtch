@@ -1,16 +1,20 @@
 var express = require('express');
 var router = express.Router();
-var sqlite3 = require('sqlite3').verbose();
+var bodyParser = require('body-parser');
+var sqlite3 = require('sqlite3').verbose()
 var data = [];
 
 router.get('/', function(req, res, next) {
-	loadDB();
   res.render('producten', { products: data });
 });
 
 module.exports = router;
 
-function loadDB() {
+router.post('/', function(req, res, next) {
+	loadDB(res);
+});
+
+function loadDB(res) {
 	var x = data.length;
 	if (x==0) {
 		var db = new sqlite3.Database('public/protected/db.sqlite3');
@@ -20,6 +24,13 @@ function loadDB() {
 			console.log(data[x]);
 		});
 		console.log(data.length);
-		db.close();
+		sendData();
+	}
+
+	function sendData() {
+		db.close(function(){
+			res.setHeader('Content-Type', 'application/json')
+			res.send(JSON.stringify(data));
+		});
 	}
 }
