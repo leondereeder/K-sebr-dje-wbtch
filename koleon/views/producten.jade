@@ -49,7 +49,7 @@ html
 					section.orderProductsContainer
 						div.orderProducts 	
 							| Sorteren op: 
-							select
+							select(id='orderby')
 								option(value='priceLow') Prijs - Laag naar hoog
 								option(value='priceHigh') Prijs - Hoog naar Laag
 								option(value='naamAZ') Naam - van A tot Z
@@ -57,46 +57,81 @@ html
 					aside.sortProductsContainer
 						div.sortProducts
 							p Schermgrootte
-							input(type='checkbox', name='13in', value='13 inch')
+							input(type='checkbox', id='13-inch', value='13-inch')
 							| 13 inch
 							br
-							input(type='checkbox', name='15in', value='15 inch')
+							input(type='checkbox', id='15-inch', value='15-inch')
 							| 15 inch
 							br
-							input(type='checkbox', name='17in', value='17 inch')
+							input(type='checkbox', id='17-inch', value='17-inch')
 							| 17 inch						
 						div.sortProducts
 							p Merk
-							input(type='checkbox', name='13in', value='Dell')
+							input(type='checkbox', id='Dell', value='Dell')
 							| Dell
 							br
-							input(type='checkbox', name='15in', value='HP')
+							input(type='checkbox', id='HP', value='HP')
 							| HP
 							br
-							input(type='checkbox', name='17in', value='Asus')
+							input(type='checkbox', id='Asus', value='Asus')
 							| Asus
 							br
-							input(type='checkbox', name='17in', value='Acer')
+							input(type='checkbox', id='Acer', value='Acer')
 							| Acer
 							br 
-							input(type='checkbox', name='17in', value='MSI')
+							input(type='checkbox', id='MSI', value='MSI')
 							| MSI
 							br 
-							input(type='checkbox', name='17in', value='Logitech')
+							input(type='checkbox', id='Logitech', value='Logitech')
 							| Logitech
 							br
-							input(type='checkbox', name='17in', value='Trust')
+							input(type='checkbox', id='Trust', value='Trust')
 							| Trust
 						div.sortProducts
 							p Product
-							input(type='checkbox', name='GamLap', value='Gaming Laptop')
+							input(type='checkbox', id='Gaming-Laptops', value='Gaming-Laptop')
 							| Gaming Laptop
 							br
-							input(type='checkbox', name='GamDesk', value='Gaming Desktop')
+							input(type='checkbox', id='Gaming-Desktops', value='Gaming-Desktop')
 							| Gaming Desktop
 							br
-							input(type='checkbox', name='RandApp', value='Randapperatuur')
+							input(type='checkbox', id='Randapperatuur', value='Randapperatuur')
 							| Randapperatuur
+						div.sortProducts
+							p Eigenschappen
+							input(type='checkbox', id='Headset', value='Headset')
+							| Headset
+							br
+							input(type='checkbox', id='Nvidea', value='Nvidea')
+							| Nvidea based
+							br
+							input(type='checkbox', id='AMD', value='AMD')
+							| AMD based
+							br
+							input(type='checkbox', id='DDR3-RAM', value='DDR3-RAM')
+							| DDR3 RAM
+							br
+							input(type='checkbox', id='DDR4-RAM', value='DDR4-RAM')
+							| DDR4 RAM
+							br
+							input(type='checkbox', id='Gaming-Muis', value='Gaming-Muis')
+							| Gaming Muis
+							br
+							input(type='checkbox', id='Optisch', value='Optisch')
+							| Optisch
+							br
+							input(type='checkbox', id='Laser', value='Laser')
+							| Laser
+							br
+							input(type='checkbox', id='Toetsenbord', value='Toetsenbord')
+							| Toetsenbord
+							br
+							input(type='checkbox', id='Draadloos', value='Draadloos')
+							| Draadloos
+							br
+							input(type='checkbox', id='Bedraad', value='Bedraad')
+							| Bedraad
+							
 					.producten-container
 						table.producten
 							tbody

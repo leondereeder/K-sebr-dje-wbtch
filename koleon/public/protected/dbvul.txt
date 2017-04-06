@@ -71,8 +71,8 @@ VALUES
 
 INSERT INTO CATEGORIES
 VALUES 	
-	(1,'Gaming Laptops'),
-	(2,'Gaming Desktops'),
+	(1,'Gaming-Laptops'),
+	(2,'Gaming-Desktops'),
 	(3,'Workstation'),
 	(4,'Randapperatuur')
 ;
@@ -85,9 +85,9 @@ VALUES
 	(6,'17-inch'),
 	(7,'Nvidea'),
 	(8,'AMD'),
-	(9,'DDR4 RAM'),
-	(10,'DDR3 RAM'),
-	(11,'Gaming Muis'),
+	(9,'DDR4-RAM'),
+	(10,'DDR3-RAM'),
+	(11,'Gaming-Muis'),
 	(12,'Optisch'),
 	(13,'Laser'),
 	(14,'Toetsenbord'),

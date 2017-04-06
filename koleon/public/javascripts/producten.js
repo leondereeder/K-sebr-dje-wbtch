@@ -51,13 +51,60 @@ function generateProductName() {
     return name;
 }
 
+function getSorting() {
+	
+	var e = document.getElementById('orderby');
+	var orderby = e.options[e.selectedIndex].value;
+	console.log(orderby);
+	return orderby;
+}
+
+var checkboxes = ['13-inch', '15-inch', '17-inch', 'Dell', 'HP', 'Asus', 'Acer', 'MSI', 'Logitech', 'Trust', 'Gaming-Laptops', 'Gaming-Desktops', 'Randapperatuur', 'Headset', 'Nvidea', 'AMD', 'DDR3-RAM', 'DDR4-RAM', 'Gaming-Muis', 'Optisch', 'Laser', 'Toetsenbord', 'Draadloos', 'Bedraad'];
+
+function getFilter() {
+	var filter = [];
+	
+	
+	//loop to check which checkboxes are checked and add values to array accordingly
+	for(var i=0; i < checkboxes.length; i++)
+	{
+		if (document.getElementById(checkboxes[i]).checked)
+		{
+			var x = document.getElementById(checkboxes[i]).value;
+			filter.push(x);
+		}
+		
+		else if (document.getElementById(checkboxes[i]).checked == false)
+		{
+			filter.push('0');
+		}
+	}
+	console.log(filter);
+	return filter;
+}
+
 $(document).ready(function(){
+	//eventlisteners
+	//voor checkboxes
+	for(var i=0; i<checkboxes.length; i++)	
+	{
+		document.getElementById(checkboxes[i]).addEventListener("change", function(){getFilter()});
+		
+	}
+	//sorteerbox
+	document.getElementById('orderby').addEventListener("change", function(){getSorting()});
+	
 	getProducts(1);
 });
 
 function getProducts(pageNr){
 	var data = [];
 	data.push(pageNr);
+	
+	var sort = getSorting();
+	var filter = getFilter();
+	console.log(sort);
+	//console.log(filter);
 	
 	var http = new XMLHttpRequest();
 	var url = "producten.html";
