@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
 var sqlite3 = require('sqlite3').verbose()
+var x = "SELECT ProductID AS productID, ProductName AS productName, Description AS description, Stock AS stock, Price AS price, Image as image FROM PRODUCTS ORDER BY Price ASC";
 
 router.get('/', function(req, res, next) {
   res.render('producten');
@@ -18,7 +19,7 @@ router.post('/', function(req, res, next) {
 	var data = [];
 	var db = new sqlite3.Database('public/protected/db.sqlite3');
 	// DB logic
-	db.each("SELECT ProductID AS productID, ProductName AS productName, Description AS description, Stock AS stock, Price AS price, Image as image FROM PRODUCTS ORDER BY Price ASC", function(err, row) {
+	db.each(x, function(err, row) {
 		data.push(row);
 	});
 	sendData();

@@ -83,16 +83,43 @@ function getFilter() {
 	return filter;
 }
 
+function generateFilteringQuery() {
+	var sort = getSorting();
+	var filter = getFilter();
+	
+	var query = "SELECT ProductID AS productID, ProductName AS productName, Description AS description, Stock AS stock, Price AS price, Image as image FROM PRODUCTS AS P INNER JOIN CATEGORIES AS CG ON P.CategoryID=CG.CategoryID INNER JOIN SUBCATEGORIES AS SCG ON P.SubCategory=SCG INNER JOIN SUBCATEGORIES AS SCG2 ON P.SubCategory2ID=SCG2.SubCategoryID INNER JOIN MANUFACTURERS AS M ON P.ManufacturerID=M.ManufacturerID WHERE P.ProductID=P.ProductID ";
+	for(var i =0; i < filter.length; i++)
+	{
+		if(i > 3 && i < 11 && filter[i] != '0')
+		{
+			query = query + "OR ManufacturerName='" + filter[i] + "' ";
+			
+		}
+		else if(i>10 && i < 14 && filter[i] != '0')
+		{
+			query = query + "OR CategoryName='" + filter[i] + "' ";
+		}
+		
+		else if ((i < 4 || i > 13) && filter[i] != '0')
+		{
+			query = query + "OR (SCG.SubCategoryName='" + filter[i] + "' OR SCG2.SubCategoryName='" + filter[i] + "') "
+		}
+	}
+	query = query + "ORDER BY " + sort + ";";
+	console.log(query);
+	getProducts(1);
+}
+
 $(document).ready(function(){
 	//eventlisteners
 	//voor checkboxes
 	for(var i=0; i<checkboxes.length; i++)	
 	{
-		document.getElementById(checkboxes[i]).addEventListener("change", function(){getFilter()});
+		document.getElementById(checkboxes[i]).addEventListener("change", function(){generateFilteringQuery()});
 		
 	}
 	//sorteerbox
-	document.getElementById('orderby').addEventListener("change", function(){getSorting()});
+	document.getElementById('orderby').addEventListener("change", function(){generateFilteringQuery()});
 	
 	getProducts(1);
 });
@@ -100,11 +127,6 @@ $(document).ready(function(){
 function getProducts(pageNr){
 	var data = [];
 	data.push(pageNr);
-	
-	var sort = getSorting();
-	var filter = getFilter();
-	console.log(sort);
-	//console.log(filter);
 	
 	var http = new XMLHttpRequest();
 	var url = "producten.html";
