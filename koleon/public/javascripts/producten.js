@@ -86,23 +86,38 @@ function getFilter() {
 function generateFilteringQuery() {
 	var sort = getSorting();
 	var filter = getFilter();
+	var first = true;
 	
-	var query = "SELECT ProductID AS productID, ProductName AS productName, Description AS description, Stock AS stock, Price AS price, Image as image FROM PRODUCTS AS P INNER JOIN CATEGORIES AS CG ON P.CategoryID=CG.CategoryID INNER JOIN SUBCATEGORIES AS SCG ON P.SubCategory=SCG INNER JOIN SUBCATEGORIES AS SCG2 ON P.SubCategory2ID=SCG2.SubCategoryID INNER JOIN MANUFACTURERS AS M ON P.ManufacturerID=M.ManufacturerID WHERE P.ProductID=P.ProductID ";
+	var query = "SELECT ProductID AS productID, ProductName AS productName, Description AS description, Stock AS stock, Price AS price, Image as image FROM PRODUCTS AS P INNER JOIN CATEGORIES AS CG ON P.CategoryID=CG.CategoryID INNER JOIN SUBCATEGORIES AS SCG ON P.SubCategoryID=SCG.SubCategoryID INNER JOIN SUBCATEGORIES AS SCG2 ON P.SubCategory2ID=SCG2.SubCategoryID INNER JOIN MANUFACTURERS AS M ON P.ManufacturerID=M.ManufacturerID WHERE ";
 	for(var i =0; i < filter.length; i++)
 	{
-		if(i > 3 && i < 11 && filter[i] != '0')	//filter manufacturers
+		if(i >= 3 && i <= 9 && filter[i] != '0' && first == true)
 		{
-			query = query + "OR ManufacturerName='" + filter[i] + "' ";
+			query = query + "ManufacturerName='" + filter[i] + "' ";
+			first = false;
+		}
+		else if(i >= 3 && i <= 9 && filter[i] != '0' && first == false)	//filter manufacturers
+		{
+			query = query + "AND ManufacturerName='" + filter[i] + "' ";
 			
 		}
-		else if(i>10 && i < 14 && filter[i] != '0')	//filter op categorie
+		else if(i>=10 && i <= 12 && filter[i] != '0' && first == true)	//filter op categorie
+		{
+			query = query + "CategoryName='" + filter[i] + "' ";
+			first = false;
+		}
+		else if(i>=10 && i <= 12 && filter[i] != '0' && first == false)	//filter op categorie
 		{
 			query = query + "OR CategoryName='" + filter[i] + "' ";
 		}
-		
-		else if ((i < 4 || i > 13) && filter[i] != '0')	//filter op subcategory
+		else if((i <= 2 || i >= 13) && filter[i] != '0' && first ==  true)	//filter op categorie
 		{
-			query = query + "OR (SCG.SubCategoryName='" + filter[i] + "' OR SCG2.SubCategoryName='" + filter[i] + "') "
+			query = query + "(SCG.SubCategoryName='" + filter[i] + "' OR SCG2.SubCategoryName='" + filter[i] + "') ";
+			first = false;
+		}
+		else if ((i <= 2 || i >= 13) && filter[i] != '0' && first == false)	//filter op subcategory
+		{
+			query = query + "OR (SCG.SubCategoryName='" + filter[i] + "' OR SCG2.SubCategoryName='" + filter[i] + "') ";
 		}
 	}
 	query = query + "ORDER BY " + sort + ";";
