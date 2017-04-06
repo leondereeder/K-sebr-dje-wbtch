@@ -97,15 +97,11 @@ html
 							br
 							input(type='checkbox', name='RandApp', value='Randapperatuur')
 							| Randapperatuur
-					table.producten
-						tbody
-							each product, i in products
-								td(id='product#{i}' onclick='activateModal("#{product.productID}", "#{product.productName}", #{product.price}, "#{product.description}", "#{product.image}")')
-									img(src='images/products/#{product.image}', alt='#{product.productName}')
-									br
-									| #{product.productName}
-									br
-									| €#{product.price}-
+					.producten-container
+						table.producten
+							tbody
+								tr
+						.pagination
 					#myModal.modal
 						.modal-content
 							.modal-header

@@ -51,8 +51,13 @@ function generateProductName() {
     return name;
 }
 
-$(document).ready(function (){
+$(document).ready(function(){
+	getProducts(1);
+});
+
+function getProducts(pageNr){
 	var data = [];
+	data.push(pageNr);
 	
 	var http = new XMLHttpRequest();
 	var url = "producten.html";
@@ -64,19 +69,66 @@ $(document).ready(function (){
 	http.onreadystatechange = function() {//Call a function when the state changes.
 		if(http.readyState == 4 && http.status == 200) {
 			var products = (JSON.parse(http.responseText));
-			for(i=0;i<products.length;i++) {
+			for(i=0;i<products.length-1;i++) {
 				$(".producten").css("display", "table");
-				$(".producten").find("tbody").append("<td(id=" + products[i].productID + " onclick='activateModal('" + products[i].productID + "', '" + products[i].productName + "', " + products[i].price + ", '" + products[i].description + "', '" + product[i].image + "')>+<img src='images/products/" + products[i].image  + "' alt='" + products[i].productName + "'<br>" + products[i].productName + "<br>€" + products[i].price + "-");
+				$(".producten").find("tr").append(
+				"<td id='product" + i + "'" +
+				" onclick=\"activateModal('" + products[i].productID + "', '" + products[i].productName + "', '" + products[i].price +  "', '" + products[i].description  +  "', '" + products[i].image + "')\">" + 
+				"<img src='images/products/" + products[i].image  + "' alt='" + products[i].productName + "'><br>" + products[i].productName + "<br>€" + products[i].price + "-" );
 			}
+			makePages(products[products.length-1]);
 		}
 	}
 	http.send(JSON.stringify(data));
-});
+}
 
-$(document).ready(function(){
+currentPage = 1;
+
+function makePages(totalProducts) {
+	var totalPages = Math.ceil(totalProducts/12);
+	$(".pagination").append("<a href='javascript:changePage(\"previous\");'>&laquo;</a>");
+	for(i=1;i!=totalPages+1;i++) {
+		if(i==currentPage) {
+			$(".pagination").append("<a href='javascript:changePage(" + i + ");' class='active'>" + i + "</a>");
+		}
+		else {
+			$(".pagination").append("<a href='javascript:changePage(" + i + ");'>" + i + "</a>");
+		}
+	}
+	$(".pagination").append("<a href='javascript:changePage(\"next\");'>&raquo;</a>");
+	makeRows();
+}
+
+function changePage(page) {
+	switch(page) {
+		case 'next':
+			resetPage();
+			getProducts(currentPage + 1);
+			currentPage++;
+			break;
+		case 'previous':
+			if(currentPage > 1) {
+				resetPage();
+				getProducts(currentPage - 1);
+				currentPage-=1;
+			}
+			break;
+		default:
+			resetPage();
+			getProducts(page);
+			currentPage=page;
+			break;
+	}
+	function resetPage() {
+		$(".pagination").empty();
+		$("tbody").empty().append("<tr></tr>");
+	}
+}
+
+function makeRows() {
 	var count = $(".producten").find($("td")).length;
 	for(i=0;i<count;i+=3) {
 		$("tbody").find("tr:last-child").after("<tr id='productsContainer"+i+"'></tr>");
 		$("#product"+i+", #product"+(i+1)+", #product"+(i+2)).appendTo("#productsContainer"+i);
 	}
-});
+}

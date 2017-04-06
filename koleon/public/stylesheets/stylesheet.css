@@ -183,13 +183,15 @@ button:hover {
 /* End of generic styling */
 /* Producten page */
 
-.producten {
+.producten-container {
     margin: auto;
-    border-collapse: collapse;
-    width: 10px;
     font-family: Abel, Verdana;
     text-align: center;
-    margin-bottom: 50px;
+	display:table;
+}
+
+.producten {
+	margin-bottom:20px;
 }
 
 td button {
@@ -248,6 +250,22 @@ td,
 	padding:5px 20px 20px 20px;
 	margin-bottom:20px;
 }
+.pagination {
+	display:inline-table;
+}
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+}
+.pagination a.active {
+    background-color: royalblue;
+    color: white;
+}
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
 /* End of producten page */
 /* Laptop samenstellen page */
 
