@@ -61,6 +61,18 @@ function getSorting() {
 
 var checkboxes = ['13-inch', '15-inch', '17-inch', 'Dell', 'HP', 'Asus', 'Acer', 'MSI', 'Logitech', 'Trust', 'Gaming-Laptops', 'Gaming-Desktops', 'Randapperatuur', 'Headset', 'Nvidea', 'AMD', 'DDR3-RAM', 'DDR4-RAM', 'Gaming-Muis', 'Optisch', 'Laser', 'Toetsenbord', 'Draadloos', 'Bedraad'];
 
+function showFilter() {
+	
+	if (document.getElementById('Gaming-Laptops').checked)
+	{
+		document.getElementById('schermgrootte').style.visibility = "visible";
+	}
+	else 
+	{
+		document.getElementById('schermgrootte').style.visibility = "hidden";
+	}
+}
+
 function getFilter() {
 	var filter = [];
 	
@@ -88,22 +100,22 @@ function generateFilteringQuery() {
 	var filter = getFilter();
 	var first = true;
 	
-	var query = "SELECT ProductID AS productID, ProductName AS productName, Description AS description, Stock AS stock, Price AS price, Image as image FROM PRODUCTS AS P INNER JOIN CATEGORIES AS CG ON P.CategoryID=CG.CategoryID INNER JOIN SUBCATEGORIES AS SCG ON P.SubCategoryID=SCG.SubCategoryID INNER JOIN SUBCATEGORIES AS SCG2 ON P.SubCategory2ID=SCG2.SubCategoryID INNER JOIN MANUFACTURERS AS M ON P.ManufacturerID=M.ManufacturerID WHERE ";
+	var query = "SELECT ProductID AS productID, ProductName AS productName, Description AS description, Stock AS stock, Price AS price, Image as image FROM PRODUCTS AS P INNER JOIN CATEGORIES AS CG ON P.CategoryID=CG.CategoryID INNER JOIN SUBCATEGORIES AS SCG ON P.SubCategoryID=SCG.SubCategoryID INNER JOIN SUBCATEGORIES AS SCG2 ON P.SubCategory2ID=SCG2.SubCategoryID INNER JOIN MANUFACTURERS AS M ON P.ManufacturerID=M.ManufacturerID ";
 	for(var i =0; i < filter.length; i++)
 	{
 		if(i >= 3 && i <= 9 && filter[i] != '0' && first == true)
 		{
-			query = query + "ManufacturerName='" + filter[i] + "' ";
+			query = query + "WHERE ManufacturerName='" + filter[i] + "' ";
 			first = false;
 		}
 		else if(i >= 3 && i <= 9 && filter[i] != '0' && first == false)	//filter manufacturers
 		{
-			query = query + "AND ManufacturerName='" + filter[i] + "' ";
+			query = query + "OR ManufacturerName='" + filter[i] + "' ";
 			
 		}
 		else if(i>=10 && i <= 12 && filter[i] != '0' && first == true)	//filter op categorie
 		{
-			query = query + "CategoryName='" + filter[i] + "' ";
+			query = query + "WHERE CategoryName='" + filter[i] + "' ";
 			first = false;
 		}
 		else if(i>=10 && i <= 12 && filter[i] != '0' && first == false)	//filter op categorie
@@ -112,7 +124,7 @@ function generateFilteringQuery() {
 		}
 		else if((i <= 2 || i >= 13) && filter[i] != '0' && first ==  true)	//filter op categorie
 		{
-			query = query + "(SCG.SubCategoryName='" + filter[i] + "' OR SCG2.SubCategoryName='" + filter[i] + "') ";
+			query = query + "WHERE (SCG.SubCategoryName='" + filter[i] + "' OR SCG2.SubCategoryName='" + filter[i] + "') ";
 			first = false;
 		}
 		else if ((i <= 2 || i >= 13) && filter[i] != '0' && first == false)	//filter op subcategory
