@@ -49,26 +49,34 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 })); 
 		
 app.post('/index.html', function(req, res, next) {
-	var db = new sqlite3.Database('public/protected/db.sqlite3');
+    var db = new sqlite3.Database('public/protected/db.sqlite3');
+
 	// DB logic
-	db.each("SELECT UserName AS userName, Password AS password, UserID AS userID FROM USERS WHERE UserName = '" + req.body.username + "' AND Password = '" + req.body.password + "'", function(err, row) {
-		console.log(row);
-		if (req.body.remember) {
-			cookie.serialize('id', row.userID.toString(), {
-			  httpOnly: true,
-			  maxAge: 60 * 60 * 24 * 180, // 6 months
-			  path: "/",
-			  secure: false
-			})
+	db.get("SELECT UserName AS userName, Password AS password, UserID AS userID FROM USERS WHERE UserName = '" + req.body.username + "' AND Password = '" + req.body.password + "'", function(err, row) {
+		if(row) {
+			console.log(row);
+			if (req.body.remember == 'on') {
+			console.log("MEMBER ME!");
+				cookie.serialize('id', row.userID.toString(), {
+				  httpOnly: true,
+				  maxAge: 60 * 60 * 24 * 180, // 6 months
+				  path: "/",
+				  secure: false
+				});
+			}
+			else {
+				cookie.serialize('id', row.userID, {
+				  httpOnly: true,
+				  path: "/",
+				  secure: false
+				});
+			}
 		}
 		else {
-			cookie.serialize('id', row.userID, {
-			  httpOnly: true,
-			  path: "/",
-			  secure: false
-			})
+			console.log("Wrong uname and/or pwd");
 		}
 	});
+
 	next();
 });
 
