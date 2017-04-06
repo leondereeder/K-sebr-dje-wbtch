@@ -63,13 +63,28 @@ var checkboxes = ['13-inch', '15-inch', '17-inch', 'Dell', 'HP', 'Asus', 'Acer',
 
 function showFilter() {
 	
-	if (document.getElementById('Gaming-Laptops').checked)
+	if (document.getElementById('Gaming-Laptops').checked || document.getElementById('Gaming-Desktops').checked)
 	{
-		document.getElementById('schermgrootte').style.visibility = "visible";
+		document.getElementById('schermgrootte').style.visibility = 'visible';
+		document.getElementById('merk').style.visibility = 'visible';
+		document.getElementById('computereigenschappen').style.visibility = 'visible';
 	}
 	else 
 	{
-		document.getElementById('schermgrootte').style.visibility = "hidden";
+		document.getElementById('schermgrootte').style.visibility = 'hidden';
+		document.getElementById('computereigenschappen').style.visibility = 'hidden';
+	}
+	
+	
+	if (document.getElementById('Randapperatuur').checked)
+	{
+		document.getElementById('merk').style.visibility = 'visible';
+		document.getElementById('randapperatuureigenschappen').style.visibility = 'visible';
+	}
+	else 
+	{
+		document.getElementById('randapperatuureigenschappen').style.visibility = 'hidden';
+		
 	}
 }
 
@@ -143,11 +158,11 @@ $(document).ready(function(){
 	for(var i=0; i<checkboxes.length; i++)	
 	{
 		document.getElementById(checkboxes[i]).addEventListener("change", function(){generateFilteringQuery()});
-		
+		document.getElementById(checkboxes[i]).addEventListener("change", function(){showFilter()});
 	}
 	//sorteerbox
 	document.getElementById('orderby').addEventListener("change", function(){generateFilteringQuery()});
-	
+	showFilter();
 	getProducts(1);
 });
 

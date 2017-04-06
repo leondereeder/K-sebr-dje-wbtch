@@ -55,17 +55,17 @@ html
 								option(value='ProductName ASC') Naam - van A tot Z
 								option(value='ProductName DESC') Naam - van Z tot A
 					aside.sortProductsContainer
-						div.sortProducts(id='schermgrootte', hidden='')
-							p Schermgrootte
-							input(type='checkbox', id='13-inch', value='13-inch')
-							| 13 inch
+						div.sortProducts(id='product')
+							p Product
+							input(type='checkbox', id='Gaming-Laptops', value='Gaming-Laptop')
+							| Gaming Laptop
 							br
-							input(type='checkbox', id='15-inch', value='15-inch')
-							| 15 inch
+							input(type='checkbox', id='Gaming-Desktops', value='Gaming-Desktop')
+							| Gaming Desktop
 							br
-							input(type='checkbox', id='17-inch', value='17-inch')
-							| 17 inch						
-						div.sortProducts
+							input(type='checkbox', id='Randapperatuur', value='Randapperatuur')
+							| Randapperatuur
+						div.sortProducts(id='merk')
 							p Merk
 							input(type='checkbox', id='Dell', value='Dell')
 							| Dell
@@ -87,20 +87,18 @@ html
 							br
 							input(type='checkbox', id='Trust', value='Trust')
 							| Trust
-						div.sortProducts
-							p Product
-							input(type='checkbox', id='Gaming-Laptops', value='Gaming-Laptop')
-							| Gaming Laptop
+						div.sortProducts(id='schermgrootte')
+							p Schermgrootte
+							input(type='checkbox', id='13-inch', value='13-inch')
+							| 13 inch
 							br
-							input(type='checkbox', id='Gaming-Desktops', value='Gaming-Desktop')
-							| Gaming Desktop
+							input(type='checkbox', id='15-inch', value='15-inch')
+							| 15 inch
 							br
-							input(type='checkbox', id='Randapperatuur', value='Randapperatuur')
-							| Randapperatuur
-						div.sortProducts
+							input(type='checkbox', id='17-inch', value='17-inch')
+							| 17 inch						
+						div.sortProducts(id='computereigenschappen')
 							p Eigenschappen
-							input(type='checkbox', id='Headset', value='Headset')
-							| Headset
 							br
 							input(type='checkbox', id='Nvidea', value='Nvidea')
 							| Nvidea based
@@ -113,6 +111,10 @@ html
 							br
 							input(type='checkbox', id='DDR4-RAM', value='DDR4-RAM')
 							| DDR4 RAM
+						div.sortProducts(id='randapperatuureigenschappen')
+							p Eigenschappen
+							input(type='checkbox', id='Headset', value='Headset')
+							| Headset
 							br
 							input(type='checkbox', id='Gaming-Muis', value='Gaming-Muis')
 							| Gaming Muis
