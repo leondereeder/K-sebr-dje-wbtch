@@ -612,6 +612,15 @@ span.psw {
         opacity: 1
     }
 }
+#afrekenBevestiging .modal-content {
+	width:40%;
+	margin:5% auto;
+	text-align:center;
+}
+#afrekenBevestiging .modal-content button {
+	width:100px;
+	margin:10px;
+}
 /* End of modal */
 /* Winkelwagen page */
 

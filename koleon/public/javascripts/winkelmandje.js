@@ -37,6 +37,48 @@ function activateModal(id, productName, price, description, image, cookieNmbr) {
     }
 }
 
+document.getElementById("afrekenen").addEventListener("click", function() {bevestigAankoop();});
+
+function bevestigAankoop() {
+	var modal = document.getElementById('afrekenBevestiging');
+    var modalbody = document.getElementById('modaltext');
+    var span = document.getElementsByClassName("close")[0];
+	var nietBevestigen = document.getElementById("nietBevestigen");
+	var welBevestigen = document.getElementById("welBevestigen");
+    modal.style.display = "block";
+	
+    // When a user clicks 'Ja' delete everything from shopping cart because the item has been purchased
+    welBevestigen.onclick = function () {
+        modal.style.display = "none";
+		deleteProducts();
+    }
+	
+	function deleteProducts() {
+		var cnt = document.cookie.length;
+		var path = window.location.pathname;
+		for (i=0;i<cnt;i+=1) {
+			document.cookie = "product_" + i + "=; expires=Thu, 18 Dec 2014 12:00:00 UTC;path=/";
+	}
+	location.reload();
+	}
+
+	// When the user click 'Nee', close the modal
+	nietBevestigen.onclick = function() {
+		modal.style.display = "none";
+	}
+    // When the user clicks the close button, close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks outside the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+}
+
 var data = [];
 // When the document is ready, add all products to the shopping cart page
 $(document).ready(function getCookie() {
