@@ -269,7 +269,7 @@ td,
 	float:right;
 	    width: auto;
     position: absolute;
-    left: 10%;
+    left: 30%;
     top: 50%;
     transform: translateY(-50%);
 }

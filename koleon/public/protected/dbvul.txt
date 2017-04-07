@@ -15,7 +15,7 @@ VALUES
 INSERT INTO PRODUCTS 
 VALUES
 	/*Gaming laptops*/
-	('Alien17','Alienware 17','Enorm beeldscherm. Overweldigende grafische prestaties. De Alienware 17 is de perfecte gaminglaptop voor kracht en prestaties. Voeg de optionele Graphics Amplifier toe om de ervaring nog beter te maken.',10,1,1,1,5,7,900,'Alienware17.png'),	
+	('Alien17','Alienware 17','Enorm beeldscherm. Overweldigende grafische prestaties. De Alienware 17 is de perfecte gaminglaptop voor kracht en prestaties. Voeg de optionele Graphics Amplifier toe om de ervaring nog beter te maken.',10,1,1,1,5,7,900,'alienware17.png'),	
 	('MSI5','MSI 5','De GL72 notebook van MSI is een krachtige notebook, ideaal voor zowel multimedia als gaming. Dankzij de laatste Intel Core i7 processor, 8 GB geheugen en een harde schijf van 1 TB is deze snelle notebook een echte alleskunner. Deze notebook is ook voorzien van de nieuwste NVIDIA GTX960M videokaart en voorzien van Windows 10. Kortom deze notebook heeft alles in huis voor de complete game-ervaring!',10,2,5,1,5,7,800,'msi5.png'),
 	('PredX','Predator X','De Predator X brengt je game-ervaring tot ongekende hoogtes dankzij de nieuwste Intel-i7 processor en gtx 1080 videokaart. Samen met een full HD scherm en 16 gigabyte RAM geheugen kan niks je stoppen. ',5,2,6,1,6,8,1200,'PredatorX.png'),
 	('PowerH36','HP PowerHouse 36','De HP PowerHouse36 biedt een unieke 13 inch 2-in-1 laptop die je gemakkelijk onderweg gebruikt, de batterij gaat wel tot 12.5 uur mee. Dankzij de 256 GB SSD-schijf, is de HP PowerHouse36 ook razendsnel. Je geniet optimaal van multimedia, deelt bestanden en werkt productief met allerlei programmas.',3,1,2,1,5,7,1400,'PowerH36.png'),

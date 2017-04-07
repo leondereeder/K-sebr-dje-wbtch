@@ -127,48 +127,8 @@ function getFilter() {
 function generateFilteringQuery() {
 	delete data[1];
 	delete data[2];
-	//data.push(getSorting());
-	//data.push(getFilter());
 	resetPage();
 	getProducts();
-
-	var sort = getSorting();
-	var filter = getFilter();
-	var first = true;
-	
-	var query = "SELECT ProductID AS productID, ProductName AS productName, Description AS description, Stock AS stock, Price AS price, Image as image FROM PRODUCTS AS P INNER JOIN CATEGORIES AS CG ON P.CategoryID=CG.CategoryID INNER JOIN SUBCATEGORIES AS SCG ON P.SubCategoryID=SCG.SubCategoryID INNER JOIN SUBCATEGORIES AS SCG2 ON P.SubCategory2ID=SCG2.SubCategoryID INNER JOIN MANUFACTURERS AS M ON P.ManufacturerID=M.ManufacturerID ";
-	for(var i =0; i < filter.length; i++)
-	{
-		if(i >= 3 && i <= 10 && filter[i] != '0' && first == true)
-		{
-			query = query + "WHERE ManufacturerName='" + filter[i] + "' ";
-			first = false;
-		}
-		else if(i >= 3 && i <= 10 && filter[i] != '0' && first == false)	//filter manufacturers
-		{
-			query = query + "OR ManufacturerName='" + filter[i] + "' ";
-			
-		}
-		else if(i>=11 && i <= 13 && filter[i] != '0' && first == true)	//filter op categorie
-		{
-			query = query + "WHERE CategoryName='" + filter[i] + "' ";
-			first = false;
-		}
-		else if(i>=11 && i <= 13 && filter[i] != '0' && first == false)	//filter op categorie
-		{
-			query = query + "OR CategoryName='" + filter[i] + "' ";
-		}
-		else if((i <= 2 || i >= 14) && filter[i] != '0' && first ==  true)	//filter op subcategorie
-		{
-			query = query + "WHERE (SCG.SubCategoryName='" + filter[i] + "' OR SCG2.SubCategoryName='" + filter[i] + "') ";
-			first = false;
-		}
-		else if ((i <= 2 || i >= 14) && filter[i] != '0' && first == false)	//filter op subcategory
-		{
-			query = query + "OR (SCG.SubCategoryName='" + filter[i] + "' OR SCG2.SubCategoryName='" + filter[i] + "') ";
-		}
-	}
-	query = query + "ORDER BY " + sort + ";";
 }
 
 $(document).ready(function(){
