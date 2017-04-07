@@ -61,7 +61,7 @@ function getSorting() {
 	return orderby;
 }
 
-var checkboxes = ['13-inch', '15-inch', '17-inch', 'Dell', 'HP', 'Asus', 'Acer', 'MSI', 'Logitech', 'Trust', 'Razer','Gaming-Laptops', 'Gaming-Desktops', 'Randapperatuur', 'Nvidea', 'AMD', 'DDR3-RAM', 'DDR4-RAM', 'Headset', 'Gaming-Muis', 'Optisch', 'Laser', 'Toetsenbord', 'Draadloos', 'Bedraad'];
+var checkboxes = ['Gaming-Laptops', 'Gaming-Desktops', 'Randapperatuur', 'Dell', 'HP', 'Asus', 'Acer', 'MSI', 'Logitech', 'Trust', 'Razer','13-inch', '15-inch', '17-inch','Nvidea', 'AMD', 'DDR3-RAM', 'DDR4-RAM', 'Headset', 'Gaming-Muis', 'Optisch', 'Laser', 'Toetsenbord', 'Draadloos', 'Bedraad'];
 
 function showFilter() {
 	
