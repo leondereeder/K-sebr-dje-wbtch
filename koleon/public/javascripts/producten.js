@@ -57,7 +57,6 @@ function getSorting() {
 	
 	var e = document.getElementById('orderby');
 	var orderby = e.options[e.selectedIndex].value;
-	console.log(orderby);
 	return orderby;
 }
 
@@ -120,7 +119,6 @@ function getFilter() {
 			filter.push('0');
 		}
 	}
-	console.log(filter);
 	return filter;
 }
 
@@ -141,10 +139,18 @@ $(document).ready(function(){
 	}
 	//sorteerbox
 	document.getElementById('orderby').addEventListener("change", function(){generateFilteringQuery()});
+	$("#searchProducts").keyup(function() {searchProducts()});
 
 	showFilter();
 	generateFilteringQuery();
 });
+
+function searchProducts() {
+	var searchFor = document.getElementById("searchProducts").value;
+	resetPage();
+	data[3]=searchFor;
+	getProducts();
+}
 
 function getProducts(){
 	data[0] = currentPage;
@@ -220,6 +226,7 @@ function resetPage() {
 		$(".pagination").empty();
 		$("tbody").empty().append("<tr></tr>");
 		delete data[0];
+		delete data[3];
 	}
 
 function makeRows() {

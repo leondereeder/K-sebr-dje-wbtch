@@ -14,6 +14,7 @@ router.post('/', function(req, res, next) {
 	var pageNr = req.body[0];
 	var sort = req.body[1];
 	var filter = req.body[2];
+	var searchFor = req.body[3];
 
 	var startProducts = ((pageNr-1)*12);
 	var isEmpty = true;
@@ -29,12 +30,15 @@ router.post('/', function(req, res, next) {
 		}	
 	}
 	if(isEmpty == true) {
-		var query = "SELECT ProductID AS productID, ProductName AS productName, Description AS description, Stock AS stock, Price AS price, Image as image FROM PRODUCTS AS P INNER JOIN CATEGORIES AS CG ON P.CategoryID=CG.CategoryID INNER JOIN SUBCATEGORIES AS SCG ON P.SubCategoryID=SCG.SubCategoryID INNER JOIN SUBCATEGORIES AS SCG2 ON P.SubCategory2ID=SCG2.SubCategoryID INNER JOIN MANUFACTURERS AS M ON P.ManufacturerID=M.ManufacturerID";
+		var query = "SELECT ProductID AS productID, ProductName AS productName, Description AS description, Stock AS stock, Price AS price, Image as image FROM PRODUCTS AS P INNER JOIN CATEGORIES AS CG ON P.CategoryID=CG.CategoryID INNER JOIN SUBCATEGORIES AS SCG ON P.SubCategoryID=SCG.SubCategoryID INNER JOIN SUBCATEGORIES AS SCG2 ON P.SubCategory2ID=SCG2.SubCategoryID INNER JOIN MANUFACTURERS AS M ON P.ManufacturerID=M.ManufacturerID ";
+		if (typeof searchFor !== "undefined") {
+			query += "WHERE productName LIKE '%" + searchFor + "%'";
+		}
 		query = query + " ORDER BY " + sort;
 		console.log(query);
 	}
 	else {
-		var query = generateFilteringQuery(sort, filter);
+		var query = generateFilteringQuery(sort, filter, searchFor);
 	}
 		
 	var data = [];
@@ -57,7 +61,7 @@ router.post('/', function(req, res, next) {
 	}
 });
 
-function generateFilteringQuery(sort, filter) {
+function generateFilteringQuery(sort, filter, searchFor) {
 	first = true;
 	console.log("succes");
 	
@@ -93,7 +97,10 @@ function generateFilteringQuery(sort, filter) {
 			query = query + "OR (SCG.SubCategoryName='" + filter[i] + "' OR SCG2.SubCategoryName='" + filter[i] + "') ";
 		}
 	}
-	query = query + "ORDER BY " + sort;
+	if(typeof searchFor !== "undefined") {
+		query += "LIKE %" + searchFor + "%";
+	}
+	query = query + " ORDER BY " + sort;
 	console.log(query);
 	return query;
 }
