@@ -65,25 +65,26 @@ function showFilter() {
 	
 	if (document.getElementById('Gaming-Laptops').checked || document.getElementById('Gaming-Desktops').checked)
 	{
-		document.getElementById('schermgrootte').style.visibility = 'visible';
-		document.getElementById('merk').style.visibility = 'visible';
-		document.getElementById('computereigenschappen').style.visibility = 'visible';
+		document.getElementById('schermgrootte').style.display = 'block';
+		document.getElementById('computereigenschappen').style.display = 'block';
+		document.getElementById('merk').style.display = 'block';
+		
 	}
 	else 
 	{
-		document.getElementById('schermgrootte').style.visibility = 'hidden';
-		document.getElementById('computereigenschappen').style.visibility = 'hidden';
+		document.getElementById('computereigenschappen').style.display = 'none';
+		document.getElementById('schermgrootte').style.display = 'none';
 	}
 	
 	
 	if (document.getElementById('Randapperatuur').checked)
 	{
-		document.getElementById('merk').style.visibility = 'visible';
-		document.getElementById('randapperatuureigenschappen').style.visibility = 'visible';
+		document.getElementById('merk').style.display = 'block';
+		document.getElementById('randapperatuureigenschappen').style.display = 'block';
 	}
 	else 
 	{
-		document.getElementById('randapperatuureigenschappen').style.visibility = 'hidden';
+		document.getElementById('randapperatuureigenschappen').style.display = 'none';
 		
 	}
 }
