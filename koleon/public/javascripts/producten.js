@@ -51,6 +51,8 @@ function generateProductName() {
     return name;
 }
 
+var data = [];
+
 function getSorting() {
 	
 	var e = document.getElementById('orderby');
@@ -84,45 +86,12 @@ function getFilter() {
 }
 
 function generateFilteringQuery() {
-	var sort = getSorting();
-	var filter = getFilter();
-	var first = true;
-	
-	var query = "SELECT ProductID AS productID, ProductName AS productName, Description AS description, Stock AS stock, Price AS price, Image as image FROM PRODUCTS AS P INNER JOIN CATEGORIES AS CG ON P.CategoryID=CG.CategoryID INNER JOIN SUBCATEGORIES AS SCG ON P.SubCategoryID=SCG.SubCategoryID INNER JOIN SUBCATEGORIES AS SCG2 ON P.SubCategory2ID=SCG2.SubCategoryID INNER JOIN MANUFACTURERS AS M ON P.ManufacturerID=M.ManufacturerID WHERE ";
-	for(var i =0; i < filter.length; i++)
-	{
-		if(i >= 3 && i <= 9 && filter[i] != '0' && first == true)
-		{
-			query = query + "ManufacturerName='" + filter[i] + "' ";
-			first = false;
-		}
-		else if(i >= 3 && i <= 9 && filter[i] != '0' && first == false)	//filter manufacturers
-		{
-			query = query + "AND ManufacturerName='" + filter[i] + "' ";
-			
-		}
-		else if(i>=10 && i <= 12 && filter[i] != '0' && first == true)	//filter op categorie
-		{
-			query = query + "CategoryName='" + filter[i] + "' ";
-			first = false;
-		}
-		else if(i>=10 && i <= 12 && filter[i] != '0' && first == false)	//filter op categorie
-		{
-			query = query + "OR CategoryName='" + filter[i] + "' ";
-		}
-		else if((i <= 2 || i >= 13) && filter[i] != '0' && first ==  true)	//filter op categorie
-		{
-			query = query + "(SCG.SubCategoryName='" + filter[i] + "' OR SCG2.SubCategoryName='" + filter[i] + "') ";
-			first = false;
-		}
-		else if ((i <= 2 || i >= 13) && filter[i] != '0' && first == false)	//filter op subcategory
-		{
-			query = query + "OR (SCG.SubCategoryName='" + filter[i] + "' OR SCG2.SubCategoryName='" + filter[i] + "') ";
-		}
-	}
-	query = query + "ORDER BY " + sort + ";";
-	console.log(query);
-	getProducts(1);
+	delete data[1];
+	delete data[2];
+	//data.push(getSorting());
+	//data.push(getFilter());
+	resetPage();
+	getProducts();
 }
 
 $(document).ready(function(){
@@ -135,13 +104,13 @@ $(document).ready(function(){
 	}
 	//sorteerbox
 	document.getElementById('orderby').addEventListener("change", function(){generateFilteringQuery()});
-	
-	getProducts(1);
+	getProducts();
 });
 
-function getProducts(pageNr){
-	var data = [];
-	data.push(pageNr);
+function getProducts(){
+	data[0] = currentPage;
+	data[1] = getSorting();
+	data[2] = getFilter();
 	
 	var http = new XMLHttpRequest();
 	var url = "producten.html";
@@ -163,6 +132,7 @@ function getProducts(pageNr){
 			makePages(products[products.length-1]);
 		}
 	}
+	
 	http.send(JSON.stringify(data));
 }
 
@@ -186,28 +156,32 @@ function makePages(totalProducts) {
 function changePage(page) {
 	switch(page) {
 		case 'next':
-			resetPage();
-			getProducts(currentPage + 1);
-			currentPage++;
+			if(currentPage + 1 <= totalPages){
+				resetPage();
+				currentPage++;
+				getProducts();
+			}
 			break;
 		case 'previous':
 			if(currentPage > 1) {
 				resetPage();
-				getProducts(currentPage - 1);
 				currentPage-=1;
+				getProducts();
 			}
 			break;
 		default:
 			resetPage();
-			getProducts(page);
 			currentPage=page;
+			getProducts();
 			break;
 	}
-	function resetPage() {
+}
+
+function resetPage() {
 		$(".pagination").empty();
 		$("tbody").empty().append("<tr></tr>");
+		delete data[0];
 	}
-}
 
 function makeRows() {
 	var count = $(".producten").find($("td")).length;
