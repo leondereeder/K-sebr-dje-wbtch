@@ -77,7 +77,7 @@ function showFilter() {
 		//turn of checkboxes in hidden filters
 		for(var i=0;i<checkboxes.length;i++)
 		{
-			if(i<=2 || i >= 13 && i <= 17)
+			if(i >= 11 && i <= 17)
 			document.getElementById(checkboxes[i]).checked = false;
 		}
 	}
