@@ -22,7 +22,7 @@ router.post('/', function(req, res, next) {
 	
 	//check if filter is empty
 	for(i=0;i<filter.length;i++) {
-		if(filter[i]==0 || filter[i]=="0") {
+		if(filter[i]==0 || filter[i]=='0') {
 			
 		}
 		else {
@@ -106,7 +106,7 @@ function generateFilteringQuery(sort, filter) {
 		}
 	}
 	query = query + ") "
-	for(var i=0; i<filter.length; i++)
+	for(var i=3; i<=10; i++)
 	{
 		if(i>=3 && i<=10 && filter[i] != '0' && merk==false)
 		{
@@ -117,8 +117,12 @@ function generateFilteringQuery(sort, filter) {
 		{
 			query = query + "OR ManufacturerName='" + filter[i] + "'";
 		}
+		
 	}
-
+	var x = "AND"
+	if (query.includes(x))
+	{query=query+") ";}
+	
 	query=query+") ";
 	}
 	if(typeof searchFor !== "undefined") {
