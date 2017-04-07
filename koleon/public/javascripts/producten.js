@@ -125,14 +125,13 @@ function getFilter() {
 }
 
 function generateFilteringQuery() {
-<<<<<<< HEAD
 	delete data[1];
 	delete data[2];
 	//data.push(getSorting());
 	//data.push(getFilter());
 	resetPage();
 	getProducts();
-=======
+
 	var sort = getSorting();
 	var filter = getFilter();
 	var first = true;
@@ -170,9 +169,6 @@ function generateFilteringQuery() {
 		}
 	}
 	query = query + "ORDER BY " + sort + ";";
-	console.log(query);
-	//getProducts(1);
->>>>>>> origin/master
 }
 
 $(document).ready(function(){
@@ -185,13 +181,11 @@ $(document).ready(function(){
 	}
 	//sorteerbox
 	document.getElementById('orderby').addEventListener("change", function(){generateFilteringQuery()});
-<<<<<<< HEAD
+
 	getProducts();
-=======
 	showFilter();
 	generateFilteringQuery();
 	getProducts(1);
->>>>>>> origin/master
 });
 
 function getProducts(){
