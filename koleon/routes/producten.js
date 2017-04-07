@@ -98,7 +98,7 @@ function generateFilteringQuery(sort, filter) {
 	
 	for(var i =0; i < filter.length; i++)
 	{
-		else if(i>=0 && i <= 2 && filter[i] != '0')		//filter op categorie
+		if(i>=0 && i <= 2 && filter[i] != '0')		//filter op categorie
 		{
 			query = query + "OR CategoryName='" + filter[i] + "' ";
 		}
