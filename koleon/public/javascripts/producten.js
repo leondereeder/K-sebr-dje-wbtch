@@ -59,32 +59,43 @@ function getSorting() {
 	return orderby;
 }
 
-var checkboxes = ['13-inch', '15-inch', '17-inch', 'Dell', 'HP', 'Asus', 'Acer', 'MSI', 'Logitech', 'Trust', 'Gaming-Laptops', 'Gaming-Desktops', 'Randapperatuur', 'Headset', 'Nvidea', 'AMD', 'DDR3-RAM', 'DDR4-RAM', 'Gaming-Muis', 'Optisch', 'Laser', 'Toetsenbord', 'Draadloos', 'Bedraad'];
+var checkboxes = ['13-inch', '15-inch', '17-inch', 'Dell', 'HP', 'Asus', 'Acer', 'MSI', 'Logitech', 'Trust', 'Gaming-Laptops', 'Gaming-Desktops', 'Randapperatuur', 'Nvidea', 'AMD', 'DDR3-RAM', 'DDR4-RAM', 'Headset', 'Gaming-Muis', 'Optisch', 'Laser', 'Toetsenbord', 'Draadloos', 'Bedraad'];
 
 function showFilter() {
 	
 	if (document.getElementById('Gaming-Laptops').checked || document.getElementById('Gaming-Desktops').checked)
 	{
 		document.getElementById('schermgrootte').style.display = 'block';
-		document.getElementById('computereigenschappen').style.display = 'block';
-		document.getElementById('merk').style.display = 'block';
-		
+		document.getElementById('computereigenschappen').style.display = 'block';	
 	}
 	else 
 	{
 		document.getElementById('computereigenschappen').style.display = 'none';
 		document.getElementById('schermgrootte').style.display = 'none';
+		
+		//turn of checkboxes in hidden filters
+		for(var i=0;i<checkboxes.length;i++)
+		{
+			if(i<=2 || i >= 13 && i <= 16)
+			document.getElementById(checkboxes[i]).checked = false;
+		}
 	}
 	
 	
 	if (document.getElementById('Randapperatuur').checked)
 	{
-		document.getElementById('merk').style.display = 'block';
 		document.getElementById('randapperatuureigenschappen').style.display = 'block';
 	}
 	else 
 	{
 		document.getElementById('randapperatuureigenschappen').style.display = 'none';
+		
+		for(var i=0; i<checkboxes.length;i++)
+		{
+			if(i>=17)
+			document.getElementById(checkboxes[i]).checked=false;
+			
+		}
 		
 	}
 }
@@ -138,7 +149,7 @@ function generateFilteringQuery() {
 		{
 			query = query + "OR CategoryName='" + filter[i] + "' ";
 		}
-		else if((i <= 2 || i >= 13) && filter[i] != '0' && first ==  true)	//filter op categorie
+		else if((i <= 2 || i >= 13) && filter[i] != '0' && first ==  true)	//filter op subcategorie
 		{
 			query = query + "WHERE (SCG.SubCategoryName='" + filter[i] + "' OR SCG2.SubCategoryName='" + filter[i] + "') ";
 			first = false;
@@ -150,7 +161,7 @@ function generateFilteringQuery() {
 	}
 	query = query + "ORDER BY " + sort + ";";
 	console.log(query);
-	getProducts(1);
+	//getProducts(1);
 }
 
 $(document).ready(function(){
@@ -164,6 +175,7 @@ $(document).ready(function(){
 	//sorteerbox
 	document.getElementById('orderby').addEventListener("change", function(){generateFilteringQuery()});
 	showFilter();
+	generateFilteringQuery();
 	getProducts(1);
 });
 
