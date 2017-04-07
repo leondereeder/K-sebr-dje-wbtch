@@ -61,7 +61,46 @@ function getSorting() {
 	return orderby;
 }
 
-var checkboxes = ['13-inch', '15-inch', '17-inch', 'Dell', 'HP', 'Asus', 'Acer', 'MSI', 'Logitech', 'Trust', 'Gaming-Laptops', 'Gaming-Desktops', 'Randapperatuur', 'Headset', 'Nvidea', 'AMD', 'DDR3-RAM', 'DDR4-RAM', 'Gaming-Muis', 'Optisch', 'Laser', 'Toetsenbord', 'Draadloos', 'Bedraad'];
+var checkboxes = ['13-inch', '15-inch', '17-inch', 'Dell', 'HP', 'Asus', 'Acer', 'MSI', 'Logitech', 'Trust', 'Gaming-Laptops', 'Gaming-Desktops', 'Randapperatuur', 'Nvidea', 'AMD', 'DDR3-RAM', 'DDR4-RAM', 'Headset', 'Gaming-Muis', 'Optisch', 'Laser', 'Toetsenbord', 'Draadloos', 'Bedraad'];
+
+function showFilter() {
+	
+	if (document.getElementById('Gaming-Laptops').checked || document.getElementById('Gaming-Desktops').checked)
+	{
+		document.getElementById('schermgrootte').style.display = 'block';
+		document.getElementById('computereigenschappen').style.display = 'block';	
+	}
+	else 
+	{
+		document.getElementById('computereigenschappen').style.display = 'none';
+		document.getElementById('schermgrootte').style.display = 'none';
+		
+		//turn of checkboxes in hidden filters
+		for(var i=0;i<checkboxes.length;i++)
+		{
+			if(i<=2 || i >= 13 && i <= 16)
+			document.getElementById(checkboxes[i]).checked = false;
+		}
+	}
+	
+	
+	if (document.getElementById('Randapperatuur').checked)
+	{
+		document.getElementById('randapperatuureigenschappen').style.display = 'block';
+	}
+	else 
+	{
+		document.getElementById('randapperatuureigenschappen').style.display = 'none';
+		
+		for(var i=0; i<checkboxes.length;i++)
+		{
+			if(i>=17)
+			document.getElementById(checkboxes[i]).checked=false;
+			
+		}
+		
+	}
+}
 
 function getFilter() {
 	var filter = [];
@@ -86,12 +125,54 @@ function getFilter() {
 }
 
 function generateFilteringQuery() {
+<<<<<<< HEAD
 	delete data[1];
 	delete data[2];
 	//data.push(getSorting());
 	//data.push(getFilter());
 	resetPage();
 	getProducts();
+=======
+	var sort = getSorting();
+	var filter = getFilter();
+	var first = true;
+	
+	var query = "SELECT ProductID AS productID, ProductName AS productName, Description AS description, Stock AS stock, Price AS price, Image as image FROM PRODUCTS AS P INNER JOIN CATEGORIES AS CG ON P.CategoryID=CG.CategoryID INNER JOIN SUBCATEGORIES AS SCG ON P.SubCategoryID=SCG.SubCategoryID INNER JOIN SUBCATEGORIES AS SCG2 ON P.SubCategory2ID=SCG2.SubCategoryID INNER JOIN MANUFACTURERS AS M ON P.ManufacturerID=M.ManufacturerID ";
+	for(var i =0; i < filter.length; i++)
+	{
+		if(i >= 3 && i <= 9 && filter[i] != '0' && first == true)
+		{
+			query = query + "WHERE ManufacturerName='" + filter[i] + "' ";
+			first = false;
+		}
+		else if(i >= 3 && i <= 9 && filter[i] != '0' && first == false)	//filter manufacturers
+		{
+			query = query + "OR ManufacturerName='" + filter[i] + "' ";
+			
+		}
+		else if(i>=10 && i <= 12 && filter[i] != '0' && first == true)	//filter op categorie
+		{
+			query = query + "WHERE CategoryName='" + filter[i] + "' ";
+			first = false;
+		}
+		else if(i>=10 && i <= 12 && filter[i] != '0' && first == false)	//filter op categorie
+		{
+			query = query + "OR CategoryName='" + filter[i] + "' ";
+		}
+		else if((i <= 2 || i >= 13) && filter[i] != '0' && first ==  true)	//filter op subcategorie
+		{
+			query = query + "WHERE (SCG.SubCategoryName='" + filter[i] + "' OR SCG2.SubCategoryName='" + filter[i] + "') ";
+			first = false;
+		}
+		else if ((i <= 2 || i >= 13) && filter[i] != '0' && first == false)	//filter op subcategory
+		{
+			query = query + "OR (SCG.SubCategoryName='" + filter[i] + "' OR SCG2.SubCategoryName='" + filter[i] + "') ";
+		}
+	}
+	query = query + "ORDER BY " + sort + ";";
+	console.log(query);
+	//getProducts(1);
+>>>>>>> origin/master
 }
 
 $(document).ready(function(){
@@ -100,11 +181,17 @@ $(document).ready(function(){
 	for(var i=0; i<checkboxes.length; i++)	
 	{
 		document.getElementById(checkboxes[i]).addEventListener("change", function(){generateFilteringQuery()});
-		
+		document.getElementById(checkboxes[i]).addEventListener("change", function(){showFilter()});
 	}
 	//sorteerbox
 	document.getElementById('orderby').addEventListener("change", function(){generateFilteringQuery()});
+<<<<<<< HEAD
 	getProducts();
+=======
+	showFilter();
+	generateFilteringQuery();
+	getProducts(1);
+>>>>>>> origin/master
 });
 
 function getProducts(){
