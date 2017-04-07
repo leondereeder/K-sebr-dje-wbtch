@@ -265,7 +265,14 @@ td,
     color: white;
 }
 .pagination a:hover:not(.active) {background-color: #ddd;}
-
+#searchProducts{
+	float:right;
+	    width: auto;
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+}
 /* End of producten page */
 /* Laptop samenstellen page */
 

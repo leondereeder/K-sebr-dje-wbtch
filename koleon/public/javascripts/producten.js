@@ -182,10 +182,8 @@ $(document).ready(function(){
 	//sorteerbox
 	document.getElementById('orderby').addEventListener("change", function(){generateFilteringQuery()});
 
-	getProducts();
 	showFilter();
 	generateFilteringQuery();
-	getProducts(1);
 });
 
 function getProducts(){
