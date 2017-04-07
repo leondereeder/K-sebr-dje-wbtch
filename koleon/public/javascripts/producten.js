@@ -169,6 +169,7 @@ function generateFilteringQuery() {
 		}
 	}
 	query = query + "ORDER BY " + sort + ";";
+	console.log(query)
 }
 
 $(document).ready(function(){
