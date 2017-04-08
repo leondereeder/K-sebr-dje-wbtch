@@ -24,7 +24,11 @@ html
 	body
 		.container
 			nav
-				button.startLogin(onclick="document.getElementById('id01').style.display='block'") Login
+				if typeof userID === "undefined"
+					button.startLogin(onclick="document.getElementById('id01').style.display='block'") Login
+				else
+					a.goToProfile(href="mijnprofiel.html") Mijn profiel
+					button.logout Log uit
 				ul
 					li
 						img#logo(alt='koleon logo', src='images/logo_koleon.png')
@@ -44,6 +48,24 @@ html
 				input.search(type='text', name='search', placeholder='Zoeken..')
 			section.content
 				h2.w3-warning W3
+				#id01.modal
+					span.close(onclick="document.getElementById('id01').style.display='none'", title='Close Modal') ×
+					// Modal Content
+					form.modal-content.animate(method='post')
+						.modal-container
+							label
+								b Username
+							input#username(type='text', placeholder='Enter Username', name='username', required='', autofocus)
+							label
+								b Password
+							input(type='password', placeholder='Enter Password', name='password', required='')
+							button.loginbutton(type='submit') Login
+							input(type='checkbox', name='remember' checked='checked')
+							|	Remember me
+						.modal-container(style='background-color:#f1f1f1')
+							button.cancelbtn(type='button', onclick="document.getElementById('id01').style.display='none'") Cancel
+							span.psw
+								a(href='#') Forgot password?
 				.innercontent
 					p
 						| Heb je een vraag of een opmerking? Daar willen we je graag vanaf helpen! Vul hieronder het formulier in zodat wij je zo snel mogelijk te woord kunnen staan.

@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-router.all('/', function(req, res, next) {
-  res.render('index');
+router.get('/', function(req, res, next) {
+		console.log("session: " + req.session.userID);
+  res.render('index', { userID : req.session.userID });
 });
 
 module.exports = router;

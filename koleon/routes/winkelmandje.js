@@ -3,9 +3,9 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var sqlite3 = require('sqlite3').verbose()
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('winkelmandje', { title: 'Winkelmandje' });
+		console.log("session: " + req.session.userID);
+  res.render('winkelmandje', { userID : req.session.userID });
 });
 
 router.post('/', function(req, res, next) { 

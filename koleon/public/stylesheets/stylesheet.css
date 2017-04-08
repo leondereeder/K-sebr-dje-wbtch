@@ -97,7 +97,7 @@ nav ul li a:hover {
 .search {
     float: right;
     margin-right: 5px;
-    width: 330px;
+    width: 15%;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -461,19 +461,22 @@ input:hover {
     vertical-align: middle;
 }
 /* End of over ons page */
-/* The Modal (background) */
-.startLogin, .startlogin:focus {
-	float:left;
+.startLogin, .startlogin:focus, .goToProfile, .goToProfile:hover, .logout, .logout:focus, .goToProfile:visited {
 	font-weight:bold;
 	-webkit-margin-before: 1em;
-    -webkit-margin-after: 1em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
-    -webkit-padding-start: 40px;
 	margin-bottom:0px;
 	outline:0;
 	text-decoration:underline;
+	color:white;
+	font-size:16px;
+	padding:6px 0px 12px 20px;
+	position:absolute;
+	left:0;
 }
+.logout {
+	left:130px;
+}
+/* The Modal (background) */
 .modal {
     display: none;
     /* Hidden by default */

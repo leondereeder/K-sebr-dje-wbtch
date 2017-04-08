@@ -127,6 +127,29 @@ window.onclick = function(event) {
     }
 }
 
+document.getElementsByClassName("logout")[0].addEventListener("click", function(){logout();});
+
+function logout () {
+	var data = {
+		'logout' : true
+	}
+	
+	var http = new XMLHttpRequest();
+	var url = window.location.href;
+	http.open("POST", url, true);
+
+	//Send the proper header information along with the request
+	http.setRequestHeader("Content-type", "application/json");
+
+	http.onreadystatechange = function() {//Call a function when the state changes.
+		if(http.readyState == 4 && http.status == 200) {
+			window.location.href = window.location.href;
+		}
+	}
+	
+	http.send(JSON.stringify(data));
+}
+
 /* Test function to delete all cookies from the page
 function deleteCookies() {
 	var cnt = document.cookie.length;

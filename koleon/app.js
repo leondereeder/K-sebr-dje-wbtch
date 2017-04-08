@@ -7,7 +7,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var app = express();
 var sqlite3 = require('sqlite3').verbose();
-var cookie = require('cookie');
+var session = require('express-session');
+var mongoose = require("mongoose");
+var MongoStore = require("connect-mongo")(session);
 
 var index = require('./routes/index');
 var winkelmandje = require('./routes/winkelmandje');
@@ -15,6 +17,7 @@ var contact = require('./routes/contact');
 var diensten = require('./routes/diensten');
 var overons = require('./routes/overons');
 var producten = require('./routes/producten');
+var mijnprofiel = require('./routes/mijnprofiel');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));	
@@ -42,34 +45,46 @@ app.use('/protected/*', function(req, res, next){
 	}
 });
 
+app.use(session({
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: true,
+  maxAge: 65000,
+  cookie: { secure: false, 'userID': 0},
+  //store: new MongoStore({mongooseConnection:mongoose.connection}),
+  userID: 0
+}));
+
 var bodyParser = require('body-parser')
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 })); 
 		
-app.post('/index.html', function(req, res, next) {
-	var db = new sqlite3.Database('public/protected/db.sqlite3');
-	// DB logic
-	db.each("SELECT UserName AS userName, Password AS password, UserID AS userID FROM USERS WHERE UserName = '" + req.body.username + "' AND Password = '" + req.body.password + "'", function(err, row) {
-		console.log(row);
-		if (req.body.remember) {
-			cookie.serialize('id', row.userID.toString(), {
-			  httpOnly: true,
-			  maxAge: 60 * 60 * 24 * 180, // 6 months
-			  path: "/",
-			  secure: false
-			})
+app.post('/*', function(req, res, next) {
+	if(typeof req.body.username !== "undefined" || req.body.logout) {
+		var db = new sqlite3.Database('public/protected/db.sqlite3');
+		// DB logic
+		db.each("SELECT UserName AS userName, Password AS password, UserID AS userID FROM USERS WHERE UserName = '" + req.body.username + "' AND Password = '" + req.body.password + "'", function(err, row) {
+			console.log(row);
+			req.session.cookie.userID = row.userID;
+			req.session.userID = row.userID;
+			req.session.save(function(err){
+				var url = (req.url).split(".");
+				var url = url[0].split("/");
+				res.render(url[1], { userID : req.session.userID });
+			});
+		});
+		if(req.body.logout) {
+			req.session.destroy();
+			console.log("succes");
+			res.sendStatus(200);
+			res.end();
 		}
-		else {
-			cookie.serialize('id', row.userID, {
-			  httpOnly: true,
-			  path: "/",
-			  secure: false
-			})
-		}
-	});
-	next();
+	}
+	else {
+		next();
+	}
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -86,6 +101,7 @@ app.use('/contact.html', contact);
 app.use('/diensten.html', diensten);
 app.use('/overons.html', overons);
 app.use('/producten.html', producten);
+app.use('/mijnprofiel.html', mijnprofiel);
 
 
 // catch 404 and forward to error handler
