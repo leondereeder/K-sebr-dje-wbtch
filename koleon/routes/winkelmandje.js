@@ -47,9 +47,11 @@ router.post('/order', function(req, res, next) {
 		var day = date.getDate();
 		
 		for (i=0;i<products.length;i++) {
-			var query = "INSERT INTO Orders(userID,productID,Date) VALUES ('" + req.session.userID + "', '" + products[i] + "', '" + year + "-" + month + "-" + day + "')";
-			db.run(query);
-			console.log(query);
+			var insert = "INSERT INTO Orders(userID,productID,Date) VALUES ('" + req.session.userID + "', '" + products[i] + "', '" + year + "-" + month + "-" + day + "')";
+			db.run(insert);
+			console.log(insert);
+			var update = "UPDATE Products SET Stock = Stock - 1 WHERE productID = '" + products[i] + "'";
+			db.run(update);
 			console.log('Ordered: ' + products[i]);
 		}
 	}
