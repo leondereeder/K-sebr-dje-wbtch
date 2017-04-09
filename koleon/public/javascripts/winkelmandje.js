@@ -70,7 +70,9 @@ function bevestigAankoop() {
 			
 			var url = 'winkelmandje.html/order';
 			http.open('POST', url, true);
-			http.send();
+			http.setRequestHeader("Content-type", "application/json");
+			var bestelling = {producten: products};
+			http.send(JSON.stringify(bestelling));
 		}
 	}
 	

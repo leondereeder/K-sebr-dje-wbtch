@@ -34,16 +34,26 @@ router.post('/cart', function(req, res, next) {
 });
 
 router.post('/order', function(req, res, next) {
-	var cookienames = [];
 	var sessionExists = {"session":false};
+	var bestelling = req.body.producten;
+	var products = bestelling.split(',');
 	
-	if(req.session.userID) {
+	if(req.session.userID) { // Only execute order when a buyer is signed in
 		var sessionExists = {"session":true};
+		var db = new sqlite3.Database('public/protected/db.sqlite3');
+		var date = new Date();
+		var year = date.getFullYear();
+		var month = date.getMonth() + 1;
+		var day = date.getDate();
 		
-		//var db = new sqlite3.Database('public/protected/db.sqlite3');
-		console.log('logged in');
+		for (i=0;i<products.length;i++) {
+			var query = "INSERT INTO Orders(userID,productID,Date) VALUES ('" + req.session.userID + "', '" + products[i] + "', '" + year + "-" + month + "-" + day + "')";
+			db.run(query);
+			console.log(query);
+			console.log('Ordered: ' + products[i]);
+		}
 	}
-	console.log(req.cookies.bestelling);
+
 	res.setHeader('Content-Type', 'application/json');
 	res.send(JSON.stringify(sessionExists));
 });
