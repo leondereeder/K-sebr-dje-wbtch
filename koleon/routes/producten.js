@@ -34,6 +34,7 @@ router.post('/', function(req, res, next) {
 		var query = "SELECT ProductID AS productID, ProductName AS productName, Description AS description, Stock AS stock, Price AS price, Image as image FROM PRODUCTS AS P INNER JOIN CATEGORIES AS CG ON P.CategoryID=CG.CategoryID INNER JOIN SUBCATEGORIES AS SCG ON P.SubCategoryID=SCG.SubCategoryID INNER JOIN SUBCATEGORIES AS SCG2 ON P.SubCategory2ID=SCG2.SubCategoryID INNER JOIN MANUFACTURERS AS M ON P.ManufacturerID=M.ManufacturerID ";
 		if (typeof searchFor !== "undefined") {
 			query += "WHERE productName LIKE '%" + searchFor + "%'";
+			query += "AND Stock > 0";
 		}
 		query = query + " ORDER BY " + sort;
 		console.log(query);
@@ -125,7 +126,7 @@ function generateFilteringQuery(sort, filter, searchFor) {
 	if (query.includes(x))
 	{query=query+") ";}
 	
-	query=query+") ";
+	query=query+"AND stock > 0) ";
 	}
 
 	if(typeof searchFor !== "undefined") {
