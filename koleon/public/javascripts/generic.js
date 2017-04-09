@@ -127,13 +127,15 @@ window.onclick = function(event) {
     }
 }
 
-document.getElementsByClassName("logout")[0].addEventListener("click", function(){logout();});
+var logoutButton = document.getElementsByClassName("logout")[0];
+if(typeof logoutButton !== "undefined") {
+	logoutButton.addEventListener("click", function(){logout();});
+}
 
 function logout () {
 	var data = {
 		'logout' : true
 	}
-	
 	var http = new XMLHttpRequest();
 	var url = window.location.href;
 	http.open("POST", url, true);

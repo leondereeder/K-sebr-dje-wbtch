@@ -473,7 +473,7 @@ input:hover {
 	position:absolute;
 	left:0;
 }
-.logout {
+.logout, .logout:focus {
 	left:130px;
 }
 /* The Modal (background) */
@@ -652,7 +652,11 @@ span.psw {
     margin: 0px 10% 50px 0px;
 }
 /* End of winkelwagen page */
-
+/* My profile page */
+.accountTable tr td {
+	min-width:initial;
+}
+/* End of my profile */
 @media screen and (max-width: 1200px) {
     .search {
         float: none;

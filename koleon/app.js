@@ -8,8 +8,6 @@ var bodyParser = require('body-parser');
 var app = express();
 var sqlite3 = require('sqlite3').verbose();
 var session = require('express-session');
-var mongoose = require("mongoose");
-var MongoStore = require("connect-mongo")(session);
 
 var index = require('./routes/index');
 var winkelmandje = require('./routes/winkelmandje');
@@ -51,7 +49,6 @@ app.use(session({
   saveUninitialized: true,
   maxAge: 65000,
   cookie: { secure: false, 'userID': 0},
-  //store: new MongoStore({mongooseConnection:mongoose.connection}),
   userID: 0
 }));
 
@@ -65,6 +62,7 @@ app.post('/*', function(req, res, next) {
 	if(typeof req.body.username !== "undefined" || req.body.logout) {
 		var db = new sqlite3.Database('public/protected/db.sqlite3');
 		// DB logic
+		var found = false;
 		db.each("SELECT UserName AS userName, Password AS password, UserID AS userID FROM USERS WHERE UserName = '" + req.body.username + "' AND Password = '" + req.body.password + "'", function(err, row) {
 			console.log(row);
 			req.session.cookie.userID = row.userID;
@@ -77,7 +75,6 @@ app.post('/*', function(req, res, next) {
 		});
 		if(req.body.logout) {
 			req.session.destroy();
-			console.log("succes");
 			res.sendStatus(200);
 			res.end();
 		}

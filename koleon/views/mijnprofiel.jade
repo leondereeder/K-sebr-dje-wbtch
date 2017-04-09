@@ -1,24 +1,23 @@
 doctype	html
 html
 	head
-		title	Diensten
-		link(rel='stylesheet',	type='text/css',	href='stylesheets/stylesheet.css')
-		link(rel='stylesheet',	type='text/css',	href='https://fonts.googleapis.com/css?family=Aldrich')
-		link(rel='stylesheet',	type='text/css',	href='https://fonts.googleapis.com/css?family=Abel')
-		meta(name='description',	content='Stel	uw	eigen	laptop	samen.	Helemaal	naar	uw	wens.')
-		meta(name='viewport',	content='width=device-width,	initial-scale=1')
-		meta(name='keywords',	content='Laptop,	Koleon,	op	maat,	hardware,	CPU,	GPU,	customised,	customized,	pc,	computer,	memes,	Harambe')
+		title Mijn profiel
+		link(rel='stylesheet', type='text/css', href='stylesheets/stylesheet.css')
+		link(rel='stylesheet', type='text/css', href='https://fonts.googleapis.com/css?family=Aldrich')
+		link(rel='stylesheet', type='text/css', href='https://fonts.googleapis.com/css?family=Abel')
+		meta(name='description', content='Een overzicht van uw profiel bij Koleon')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		meta(name='keywords', content='Laptop, Koleon, op maat, hardware, CPU, GPU, customised, customized, pc, computer, memes, Harambe')
 		meta(name='author',	content='Koleon')
-		meta(name='copyright',	content='©	2017	Koleon')
-		meta(name='content-language',	content='nl')
-		meta(http-equiv='content-type',	content='text/html;	charset=UTF-8')
-		meta(http-equiv='default-style',	content='stylesheets/stylesheet.css')
-		meta(name='robots',	content='index,	follow')
-		link(rel='icon',	href='images/icon.png',	sizes='256x172',	type='image/png')
+		meta(name='copyright', content='©	2017	Koleon')
+		meta(name='content-language', content='nl')
+		meta(http-equiv='content-type', content='text/html;	charset=UTF-8')
+		meta(http-equiv='default-style', content='stylesheets/stylesheet.css')
+		meta(name='robots',	content='index, follow')
+		link(rel='icon', href='images/icon.png',	sizes='256x172',	type='image/png')
 		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
-		script(src='javascripts/generic.js',	defer='')
-		script(src='javascripts/diensten.js',	defer='')
-		script(src='javascripts/comments.js',	defer='')
+		script(src='javascripts/generic.js', defer='')
+		script(src='javascripts/mijnprofiel.js', defer='')
 		link(rel='stylesheet',	href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css')
 		script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js')
 		script(src='https://cdn.jsdelivr.net/jquery.ui-contextmenu/1.14.0/jquery.ui-contextmenu.min.js')
@@ -28,35 +27,61 @@ html
 				button.logout Log uit
 				ul
 					li
-						img#logo(alt='koleon	logo',	src='images/logo_koleon.png')
+						img#logo(alt='koleon logo',	src='images/logo_koleon.png')
 					li
-						a(href='index.html')	Koleon
+						a(href='index.html') Koleon
 					li
-						a(href='producten.html')	Producten
+						a(href='producten.html') Producten
 					li
-						a(href='diensten.html')	Laptop	Samenstellen
+						a(href='diensten.html') Laptop Samenstellen
 					li
-						a(href='contact.html')	Contact
+						a(href='contact.html') Contact
 					li
-						a(href='overons.html')	Over	Koleon
+						a(href='overons.html') Over	Koleon
 				a(href='winkelmandje.html')
-						img(src='images/shopping-cart-white.png',	alt='shopping	cart',	id='wínkelmandje')
-						#shoppingCartNumber	0
-				input.search(type='text',	name='search',	placeholder='Zoeken..')
+						img(src='images/shopping-cart-white.png', alt='shopping	cart', id='wínkelmandje')
+						#shoppingCartNumber 0
+				input.search(type='text', name='search', placeholder='Zoeken..')
 			section.content
-				h2.w3-warning	W3
-				.innercontent
+				h2.w3-warning W3
+				.innercontent(style='width:60%; margin:auto')
+					h1 Mijn profiel
+					h3 Uw gegevens
+					table.accountTable
+						tbody
+							tr			
+								td 
+									|Gebruikersnaam: 
+								td#userName #{userID}
+							tr
+								td 
+									|Voornaam: 
+								td#firstName
+							tr
+								td 
+									|Achternaam: 
+								td#lastName
+							tr
+								td 
+									|Adres: 
+								td#address
+							tr
+								td 
+									|Status van uw account: 
+								td#account
+					h3 Uw bestellingen
+					div#orders
 			footer
 				ul
 					li
-						a(href='')	Algemene	voorwaarden
+						a(href='') Algemene	voorwaarden
 					li
-						a(href='')	Cookies
+						a(href='') Cookies
 					li
-						a(href='')	Privacy
+						a(href='') Privacy
 					li
-						a(href='')	Carrière
+						a(href='') Carrière
 					li
-						a(href='')	Over	Koleon
+						a(href='') Over	Koleon
 				br
-				a(href='https://www.w3schools.com/',	target='_blank',	style='margin-right:-100px;')	Deze	site	is	mogelijk	gemaakt	door	w3schools
+				a(href='https://www.w3schools.com/', target='_blank', style='margin-right:-100px;') Deze site is mogelijk gemaakt door w3schools
