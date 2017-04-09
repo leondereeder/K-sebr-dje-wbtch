@@ -49,7 +49,7 @@ html
 					h3 Uw gegevens
 					table.accountTable
 						tbody
-							tr			
+							tr
 								td 
 									|Gebruikersnaam: 
 								td#userName #{userID}
@@ -73,10 +73,9 @@ html
 				table#productentabel
 					tbody
 						tr
-							td	Product		
-							td	Omschrijving	
-							td
-								| Prijs
+							td	Product
+							td	Omschrijving
+							td	Prijs
 				.rsSection
 					.innercontent(style='width:60%; margin:auto')
 						h3 Uw verkochte producten
@@ -86,10 +85,11 @@ html
 								td	Product
 								td	Omschrijving
 								td	Prijs
-								td.tinyCell Op voorraad
+								td.tinyCell	Op voorraad
 					.innercontent(style='width:60%; margin:auto')
 						h3 Een product toevoegen 
-						form.addProductForm
+						form.addProductForm(method='post', enctype="multipart/form-data")
+							input(type='hidden', value='#{userID}', name='sellerID')
 							label(for='productName') Productnaam: 
 							input#productName(type='text', name='productName', placeholder='De naam van uw product..', required)
 							br
@@ -120,8 +120,8 @@ html
 								option(value='3') Workstation
 								option(value='4') Randapparatuur
 							label(for='manufacturer') Subcategorie:
-							select#category(name='category')
-								option(value='none') Geen subcategorie
+							select#category(name='subcategory')
+								option(value='NULL') Geen subcategorie
 								option(value='2') Koptelefoons
 								option(value='4') 13 inch beeldscherm
 								option(value='5') 15 inch beeldscherm
@@ -137,8 +137,8 @@ html
 								option(value='15') Draadloos
 								option(value='16') Bedraad
 								option(value='17') Headset
-							select#category2(name='category2')
-								option(value='none') Geen subcategorie
+							select#category2(name='subcategory2')
+								option(value='NULL') Geen subcategorie
 								option(value='2') Koptelefoons
 								option(value='4') 13 inch beeldscherm
 								option(value='5') 15 inch beeldscherm
@@ -156,6 +156,10 @@ html
 								option(value='17') Headset
 							label(for='productName') Prijs: 
 							input#prce(type='number', name='price', placeholder='500', required)
+							br
+							br
+							label(for'image') Upload foto: 
+							input(type="file", single, name="image" required)
 							br
 							br
 							input(type='submit', value='Plaats product')

@@ -665,10 +665,10 @@ span.psw {
 .addProductForm {
 	margin-bottom:30px;
 }
-.addProductForm input[type=number]:hover {
+.addProductForm input[type=number]:hover, .addProductForm input[type=file]:hover {
 	background-color:white;
 }
-.addProductForm input[type=text], .addProductForm input[type=number] {
+.addProductForm input[type=text], .addProductForm input[type=number], addProductForm input[type=file] {
 	padding:5px;
 	border: 1px solid grey;
 	border-radius:3px;	
