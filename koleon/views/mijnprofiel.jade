@@ -70,7 +70,95 @@ html
 									|Status van uw account: 
 								td#account
 					h3 Uw bestellingen
-					div#orders
+				table#productentabel
+					tbody
+						tr
+							td	Product		
+							td	Omschrijving	
+							td
+								| Prijs
+				.rsSection
+					.innercontent(style='width:60%; margin:auto')
+						h3 Uw verkochte producten
+					table.sellersTabel
+						tbody
+							tr
+								td	Product
+								td	Omschrijving
+								td	Prijs
+								td.tinyCell Op voorraad
+					.innercontent(style='width:60%; margin:auto')
+						h3 Een product toevoegen 
+						form.addProductForm
+							label(for='productName') Productnaam: 
+							input#productName(type='text', name='productName', placeholder='De naam van uw product..', required)
+							br
+							br
+							label(for='description') Beschrijving: 
+							textarea#description(name='description', placeholder='Beschrijving van uw product..', style='height:100px', required)
+							br
+							label(for='stock') Hoeveelheid: 
+							input#stock(type='number', name='stock', placeholder='1', min='1', max='99', required)
+							br
+							br
+							label(for='manufacturer') Producent:
+							select#manufacturer(name='manufacturer')
+								option(value='1') Dell
+								option(value='2') HP
+								option(value='3') Asus
+								option(value='4') Acer
+								option(value='5') MSI
+								option(value='6') Koleon
+								option(value='7') Lenovo
+								option(value='8') Trust
+								option(value='9') Logitech
+								option(value='10') Razer
+							label(for='manufacturer') Categorie:
+							select#category(name='category')
+								option(value='1') Gaming laptop
+								option(value='2') Gaming desktop
+								option(value='3') Workstation
+								option(value='4') Randapparatuur
+							label(for='manufacturer') Subcategorie:
+							select#category(name='category')
+								option(value='none') Geen subcategorie
+								option(value='2') Koptelefoons
+								option(value='4') 13 inch beeldscherm
+								option(value='5') 15 inch beeldscherm
+								option(value='6') 17 inch beeldscherm
+								option(value='7') Nvidea
+								option(value='8') AMD
+								option(value='9') DDR4 Ram
+								option(value='10') DDR3 Ram
+								option(value='11') Gaming muis
+								option(value='12') Optisch
+								option(value='13') Laser
+								option(value='14') Toetsenbord
+								option(value='15') Draadloos
+								option(value='16') Bedraad
+								option(value='17') Headset
+							select#category2(name='category2')
+								option(value='none') Geen subcategorie
+								option(value='2') Koptelefoons
+								option(value='4') 13 inch beeldscherm
+								option(value='5') 15 inch beeldscherm
+								option(value='6') 17 inch beeldscherm
+								option(value='7') Nvidea
+								option(value='8') AMD
+								option(value='9') DDR4 Ram
+								option(value='10') DDR3 Ram
+								option(value='11') Gaming muis
+								option(value='12') Optisch
+								option(value='13') Laser
+								option(value='14') Toetsenbord
+								option(value='15') Draadloos
+								option(value='16') Bedraad
+								option(value='17') Headset
+							label(for='productName') Prijs: 
+							input#prce(type='number', name='price', placeholder='500', required)
+							br
+							br
+							input(type='submit', value='Plaats product')
 			footer
 				ul
 					li

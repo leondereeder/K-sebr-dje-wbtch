@@ -8,7 +8,7 @@ function getInfo(){
 	var url = "mijnprofiel.html";
 	var userID = [];
 	userID.push(document.getElementById("userName").innerHTML);
-	alert(userID);
+
 	http.open("POST", url, true);
 
 	//Send the proper header information along with the request
@@ -37,5 +37,41 @@ function fillPage(data) {
 			break;
 		case "RB":
 			account.innerHTML = "Registered buyer"
+	}
+	for(i=1;i<data.length;i++) {
+		if(data[i].userID==data[0].userID) {
+			$("#productentabel").css("display", "table");
+			$("#productentabel").find("tbody").append("<tr>" +
+			"<td><img src='images/products/" + data[i].image + "' alt='" + data[i].productID + "'>" +
+			"<br>" + data[i].productName + 
+			"<td>" + data[i].description + 
+			"</td>" +
+			"<td>" +
+			"€" + data[i].price + "-</button>" +
+			"<br><p>Gekocht op: " + data[i].date + "</p>" +
+			"</td>" +
+			"</tr>");
+		}
+	}
+	if(data[0].userType=="RS"){
+		$(".rsSection").css("display" , "block");
+		for(i=1;i<data.length;i++) {
+			if(data[i].sellerID == data[0].userID) {
+				$(".sellersTabel").css("display", "table");
+				$(".sellersTabel").find("tbody").append("<tr>" +
+				"<td><img src='images/products/" + data[i].image + "' alt='" + data[i].productID + "'>" +
+				"<br>" + data[i].productName + 
+				"<td>" + data[i].description + 
+				"</td>" +
+				"<td>" +
+				"€" + data[i].price + "-</button>" +
+				"<br><p>Laatst verkocht op: " + data[i].date + "</p>" +
+				"</td>" +
+				"<td class=\"tinyCell\">" + data[i].stock +
+				"</td>" +
+				"</tr>");
+			}
+		}
+		
 	}
 }

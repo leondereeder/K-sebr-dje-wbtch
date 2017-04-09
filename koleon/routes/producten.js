@@ -131,15 +131,6 @@ function generateFilteringQuery(sort, filter, searchFor) {
 	if(typeof searchFor !== "undefined") {
 		query += "LIKE %" + searchFor + "%";
 	}
-	query = query + " ORDER BY " + sort;
-
-	query = query + ") ";
-	
-	query = query + "ORDER BY " + sort;
-
-	if(typeof searchFor !== "undefined") {
-		query += "LIKE %" + searchFor + "%";
-	}
 	
 	query = query + "ORDER BY " + sort;
 
