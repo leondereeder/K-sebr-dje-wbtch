@@ -5,8 +5,7 @@ var sqlite3 = require('sqlite3').verbose()
 
 router.get('/', function(req, res, next) {
 		console.log("session: " + req.session.userID);
-  res.render('mijnprofiel', { userID : 1
-  //req.session.userID 
+  res.render('mijnprofiel', { userID : req.session.userID 
   });
 });
 

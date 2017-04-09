@@ -8,11 +8,10 @@ router.get('/', function(req, res, next) {
   res.render('winkelmandje', { userID : req.session.userID });
 });
 
-router.post('/', function(req, res, next) { 
+router.post('/cart', function(req, res, next) { 
 	var data = [];
 	var db = new sqlite3.Database('public/protected/db.sqlite3');
 	var products = req.body;
-	
 		db.each(makeQuery(), function(err, row) {
 			data.push(row);
 		});
@@ -28,10 +27,25 @@ router.post('/', function(req, res, next) {
 
 	function sendData() {
 		db.close(function(){
-			res.setHeader('Content-Type', 'application/json')
+			res.setHeader('Content-Type', 'application/json');
 			res.send(JSON.stringify(data));
 		});
 	}
 });
 
+router.post('/order', function(req, res, next) {
+	var cookienames = [];
+	var sessionExists = {"session":false};
+	
+	if(req.session.userID) {
+		var sessionExists = {"session":true};
+		
+		//var db = new sqlite3.Database('public/protected/db.sqlite3');
+		console.log('logged in');
+	}
+	console.log(req.cookies.bestelling);
+	res.setHeader('Content-Type', 'application/json');
+	res.send(JSON.stringify(sessionExists));
+});
+	
 module.exports = router;

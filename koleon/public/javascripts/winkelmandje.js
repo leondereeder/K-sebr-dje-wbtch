@@ -45,20 +45,54 @@ function bevestigAankoop() {
     var span = document.getElementsByClassName("close")[0];
 	var nietBevestigen = document.getElementById("nietBevestigen");
 	var welBevestigen = document.getElementById("welBevestigen");
+	var http = new XMLHttpRequest();
     modal.style.display = "block";
 	
     // When a user clicks 'Ja' delete everything from shopping cart because the item has been purchased
     welBevestigen.onclick = function () {
         modal.style.display = "none";
-		deleteProducts();
+		orderProducts();
     }
+	
+	function orderProducts() {
+		var count = data.length;
+		if (count > 0) {
+			var products = ""
+			for (i=0;i<count;i++) {
+				if (i == count - 1) {
+					products += data[i];
+				}
+				else {
+					products += data[i] + ",";
+				}
+			}
+			document.cookie = "bestelling=" + products + ";path=/";
+			
+			var url = 'winkelmandje.html/order';
+			http.open('POST', url, true);
+			http.send();
+		}
+	}
+	
+	http.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var res = (JSON.parse(http.responseText));
+			if(res.session) {
+				alert('test');
+				deleteProducts();
+			}
+			else {
+				alert('not logged in');
+			}
+		}
+	}
 	
 	function deleteProducts() {
 		var cnt = document.cookie.length;
 		var path = window.location.pathname;
 		for (i=0;i<cnt;i+=1) {
 			document.cookie = "product_" + i + "=; expires=Thu, 18 Dec 2014 12:00:00 UTC;path=/";
-	}
+		}
 	location.reload();
 	}
 
@@ -100,7 +134,7 @@ $(document).ready(function getCookie() {
 // Get the proper piece of HTML for the cookie and add it to the page
 function displayInCart() {
 	var http = new XMLHttpRequest();
-	var url = "winkelmandje.html";
+	var url = "winkelmandje.html/cart";
 	http.open("POST", url, true);
 
 	//Send the proper header information along with the request
