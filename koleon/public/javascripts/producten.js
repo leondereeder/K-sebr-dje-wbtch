@@ -1,5 +1,5 @@
 // When a price has been clicked on, activate its modal
-function activateModal(id, productName, price, description, image) {
+function activateModal(id, productName, price, description, image, stock) {
     var modal = document.getElementById('myModal');
     var modalheader = document.getElementById('modalheadertext');
     var modalbody = document.getElementById('modaltext');
@@ -10,7 +10,8 @@ function activateModal(id, productName, price, description, image) {
     var modalbestel = document.getElementById("modalbestel");
 	
 	modalheader.innerHTML = productName;
-	modalbody.innerHTML = description + "<br><br>Prijs: €" + price + "-";
+	modalbody.innerHTML = description + "<br><br>Prijs: €" + price + "-" +
+	"<br><br>Voorraad: " + stock;
 	modalimg.src = "images/products/" + image;
 
     // When the use clicks order, create a cookie with the product
@@ -171,7 +172,7 @@ function getProducts(){
 				$(".producten").css("display", "table");
 				$(".producten").find("tr").append(
 				"<td id='product" + i + "'" +
-				" onclick=\"activateModal('" + products[i].productID + "', '" + products[i].productName + "', '" + products[i].price +  "', '" + products[i].description  +  "', '" + products[i].image + "')\">" + 
+				" onclick=\"activateModal('" + products[i].productID + "', '" + products[i].productName + "', '" + products[i].price +  "', '" + products[i].description  +  "', '" + products[i].image + "', '" + products[i].stock + "')\">" + 
 				"<img src='images/products/" + products[i].image  + "' alt='" + products[i].productName + "'><br>" + products[i].productName + "<br>€" + products[i].price + "-" );
 			}
 			makePages(products[products.length-1]);
