@@ -79,12 +79,11 @@ function bevestigAankoop() {
 	http.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			var res = (JSON.parse(http.responseText));
-			if(res.session) {
-				alert('test');
+			if(res.session) { // Only delete cookies of chosen products if order has been successfully inserted
 				deleteProducts();
 			}
 			else {
-				alert('not logged in');
+				alert('U bent op dit moment niet ingelogd. Log in om door te gaan met uw bestelling.');
 			}
 		}
 	}
@@ -95,7 +94,7 @@ function bevestigAankoop() {
 		for (i=0;i<cnt;i+=1) {
 			document.cookie = "product_" + i + "=; expires=Thu, 18 Dec 2014 12:00:00 UTC;path=/";
 		}
-	location.reload();
+		location.reload();
 	}
 
 	// When the user click 'Nee', close the modal
