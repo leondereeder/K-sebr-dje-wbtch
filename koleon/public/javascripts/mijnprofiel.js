@@ -75,3 +75,37 @@ function fillPage(data) {
 		
 	}
 }
+
+document.getElementById("editProfile").addEventListener("click", function(){editProfile();});
+
+function editProfile() {
+	$("#userName").replaceWith( "<td><input type='text' name='userName'value='" + $("#userName").html() + "'></input></td>" );
+	$("#firstName").replaceWith( "<td><input type='text' name='firstName' value='" + $("#firstName").html() + "'></input></td>" );
+	$("#lastName").replaceWith( "<td><input type='text' name='lastName' value='" + $("#lastName").html() + "'></input></td>" );
+	$("#address").replaceWith( "<td><input type='text' name='address' value='" + $("#address").html() + "'></input></td>" );
+	$("#account").replaceWith( "<td><select style='padding:0px'><option value='RS'>Registered seller</option><option value='RB'>Registered buyer</option></select></td>" );
+	$("#editProfile").replaceWith('<button id="saveProfile">Opslaan</button>');
+	document.getElementById("saveProfile").addEventListener("click", function(){saveProfile();});
+}
+
+function saveProfile() {
+	var http = new XMLHttpRequest();
+	var url = "mijnprofiel.html/edit";
+	var data = [];
+	$(".accountTable :input").each(function() {
+		data.push($(this).val());
+	});
+	console.log(data);
+	http.open("POST", url, true);
+
+	//Send the proper header information along with the request
+	http.setRequestHeader("Content-type", "application/json");
+
+	http.onreadystatechange = function() {//Call a function when the state changes.
+		if(http.readyState == 4 && http.status == 200) {
+			window.location.href = window.location.href;
+		}
+	}
+	
+	http.send(JSON.stringify(data));
+}
