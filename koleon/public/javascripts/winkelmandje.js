@@ -1,5 +1,5 @@
 // When a price has been clicked on, activate its modal
-function activateModal(id, productName, price, description, image, cookieNmbr) {
+function activateModal(id, productName, price, description, image, cookieName) {
     var modal = document.getElementById('myModal');
     var modalheader = document.getElementById('modalheadertext');
     var modalbody = document.getElementById('modaltext');
@@ -20,7 +20,7 @@ function activateModal(id, productName, price, description, image, cookieNmbr) {
     }
 	
 	function deleteProduct() {
-		document.cookie = "product_" + cookieNmbr + "=; expires=Thu, 18 Dec 2014 12:00:00 UTC;path=/";
+		document.cookie = cookieName + "=; expires=Thu, 18 Dec 2014 12:00:00 UTC;path=/";
 		window.location.reload();
 	}
 
@@ -66,7 +66,6 @@ function bevestigAankoop() {
 					products += data[i] + ",";
 				}
 			}
-			document.cookie = "bestelling=" + products + ";path=/";
 			
 			var url = 'winkelmandje.html/order';
 			http.open('POST', url, true);
@@ -91,11 +90,30 @@ function bevestigAankoop() {
 	function deleteProducts() {
 		var cnt = document.cookie.length;
 		var path = window.location.pathname;
-		for (i=0;i<cnt;i+=1) {
-			document.cookie = "product_" + i + "=; expires=Thu, 18 Dec 2014 12:00:00 UTC;path=/";
+		var cookies = getProductCookies();
+		
+		for(var i = 0;i<cookies.length;i++) {
+			document.cookie = cookies[i] + "=; expires=Thu, 18 Dec 2014 12:00:00 UTC;path=/";
 		}
 		location.reload();
 	}
+	
+	function getProductCookies() {
+		var cookies = [];
+		if (document.cookie.split("; ")[0] != "") {
+			var cookieString = document.cookie.split("; ");
+			var cookieCnt = document.cookie.split(";").length;
+			for (i = 0; i < cookieCnt; i++) {
+				var str = cookieString[i];
+				if (str.search('product') != -1) {
+					var cookie01 = str.split("=");
+					var value01 = decodeURIComponent(cookie01[0]);
+					cookies.push(value01);
+				}
+			}
+		}
+		return cookies;
+    }
 
 	// When the user click 'Nee', close the modal
 	nietBevestigen.onclick = function() {
@@ -122,8 +140,8 @@ $(document).ready(function getCookie() {
         var cookieCnt = document.cookie.split(";").length;
         for (i = 0; i < cookieCnt; i++) {
             var str = cookies[i];
-            if (str.substring(0, 7) == "product") {
-                var cookie01 = cookies[i].split("=");
+            if (str.search('product') != -1) {
+                var cookie01 = str.split("=");
                 var value01 = decodeURIComponent(cookie01[1]);
                 data.push(value01);
             }
@@ -144,7 +162,7 @@ function displayInCart() {
 	http.onreadystatechange = function() {//Call a function when the state changes.
 		if(http.readyState == 4 && http.status == 200) {
 			var products = (JSON.parse(http.responseText));
-			for(i=0;i<products.length;i++) {
+			for(var i = 0;i<products.length;i++) {
 				$("#productentabel").css("display", "table");
 				$("#afrekenen").css("display", "block");
 				$("#productentabel").find("tbody").append("<tr>" +
@@ -153,11 +171,32 @@ function displayInCart() {
 				"<td>" + products[i].description + 
 				"</td>" +
 				"<td>" +
-				"<button id = '" + products[i].productID + "' onclick=\"activateModal('" + products[i].productID + "', '" + products[i].productName + "', '" + products[i].price +  "', '" + products[i].description  +  "', '" + products[i].image + "', " + i + ")\"> €" + products[i].price + "-</button>" +
+				"<button id = '" + products[i].productID + "' onclick=\"activateModal('" + products[i].productID + "', '" + products[i].productName + "', '" + products[i].price +  "', '" + products[i].description  +  "', '" + products[i].image + "', '" + getCookieName(products[i].productID) + "')\"> €" + products[i].price + "-</button>" +
 				"</td>" +
 				"</tr>");
 			}
 		}
 	}
 	http.send(JSON.stringify(data));
+}
+
+function getCookieName(productID) {
+	var cookieString = document.cookie
+	var decodeCookie = decodeURIComponent(document.cookie);
+	var ca = decodeCookie.split(';');
+	
+	
+	for(i=0;i<ca.length; i++) {
+		var cookie = ca[i];
+		var j = 0;
+		
+		while(cookie.indexOf(productID) != 0 && cookie.length > 1) {
+			cookie = cookie.substring(1);
+			j++;
+		}
+
+		if(cookie.indexOf(productID) == 0) {
+			return ca[i].substring(0,j-1);
+		}
+	}
 }

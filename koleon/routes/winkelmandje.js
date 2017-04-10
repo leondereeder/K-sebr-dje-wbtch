@@ -12,21 +12,21 @@ router.post('/cart', function(req, res, next) {
 	var data = [];
 	var db = new sqlite3.Database('public/protected/db.sqlite3');
 	var products = req.body;
-		db.each(makeQuery(), function(err, row) {
+	for(i=0;i<products.length;i++) {
+		var query = "SELECT ProductID AS productID, ProductName AS productName, Description AS description, Stock AS stock, Price AS price, Image as image FROM PRODUCTS WHERE ProductID = '" + products[i] + "'";
+		db.each(query, function(err, row) {
 			data.push(row);
 		});
+	}
+
 	
-		function makeQuery() {
-			var staticStr = "SELECT ProductID AS productID, ProductName AS productName, Description AS description, Stock AS stock, Price AS price, Image as image FROM PRODUCTS WHERE ProductID = '" + products[0] + "'";
-			for (i=1;i<products.length;i++) {
-				staticStr += " OR ProductID = '" + products[i] + "'";
-			}
-			return staticStr;
-		}
-		sendData();
+	sendData();
 
 	function sendData() {
 		db.close(function(){
+			data.sort(function(a, b) {
+				return b.price - a.price;
+			});
 			res.setHeader('Content-Type', 'application/json');
 			res.send(JSON.stringify(data));
 		});
