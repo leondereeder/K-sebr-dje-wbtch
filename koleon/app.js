@@ -95,27 +95,31 @@ app.post('/*', function (req, res, next) {
     function login(req, res, next) {
         var db = new sqlite3.Database('public/protected/db.sqlite3');
         // DB logic
-        db.each("SELECT UserName AS userName, Password AS password, UserID AS userID FROM USERS WHERE UserName = '" + req.body.username + "' AND Password = '" + req.body.password + "'", function (err, row) {
-            req.session.cookie.userID = row.userID;
-            req.session.userID = row.userID;
-            req.session.save(function (err) {
-                var url = (req.url).split(".");
-                var url = url[0].split("/");
-                res.render(url[1], {
-                    userID: req.session.userID
-                });
-            });
+        db.get("SELECT UserName AS userName, Password AS password, UserID AS userID FROM USERS WHERE UserName = '" + req.body.username + "' AND Password = '" + req.body.password + "'", function (err, row) {
+            if(typeof row !== "undefined") {
+				req.session.cookie.userID = row.userID;
+				req.session.userID = row.userID;
+				req.session.save(function (err) {
+					var url = (req.url).split(".");
+					var url = url[0].split("/");
+					res.render(url[1], {
+						userID: req.session.userID
+					});
+				});
+			}
+			else {
+				var url = (req.url).split(".");
+				var url = url[0].split("/");
+				res.render(url[1], {
+					userID: req.session.userID
+				});
+			}
         });
         if (req.body.logout) {
             req.session.destroy();
             res.sendStatus(200);
             res.end();
         }
-		var url = (req.url).split(".");
-		var url = url[0].split("/");
-		res.render(url[1], {
-			userID: req.session.userID
-		});
     }
 });
 
