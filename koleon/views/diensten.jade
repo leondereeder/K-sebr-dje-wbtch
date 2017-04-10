@@ -26,7 +26,8 @@ html
 		.container
 			nav
 				if typeof userID === "undefined"
-					button.startLogin(onclick="document.getElementById('id01').style.display='block'") Login
+					button.startLogin(onclick="document.getElementById('loginModal').style.display='block'") Log in
+					button.startRegistration(onclick="document.getElementById('registerModal').style.display='block'") Registreer
 				else
 					a.goToProfile(href="mijnprofiel.html") Mijn profiel
 					button.logout Log uit
@@ -48,24 +49,65 @@ html
 						#shoppingCartNumber	0
 			section.content
 				h2.w3-warning	W3
-				#id01.modal
-					span.close(onclick="document.getElementById('id01').style.display='none'", title='Close Modal') ×
+				// login modal
+				#loginModal.modal
+					span.close(onclick="document.getElementById('loginModal').style.display='none'", title='Close Modal') ×
 					// Modal Content
 					form.modal-content.animate(method='post')
+						.modal-header
+							h1 Log in
 						.modal-container
 							label
-								b Username
-							input#username(type='text', placeholder='Enter Username', name='username', required='', autofocus)
+								b Gebruikersnaam
+							input#username(type='text', placeholder='Vul gebruikersnaam in..', name='username', required='', autofocus)
 							label
-								b Password
-							input(type='password', placeholder='Enter Password', name='password', required='')
-							button.loginbutton(type='submit') Login
+								b Wachtwoord
+							input(type='password', placeholder='Vul wachtwoord in..', name='password', required='')
+							button.loginbutton(type='submit') Log in
 							input(type='checkbox', name='remember' checked='checked')
-							|	Remember me
+							|	Onthoud mij
 						.modal-container(style='background-color:#f1f1f1')
-							button.cancelbtn(type='button', onclick="document.getElementById('id01').style.display='none'") Cancel
+							button.cancelbtn(type='button', onclick="document.getElementById('loginModal').style.display='none'") Annuleren
 							span.psw
-								a(href='#') Forgot password?
+								a(href='#') Wachtwoord vergeten?
+				#registerModal.modal
+					span.close(onclick="document.getElementById('registerModal').style.display='none'", title='Close Modal') ×
+					// Modal Content
+					form.modal-content.animate(method='post')
+						.modal-header
+							h1 Registreren
+						.modal-container
+							label
+								b Gebruikersnaam
+							input#username(type='text', placeholder='Vul gebruikersnaam in..', name='username', required='', autofocus)
+							label
+								b Wachtwoord
+							input#password(type='password', placeholder='Vul wachtwoord in..', name='password', required='')
+							label
+								b Bevestig wachtwoord
+							input#confirm_password(type='password', placeholder='Bevestig wachtwoord', name='confirm_password', required='')
+							label
+								b Voornaam
+							input(type='text', placeholder='Vul uw voornaam in..', name='firstName', required='')
+							label
+								b Achternaam
+							input(type='text', placeholder='Vul uw achternaam in..', name='lastName', required='')
+							label
+								b Adres
+							input(type='text', placeholder='Vul uw woonplaats in..', name='address', required='')
+							label
+								b Postcode
+							input(type='text', placeholder='Vul uw postcode in..', name='postalCode', required='')
+							label
+								b Ik ben een
+							select(name='userType' required)
+								option(value='RB') Koper
+								option(value='RS') Verkoper
+							button.loginbutton(type='submit') Registreer
+						.modal-container(style='background-color:#f1f1f1')
+							button.cancelbtn(type='button', onclick="document.getElementById('registerModal').style.display='none'") Cancel
+							span.psw
+								a(href='#') Wachtwoord vergeten?
 				.innercontent
 					p
 						|	Koleon	biedt	diensten	op	maat.	Kijk	hieronder	hoe	uw	laptop	door	ons	geassembleerd	wordt.
