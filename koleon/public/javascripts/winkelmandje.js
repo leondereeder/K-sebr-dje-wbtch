@@ -171,6 +171,7 @@ function displayInCart() {
 	http.onreadystatechange = function() {//Call a function when the state changes.
 		if(http.readyState == 4 && http.status == 200) {
 			var products = (JSON.parse(http.responseText));
+			var totaal = 0;
 			for(var i = 0;i<products.length;i++) {
 				$("#productentabel").css("display", "table");
 				$("#afrekenen").css("display", "block");
@@ -183,7 +184,13 @@ function displayInCart() {
 				"<button id = '" + products[i].productID + "' onclick=\"activateModal('" + products[i].productID + "', '" + products[i].productName + "', '" + products[i].price +  "', '" + products[i].description  +  "', '" + products[i].image + "', '" + getCookieName(products[i].productID) + "')\"> €" + products[i].price + "-</button>" +
 				"</td>" +
 				"</tr>");
+				totaal += products[i].price;
 			}
+				$("#productentabel").find("tbody").append("<tr>" +
+				"<td> </td>" +
+				"<td> Totaalprijs: </td>" +
+				"<td>" + "\u20ac" + totaal + "-" + "</td>" +
+				"</tr>");
 		}
 	}
 	http.send(JSON.stringify(data));
