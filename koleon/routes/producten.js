@@ -108,9 +108,11 @@ function generateFilteringQuery(sort, filter, searchFor) {
 		if (i==0 && first == false) {
 			query += "((SCG.SubCategoryName='" + subcategories[i] + "' OR SCG2.SubCategoryName='" + subcategories[i] + "') ";
 			first = true;
+			firstSubcategory = false;
 		}
 		else if (firstSubcategory) {
 			query += "AND ((SCG.SubCategoryName='" + subcategories[i] + "' OR SCG2.SubCategoryName='" + subcategories[i] + "') ";
+			firstSubcategory = false;
 		}
 		else {
 			query += "OR (SCG.SubCategoryName='" + subcategories[i] + "' OR SCG2.SubCategoryName='" + subcategories[i] + "') ";
@@ -123,10 +125,12 @@ function generateFilteringQuery(sort, filter, searchFor) {
 	var firstMerk = true;
 	for(i=0;i<merken.length;i++){
 		if (i==0 && first == false) {
-			query += "(ManufacturerName='" + merken[i] + "' ";
+			query += "((ManufacturerName='" + merken[i] + "' ";
+			firstMerk = false;
 		}
 		else if(firstMerk){
 			query += "AND (ManufacturerName='" + merken[i] + "' ";
+			firstMerk = false;
 		}
 		else {
 			query += "OR ManufacturerName='" + merken[i] + "' ";
@@ -208,11 +212,11 @@ function generateFilteringQuery(sort, filter, searchFor) {
 		query=query+"AND stock > 0) ";
 //	}
 */
-	if(typeof searchFor !== "undefined" || searchFor == "") {
-		query += "LIKE %" + searchFor + "%";
+	if(typeof searchFor !== "undefined") {
+		query += "LIKE '%" + searchFor + "%'";
 	}
 	
-	query = query + "ORDER BY " + sort;
+	query = query + " ORDER BY " + sort;
 
 	console.log(query);
 	return query;
