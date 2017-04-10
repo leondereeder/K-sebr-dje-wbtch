@@ -1,3 +1,6 @@
+/*
+	This Javascript file is used on the overons.jade page. It was made for assignment 2 and features the googlemap
+*/
 // Google Maps' initialize function
 function initMap() {
     // Define a new map

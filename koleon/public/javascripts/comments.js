@@ -1,3 +1,7 @@
+/*
+	This JS file was made for assignment 2 to store and load comments using cookies
+*/
+
 // Eventlistener for adding a comment
 document.getElementById("sendComment").addEventListener("click", function () {
     setComment(document.getElementById("commentBox").value, document.getElementById("nickname").value);

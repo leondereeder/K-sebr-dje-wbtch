@@ -1,3 +1,9 @@
+/*
+	This file handles the routing for producten
+	It mainly recieves a variable, uses it to generate a query,
+	queries the database and sends the result back
+*/
+
 var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
@@ -10,6 +16,8 @@ router.get('/', function(req, res, next) {
 
 module.exports = router;
 
+//this function's main goal is to extract data from the database and send it back to the client. it uses the object send from producten.js
+// and according to values in the object a query will be formed
 router.post('/', function(req, res, next) {
 	// Get Parameters from page
 	var pageNr = req.body[0];
@@ -30,6 +38,7 @@ router.post('/', function(req, res, next) {
 			isEmpty = false;
 		}	
 	}
+	//if no filters were selected, use the standard query
 	if(isEmpty == true) {
 		var query = "SELECT ProductID AS productID, ProductName AS productName, Description AS description, Stock AS stock, Price AS price, Image as image FROM PRODUCTS AS P INNER JOIN CATEGORIES AS CG ON P.CategoryID=CG.CategoryID INNER JOIN SUBCATEGORIES AS SCG ON P.SubCategoryID=SCG.SubCategoryID INNER JOIN SUBCATEGORIES AS SCG2 ON P.SubCategory2ID=SCG2.SubCategoryID INNER JOIN MANUFACTURERS AS M ON P.ManufacturerID=M.ManufacturerID ";
 		if (typeof searchFor !== "undefined" && searchFor !== "") {
@@ -63,6 +72,10 @@ router.post('/', function(req, res, next) {
 	}
 });
 
+/*
+	this function generates a query. It will split the array into three new arrays. Using the start of the variable query it will add new SQL syntax using 
+	several for loops. there are several boolean variables to check which syntax to use
+*/
 function generateFilteringQuery(sort, filter, searchFor) {
 	var categories = filter.splice(0,3);
 	var merken = filter.splice(0,8);
@@ -138,10 +151,12 @@ function generateFilteringQuery(sort, filter, searchFor) {
 	}
 	query += ") ";
 
+	//if the user searches using the search bar the query will be different. it will use SQL's LIKE statement 
 	if(typeof searchFor !== "undefined") {
 		query += "LIKE '%" + searchFor + "%'";
 	}
 	
+	//the query always ends with order by + the selected way of ordering
 	query = query + " ORDER BY " + sort;
 
 	console.log(query);

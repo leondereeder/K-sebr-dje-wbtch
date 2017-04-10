@@ -1,3 +1,7 @@
+/*
+	Producten.JS contains all scripts used on the producen.jade page
+*/
+
 // When a price has been clicked on, activate its modal
 function activateModal(id, productName, price, description, image, stock) {
     var modal = document.getElementById('myModal');
@@ -71,7 +75,7 @@ function freeNumber(number) {
 		return false;
 	}
 }
-var data = [];
+
 
 function getCookieByName(cname) { // Example from W3Schools: https://www.w3schools.com/js/js_cookies.asp
 	var name = cname + "=";
@@ -164,6 +168,10 @@ function generateFilteringQuery() {
 	getProducts();
 }
 
+//this variable is used to send data to the server, it will be converted to JSON in getProducts()
+var data = [];
+
+//onload of the document we add eventlisteners to all filtering elements
 $(document).ready(function(){
 	//eventlisteners
 	//voor checkboxes
@@ -181,6 +189,7 @@ $(document).ready(function(){
 	generateFilteringQuery();
 });
 
+//this function always use to search products using a searchbar
 function searchProducts() {
 	var searchFor = document.getElementById("searchProducts").value;
 	resetPage();
@@ -188,6 +197,11 @@ function searchProducts() {
 	getProducts();
 }
 
+/*
+getproducts will request the products from the server. It does this by sending an array called data which contains
+information about selected filtering. The functions getSorting() and getFilter() do this.
+After the array has its data the object is converted to JSON and send to the server
+*/
 function getProducts(){
 	data[0] = currentPage;
 	data[1] = getSorting();
@@ -220,6 +234,7 @@ function getProducts(){
 currentPage = 1;
 var totalPages;
 
+//this function enables pagination. 
 function makePages(totalProducts) {
 	totalPages = Math.ceil(totalProducts/12);
 	$(".pagination").append("<a href='javascript:changePage(\"previous\");'>&laquo;</a>");
@@ -235,6 +250,7 @@ function makePages(totalProducts) {
 	makeRows();
 }
 
+//this function handles switching between pages of products
 function changePage(page) {
 	switch(page) {
 		case 'next':
