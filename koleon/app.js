@@ -111,6 +111,11 @@ app.post('/*', function (req, res, next) {
             res.sendStatus(200);
             res.end();
         }
+		var url = (req.url).split(".");
+		var url = url[0].split("/");
+		res.render(url[1], {
+			userID: req.session.userID
+		});
     }
 });
 
