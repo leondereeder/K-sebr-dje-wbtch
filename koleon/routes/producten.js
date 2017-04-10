@@ -106,7 +106,7 @@ function generateFilteringQuery(sort, filter, searchFor) {
 	var firstSubcategory = true;
 	for(i=0;i<subcategories.length;i++){
 		if (i==0 && first == false) {
-			query += "((SCG.SubCategoryName='" + subcategories[i] + "' OR SCG2.SubCategoryName='" + subcategories[i] + "') ";
+			query += "(((SCG.SubCategoryName='" + subcategories[i] + "' OR SCG2.SubCategoryName='" + subcategories[i] + "') ";
 			first = true;
 			firstSubcategory = false;
 		}

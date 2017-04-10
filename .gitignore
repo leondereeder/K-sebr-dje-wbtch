@@ -12,3 +12,4 @@ koleon/npm-debug.log
 npm-debug.log
 access.log
 koleon/access.log
+koleon/public/protected/sqlite3.exe
