@@ -179,6 +179,7 @@ function displayInCart() {
 	http.onreadystatechange = function() {//Call a function when the state changes.
 		if(http.readyState == 4 && http.status == 200) {
 			var products = (JSON.parse(http.responseText));
+			// Add html for every product to display them in cart
 			for(var i = 0;i<products.length;i++) {
 				$("#productentabel").css("display", "table");
 				$("#afrekenen").css("display", "block");
@@ -197,11 +198,11 @@ function displayInCart() {
 	http.send(JSON.stringify(data));
 }
 
+// Gets the name of a cookie for a given value of productID
 function getCookieName(productID) {
 	var cookieString = document.cookie
 	var decodeCookie = decodeURIComponent(document.cookie);
 	var ca = decodeCookie.split(';');
-	
 	
 	for(i=0;i<ca.length; i++) {
 		var cookie = ca[i];
