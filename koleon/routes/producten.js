@@ -25,6 +25,8 @@ router.post('/', function (req, res, next) {
     var sort = req.body[1];
     var filter = req.body[2];
     var searchFor = req.body[3];
+	
+	console.log(pageNr + " | " + sort + " | " + filter + " | " + searchFor);
 
     var startProducts = ((pageNr - 1) * 12);
     var isEmpty = true;
@@ -38,13 +40,14 @@ router.post('/', function (req, res, next) {
             isEmpty = false;
         }
     }
+	console.log(isEmpty);
     //if no filters were selected, use the standard query
     if (isEmpty == true) {
         var query = "SELECT ProductID AS productID, ProductName AS productName, Description AS description, Stock AS stock, Price AS price, Image as image FROM PRODUCTS AS P INNER JOIN CATEGORIES AS CG ON P.CategoryID=CG.CategoryID INNER JOIN SUBCATEGORIES AS SCG ON P.SubCategoryID=SCG.SubCategoryID INNER JOIN SUBCATEGORIES AS SCG2 ON P.SubCategory2ID=SCG2.SubCategoryID INNER JOIN MANUFACTURERS AS M ON P.ManufacturerID=M.ManufacturerID ";
         if (typeof searchFor !== "undefined" && searchFor !== "") {
             query += "WHERE productName LIKE '%" + searchFor + "%'";
-            query += "AND Stock > 0";
         }
+		query += "AND Stock > 0";
         query = query + " ORDER BY " + sort;
     } else {
         var query = generateFilteringQuery(sort, filter, searchFor);
@@ -165,7 +168,7 @@ function generateFilteringQuery(sort, filter, searchFor) {
 
     //if the user searches using the search bar the query will be different. it will use SQL's LIKE statement 
     if (typeof searchFor !== "undefined") {
-        query += "LIKE '%" + searchFor + "%'";
+        query += "AND productName LIKE '%" + searchFor + "%'";
     }
 
     //the query always ends with order by + the selected way of ordering

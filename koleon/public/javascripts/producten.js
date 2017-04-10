@@ -11,7 +11,6 @@ function activateModal(id, productName, price, description, image, stock) {
     var span = document.getElementsByClassName("close")[0];
     modal.style.display = "block";
     var modalbestel = document.getElementById("modalbestel");
-
     modalheader.innerHTML = productName;
     modalbody.innerHTML = description + "<br><br>Prijs: €" + price + "-" +
         "<br><br>Voorraad: " + stock;
@@ -36,9 +35,11 @@ function activateModal(id, productName, price, description, image, stock) {
     }
 }
 
-// Create a page-wide cookie with the product
-var itemsInCart = 0;
 
+var itemsInCart = 0;
+var searchFor = "";
+
+// Create a page-wide cookie with the product
 function createCookie(id, price) {
     itemsInCart++;
     document.getElementById("shoppingCartNumber").innerHTML = itemsInCart;
@@ -162,19 +163,19 @@ $(document).ready(function () {
     //voor checkboxes
     for (var i = 0; i < checkboxes.length; i++) {
         document.getElementById(checkboxes[i]).addEventListener("change", function () {
-            showFilter()
+            showFilter();
         });
         document.getElementById(checkboxes[i]).addEventListener("change", function () {
-            generateFilteringQuery()
+            generateFilteringQuery();
         });
 
     }
     //sorteerbox
     document.getElementById('orderby').addEventListener("change", function () {
-        generateFilteringQuery()
+        generateFilteringQuery();
     });
     $("#searchProducts").keyup(function () {
-        searchProducts()
+        searchProducts();
     });
 
     showFilter();
@@ -183,7 +184,7 @@ $(document).ready(function () {
 
 //this function always use to search products using a searchbar
 function searchProducts() {
-    var searchFor = document.getElementById("searchProducts").value;
+    searchFor = document.getElementById("searchProducts").value;
     resetPage();
     data[3] = searchFor;
     getProducts();
@@ -198,7 +199,8 @@ function getProducts() {
     data[0] = currentPage;
     data[1] = getSorting();
     data[2] = getFilter();
-
+	data[3] = searchFor;
+	
     var http = new XMLHttpRequest();
     var url = "producten.html";
     http.open("POST", url, true);
