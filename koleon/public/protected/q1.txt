@@ -1,6 +1,0 @@
-SELECT * FROM PRODUCTS AS P INNER JOIN CATEGORIES AS CG ON P.CategoryID=CG.CategoryID 
-INNER JOIN SUBCATEGORIES AS SCG ON P.SubCategoryID=SCG.SubCategoryID 
-INNER JOIN SUBCATEGORIES AS SCG2 ON P.SubCategory2ID=SCG2.SubCategoryID 
-INNER JOIN MANUFACTURERS AS M ON P.ManufacturerID=M.ManufacturerID
-WHERE P.ProductID=P.ProductID
-AND (SCG.SubCategoryName='Gaming-Muis' OR SCG2.SubCategoryName='Gaming-Muis');
