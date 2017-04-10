@@ -1,7 +1,6 @@
 /*
 	This JS file was made for assignment 2 to store and load comments using cookies
 */
-
 // Eventlistener for adding a comment
 document.getElementById("sendComment").addEventListener("click", function () {
     setComment(document.getElementById("commentBox").value, document.getElementById("nickname").value);
@@ -57,13 +56,3 @@ function generateCname() {
     name = encodeURIComponent("comment_" + counter);
     return name;
 }
-
-/* Test function to delete all comments from the page
-function deleteComments() {
-	var cnt = document.cookie.length;
-	var path = window.location.pathname;
-	for (i=0;i<cnt;i++) {
-		document.cookie = "comment_" + i + "=; expires=Thu, 18 Dec 2014 12:00:00 UTC;path=" + path;
-	}
-	location.reload();
-} */

@@ -30,14 +30,14 @@ function initMap() {
             name: 'Ram',
             icon: 'images/marker-ram.png'
         },
-		Distribution1: {
-			name: 'Plane',
-			icon: 'images/marker-plane.png'
-		},
-		Ups: {
-			name: 'Ups',
-			icon: 'images/marker-ups.png'
-		}
+        Distribution1: {
+            name: 'Plane',
+            icon: 'images/marker-plane.png'
+        },
+        Ups: {
+            name: 'Ups',
+            icon: 'images/marker-ups.png'
+        }
     };
 
     // Define features, positions, type for the markers, titles and content for the infowindow event
@@ -138,10 +138,10 @@ function initMap() {
             '</div>' +
             '</div>'
     }, {
-		position: new google.maps.LatLng(52.308477, 4.761560, 17),
-		type: 'Distribution1',
-		title: 'Koleon distributie',
-		content: '<div id="content">' +
+        position: new google.maps.LatLng(52.308477, 4.761560, 17),
+        type: 'Distribution1',
+        title: 'Koleon distributie',
+        content: '<div id="content">' +
             '<div id="siteNotice">' +
             '</div>' +
             '<h3>Distributie</h3>' +
@@ -149,11 +149,11 @@ function initMap() {
             '<p>Onze internationale verzendingen buiten Nederland en het Europese vasteland worden gedistributeerd vanaf Schiphol.</p>' +
             '</div>' +
             '</div>'
-	}, {
-		position: new google.maps.LatLng(52.083104, 5.182438, 17),
-		type: 'Ups',
-		title: 'Koleon distributie',
-		content: '<div id="content">' +
+    }, {
+        position: new google.maps.LatLng(52.083104, 5.182438, 17),
+        type: 'Ups',
+        title: 'Koleon distributie',
+        content: '<div id="content">' +
             '<div id="siteNotice">' +
             '</div>' +
             '<h3>Distributie</h3>' +
@@ -161,11 +161,11 @@ function initMap() {
             '<p>Onze verzendingen binnen Nederland en het Europese vasteland worden gedistributeerd vanaf Utrecht door UPS.</p>' +
             '</div>' +
             '</div>'
-	}, 	{
-		position: new google.maps.LatLng(39.859996, -75.252336, 17),
-		type: 'Ups',
-		title: 'Koleon distributie',
-		content: '<div id="content">' +
+    }, {
+        position: new google.maps.LatLng(39.859996, -75.252336, 17),
+        type: 'Ups',
+        title: 'Koleon distributie',
+        content: '<div id="content">' +
             '<div id="siteNotice">' +
             '</div>' +
             '<h3>Distributie</h3>' +
@@ -173,7 +173,7 @@ function initMap() {
             '<p>Onze verzendingen naar Amerika worden verder gedistributeerd vanaf Philadelphia airport door UPS.</p>' +
             '</div>' +
             '</div>'
-	}];
+    }];
 
     // Create an array of all the markers for the Clustermarkerer
     var markers = new Array();

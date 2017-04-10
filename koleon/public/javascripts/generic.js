@@ -2,7 +2,6 @@
 	GENERIC.JS contains Javascripts required on all pages, like adding products to the shopping cart and the contextmenu
 	made for assignment 2
 */
-
 // When the document is ready, load all the products into the shopping cart
 $(document).ready(function getCookie() {
     if (document.cookie.split("; ")[0] != "") {
@@ -19,17 +18,18 @@ $(document).ready(function getCookie() {
     }
 });
 
+// Get the page session
 $(document).ready(function getSession() {
-	var cookies = document.cookie.split("; ")
-	cookieCnt = document.cookie.split(";").length;
-        for (i = 0; i < cookieCnt; i += 1) {
-            str = cookies[i];
-            if (str.substring(0, 2) == "id") {
-                cookie01 = cookies[i].split("=");
-                value01 = decodeURIComponent(cookie01[1]);
-                document.getElementsByClassName("startLogin")[0].innerHTML = "Mijn account";
-            }
+    var cookies = document.cookie.split("; ")
+    cookieCnt = document.cookie.split(";").length;
+    for (i = 0; i < cookieCnt; i += 1) {
+        str = cookies[i];
+        if (str.substring(0, 2) == "id") {
+            cookie01 = cookies[i].split("=");
+            value01 = decodeURIComponent(cookie01[1]);
+            document.getElementsByClassName("startLogin")[0].innerHTML = "Mijn account";
         }
+    }
 });
 
 // Add all found products to the shopping cart as a number
@@ -127,63 +127,56 @@ var loginModal = document.getElementById('loginModal');
 var registerModal = document.getElementById('registerModal');
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == loginModal) {
         loginModal.style.display = "none";
     }
-	if(event.target == registerModal) {
-		registerModal.style.display = "none";
-	}
+    if (event.target == registerModal) {
+        registerModal.style.display = "none";
+    }
 }
 
 var logoutButton = document.getElementsByClassName("logout")[0];
-if(typeof logoutButton !== "undefined") {
-	logoutButton.addEventListener("click", function(){logout();});
+if (typeof logoutButton !== "undefined") {
+    logoutButton.addEventListener("click", function () {
+        logout();
+    });
 }
 
-function logout () {
-	var data = {
-		'logout' : true
-	}
-	var http = new XMLHttpRequest();
-	var url = window.location.href;
-	http.open("POST", url, true);
+// AJAX request for logout
+function logout() {
+    var data = {
+        'logout': true
+    }
+    var http = new XMLHttpRequest();
+    var url = window.location.href;
+    http.open("POST", url, true);
 
-	//Send the proper header information along with the request
-	http.setRequestHeader("Content-type", "application/json");
+    //Send the proper header information along with the request
+    http.setRequestHeader("Content-type", "application/json");
 
-	http.onreadystatechange = function() {//Call a function when the state changes.
-		if(http.readyState == 4 && http.status == 200) {
-			window.location.href = window.location.href;
-		}
-	}
-	
-	http.send(JSON.stringify(data));
+    http.onreadystatechange = function () { //Call a function when the state changes.
+        if (http.readyState == 4 && http.status == 200) {
+            window.location.href = window.location.href;
+        }
+    }
+
+    http.send(JSON.stringify(data));
 }
 
-var password = document.getElementById("password")
-  , confirm_password = document.getElementById("confirm_password");
+var password = document.getElementById("password"),
+    confirm_password = document.getElementById("confirm_password");
 
-function validatePassword(){
-  if(password.value != confirm_password.value) {
-    confirm_password.setCustomValidity("Passwords Don't Match");
-  } else {
-    confirm_password.setCustomValidity('');
-  }
+// Check to validate if entered passwords in registration are the same 
+function validatePassword() {
+    if (password.value != confirm_password.value) {
+        confirm_password.setCustomValidity("Passwords Don't Match");
+    } else {
+        confirm_password.setCustomValidity('');
+    }
 }
 
-if(password != null && confirm_password!=null) {
-password.onchange = validatePassword;
-confirm_password.onkeyup = validatePassword;
+if (password != null && confirm_password != null) {
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
 }
-
-/* Test function to delete all cookies from the page
-function deleteCookies() {
-	var cnt = document.cookie.length;
-	var path = window.location.pathname;
-	for (i=0;i<cnt;i+=1) {
-		document.cookie = "comment_" + i + "=; expires=Thu, 18 Dec 2014 12:00:00 UTC;path=" + path;
-		document.cookie = "product_" + i + "=; expires=Thu, 18 Dec 2014 12:00:00 UTC;path=/";
-	}
-	location.reload();
-} */
