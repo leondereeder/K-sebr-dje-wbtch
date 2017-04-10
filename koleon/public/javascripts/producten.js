@@ -217,9 +217,10 @@ function getProducts(){
 }
 
 currentPage = 1;
+var totalPages;
 
 function makePages(totalProducts) {
-	var totalPages = Math.ceil(totalProducts/12);
+	totalPages = Math.ceil(totalProducts/12);
 	$(".pagination").append("<a href='javascript:changePage(\"previous\");'>&laquo;</a>");
 	for(i=1;i!=totalPages+1;i++) {
 		if(i==currentPage) {
