@@ -1,3 +1,7 @@
+/*
+	This js file is used on the winkemandje.jade page in order to fill the cart with chosen products and to delete or order these products
+*/
+
 // When a price has been clicked on, activate its modal
 function activateModal(id, productName, price, description, image, cookieName) {
     var modal = document.getElementById('myModal');

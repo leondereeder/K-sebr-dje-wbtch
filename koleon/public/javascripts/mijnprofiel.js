@@ -1,7 +1,12 @@
+/*
+	This js file is used on the mijnprofiel.jade page in order to request, handle and output all the relevant information
+*/
+// Retrieve info when page is ready
 $(document).ready(function() {
 	getInfo();
 });
 
+// Send userid to server and request information about that user
 function getInfo(){
 	
 	var http = new XMLHttpRequest();
@@ -24,7 +29,9 @@ function getInfo(){
 	http.send(JSON.stringify(userID));
 }
 
+// Fills the user page with the received data
 function fillPage(data) {
+	// Setting user data in html
 	document.getElementById("userName").innerHTML = data[0].userName;
 	document.getElementById("firstName").innerHTML = data[0].firstName;
 	document.getElementById("lastName").innerHTML = data[0].lastName;
@@ -37,6 +44,7 @@ function fillPage(data) {
 		case "RB":
 			account.innerHTML = "Registered buyer"
 	}
+	//Fill Bought Products table for user
 	for(i=1;i<data.length;i++) {
 		if(data[i].userID==data[0].userID) {
 			$("#productentabel").css("display", "table");
@@ -52,9 +60,11 @@ function fillPage(data) {
 			"</tr>");
 		}
 	}
+	// If user is Registered Seller, fill Sold Products and Available Products tables
 	if(data[0].userType=="RS"){
 		$(".rsSection").css("display" , "block");
 		for(i=1;i<data.length;i++) {
+			// If data[i] contains id element, this means the product is part of Available Products
 			if(data[i].id != undefined) {
 				$(".availableTabel").css("display", "table");
 				$(".availableTabel").find("tbody").append("<tr>" +
@@ -69,6 +79,7 @@ function fillPage(data) {
 				"</td>" +
 				"</tr>");
 			}
+			// Else, product is part of the Sold Products
 			else if(data[i].sellerID == data[0].userID) {
 				$(".sellersTabel").css("display", "table");
 				$(".sellersTabel").find("tbody").append("<tr>" +
@@ -91,6 +102,7 @@ function fillPage(data) {
 
 document.getElementById("editProfile").addEventListener("click", function(){editProfile();});
 
+//Function to change HTML of user detail to input fields
 function editProfile() {
 	$("#userName").replaceWith( "<td><input type='text' name='userName'value='" + $("#userName").html() + "'></input></td>" );
 	$("#firstName").replaceWith( "<td><input type='text' name='firstName' value='" + $("#firstName").html() + "'></input></td>" );
@@ -101,6 +113,7 @@ function editProfile() {
 	document.getElementById("saveProfile").addEventListener("click", function(){saveProfile();});
 }
 
+// Function to request server to process the edited user data and refresh page when done
 function saveProfile() {
 	var http = new XMLHttpRequest();
 	var url = "mijnprofiel.html/edit";

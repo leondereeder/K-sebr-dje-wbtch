@@ -1,5 +1,6 @@
-/* Server side javascript file used for the shopping cart page 
- * This files contains several POST and GET handlers to server different requests from the client.
+/* 
+	Server side javascript file used for the shopping cart page 
+ 	This files contains several POST and GET handlers to server different requests from the client.
 */
 var express = require('express');
 var router = express.Router();

@@ -1,3 +1,6 @@
+/*
+	This file is used for routing on the 'Laptop Samenstellen' page
+*/
 var express = require('express');
 var router = express.Router();
 

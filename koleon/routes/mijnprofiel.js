@@ -1,10 +1,16 @@
+/* 
+	Server side javascript file used for the profile page.
+ 	This files contains several POST and GET handlers to server different requests from the client.
+	Mostly this contains reading and processing received data and sending back some new data.
+*/
+
 var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
 var sqlite3 = require('sqlite3').verbose();
 var multer  = require('multer');
 var path = require('path');
-var storage = multer.diskStorage({
+var storage = multer.diskStorage({ // Set location to upload images
 	destination: path.join(__dirname, '../public/images/products'),
 	filename: function (req, file, cb) {
       cb(null, file.originalname)
@@ -19,8 +25,9 @@ router.get('/', function(req, res, next) {
 
 module.exports = router;
 
+// POST handler to process the image upload and add a new product to the database
 router.post('/', upload.single('image'), function(req, res, next) {
-	// Get Parameters from page
+	// Get Parameters from page if defined
 	if(typeof req.body.productName !== "undefined") {
 		var productName = req.body.productName;
 		var description = req.body.description;
@@ -50,6 +57,7 @@ router.post('/', upload.single('image'), function(req, res, next) {
 		res.render('mijnprofiel', { userID : req.session.userID, productAdded : true });
 		});
 	}
+	// If no parameters defined, this post request is used by the client to fill the different Product tables on the profile page
 	else {
 		var userID = req.body;
 
@@ -87,6 +95,7 @@ router.post('/', upload.single('image'), function(req, res, next) {
 	}
 });
 
+// POST handler to handle the editing of a profile. Updates database accordingly
 router.post('/edit', function(req, res, next) {
 	var user = req.body;
 	var address = req.body[3].split(" ")[0];
