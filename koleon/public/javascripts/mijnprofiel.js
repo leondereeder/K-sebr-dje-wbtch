@@ -119,6 +119,5 @@ function saveProfile() {
 			window.location.href = window.location.href;
 		}
 	}
-	
 	http.send(JSON.stringify(data));
 }

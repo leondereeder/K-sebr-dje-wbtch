@@ -87,13 +87,35 @@ router.post('/', upload.single('image'), function(req, res, next) {
 	}
 });
 
+
+
 router.post('/edit', function(req, res, next) {
 	var user = req.body;
 	var address = req.body[3].split(" ")[0];
 	console.log(address);
 	var postalCode = req.body[3].split(" ")[1];
+	var query = "";
+	console.log(user[0]);
 	console.log(postalCode);
-	var query = "UPDATE USERS SET UserName = '" + user[0] + "', UserType = '" + user[4] + "', FirstName = '" + user[1] + "', LastName = '" + user[2] + "', Adress = '" + address + "', PostalCode = '" + postalCode + "' WHERE UserID = " + req.session.userID;
+	if (function auth() {
+		var userExists = false;
+		var db = new sqlite3.Database('public/protected/db.sqlite3');
+		db.serialize(function() {
+			db.each("SELECT * FROM USERS WHERE UserName = '" + user[0] + "' LIMIT 1", function(err, row) {
+				if (row.UserName == user[0]) {
+					return true;
+				}
+				userExists = true;
+			});
+		
+		});
+		return userExists;
+	}) {
+		query = "UPDATE USERS SET UserType = '" + user[4] + "', FirstName = '" + user[1] + "', LastName = '" + user[2] + "', Adress = '" + address + "', PostalCode = '" + postalCode + "' WHERE UserID = " + req.session.userID;
+	}
+	else {
+		query = "UPDATE USERS SET UserName = '" + user[0] + "', UserType = '" + user[4] + "', FirstName = '" + user[1] + "', LastName = '" + user[2] + "', Adress = '" + address + "', PostalCode = '" + postalCode + "' WHERE UserID = " + req.session.userID;
+	}
 	console.log(query);
 	var data = [];
 	var db = new sqlite3.Database('public/protected/db.sqlite3');
@@ -101,4 +123,5 @@ router.post('/edit', function(req, res, next) {
 	db.close(function() {
 		res.render('mijnprofiel', { userID : req.session.userID });
 	});
+	
 });
