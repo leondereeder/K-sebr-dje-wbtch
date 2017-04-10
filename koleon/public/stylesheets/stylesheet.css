@@ -655,7 +655,7 @@ span.psw {
 /* End of modal */
 /* Winkelwagen page */
 
-#productentabel, .sellersTabel {
+#productentabel, .sellersTabel, .availableTabel {
     display: none;
     margin: auto;
     border-collapse: collapse;
@@ -664,7 +664,7 @@ span.psw {
     text-align: center;
     margin-bottom: 50px;
 }
-#productentabel tr:nth-child(odd), .sellersTabel tr:nth-child(odd) {
+#productentabel tr:nth-child(odd), .sellersTabel tr:nth-child(odd), .availableTabel tr:nth-child(odd) {
     background-color: #eee;
 }
 #afrekenen {

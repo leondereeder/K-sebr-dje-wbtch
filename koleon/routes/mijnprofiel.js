@@ -55,7 +55,8 @@ router.post('/', upload.single('image'), function(req, res, next) {
 
 		var queryAccount = "SELECT UserID AS userID, UserName AS userName, Usertype AS userType, FirstName AS firstName, LastName AS lastName, Adress AS address, PostalCode AS postalCode FROM USERS WHERE UserID = " + userID;
 		var queryOrders = "SELECT O.userID AS userID, P.ProductID AS productID, P.ProductName AS productName, O.Date AS date, P.Description AS description, P.Image AS image, P.Price AS price, P.SellerID AS sellerID, P.Stock AS stock FROM PRODUCTS AS P INNER JOIN ORDERS AS O ON O.ProductID=P.ProductID INNER JOIN USERS AS U ON O.UserID=U.UserID WHERE U.UserID="+userID+" OR P.SellerID="+userID;
-			
+		var queryAvailableProducts = "SELECT SellerID AS id, productName AS productName, Description AS description, Price AS price, Stock AS stock, Description AS description, Image AS image FROM Products WHERE Stock > 0 AND SellerID = " + userID;
+		
 		var data = [];
 		var db = new sqlite3.Database('public/protected/db.sqlite3');
 		// DB logic
@@ -65,6 +66,12 @@ router.post('/', upload.single('image'), function(req, res, next) {
 		});
 		function getOrders() {
 			db.each(queryOrders, function(err,row) {
+				data.push(row);
+			});
+			getAvailableProducts();
+		}
+		function getAvailableProducts() {
+			db.each(queryAvailableProducts, function(err,row) {
 				data.push(row);
 			});
 		}

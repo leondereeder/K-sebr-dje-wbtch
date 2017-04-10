@@ -25,7 +25,6 @@ function getInfo(){
 }
 
 function fillPage(data) {
-	console.log(data);
 	document.getElementById("userName").innerHTML = data[0].userName;
 	document.getElementById("firstName").innerHTML = data[0].firstName;
 	document.getElementById("lastName").innerHTML = data[0].lastName;
@@ -56,7 +55,21 @@ function fillPage(data) {
 	if(data[0].userType=="RS"){
 		$(".rsSection").css("display" , "block");
 		for(i=1;i<data.length;i++) {
-			if(data[i].sellerID == data[0].userID) {
+			if(data[i].id != undefined) {
+				$(".availableTabel").css("display", "table");
+				$(".availableTabel").find("tbody").append("<tr>" +
+				"<td><img src='images/products/" + data[i].image + "' alt='" + data[i].productID + "'>" +
+				"<br>" + data[i].productName + 
+				"<td>" + data[i].description + 
+				"</td>" +
+				"<td>" +
+				"€" + data[i].price + "-</button>" +
+				"</td>" +
+				"<td class=\"tinyCell\">" + data[i].stock + 
+				"</td>" +
+				"</tr>");
+			}
+			else if(data[i].sellerID == data[0].userID) {
 				$(".sellersTabel").css("display", "table");
 				$(".sellersTabel").find("tbody").append("<tr>" +
 				"<td><img src='images/products/" + data[i].image + "' alt='" + data[i].productID + "'>" +
@@ -65,7 +78,7 @@ function fillPage(data) {
 				"</td>" +
 				"<td>" +
 				"€" + data[i].price + "-</button>" +
-				"<br><p>Laatst verkocht op: " + data[i].date + "</p>" +
+				"<br><p>Verkocht op: " + data[i].date + "</p>" +
 				"</td>" +
 				"<td class=\"tinyCell\">" + data[i].stock +
 				"</td>" +
