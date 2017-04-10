@@ -86,7 +86,8 @@ li a {
     display: block;
     padding: 10px 20px 10px 20px;
     font: bold 15px Verdana;
-    font-family: "trebuchet ms";
+    font-family: Abel;
+	font-size:18px;
 }
 nav ul {
     margin: 0px;
@@ -466,13 +467,18 @@ input:hover {
 	-webkit-margin-before: 1em;
 	margin-bottom:0px;
 	outline:0;
-	text-decoration:underline;
 	color:white;
 	font-size:16px;
-	padding:6px 0px 12px 20px;
+	padding:15px 0px 12px 20px;
 	position:absolute;
 	left:0;
+	font-family:Abel;
 }
+
+.goToProfile:hover, .logout:hover{
+	color:lightblue;
+}
+
 .logout, .logout:focus {
 	left:130px;
 }
