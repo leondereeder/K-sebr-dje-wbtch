@@ -90,11 +90,30 @@ function bevestigAankoop() {
 	function deleteProducts() {
 		var cnt = document.cookie.length;
 		var path = window.location.pathname;
-		for (i=0;i<cnt;i+=1) {
-			document.cookie = "product_" + i + "=; expires=Thu, 18 Dec 2014 12:00:00 UTC;path=/";
+		var cookies = getProductCookies();
+		
+		for(var i = 0;i<cookies.length;i++) {
+			document.cookie = cookies[i] + "=; expires=Thu, 18 Dec 2014 12:00:00 UTC;path=/";
 		}
 		location.reload();
 	}
+	
+	function getProductCookies() {
+		var cookies = [];
+		if (document.cookie.split("; ")[0] != "") {
+			var cookieString = document.cookie.split("; ");
+			var cookieCnt = document.cookie.split(";").length;
+			for (i = 0; i < cookieCnt; i++) {
+				var str = cookieString[i];
+				if (str.search('product') != -1) {
+					var cookie01 = str.split("=");
+					var value01 = decodeURIComponent(cookie01[0]);
+					cookies.push(value01);
+				}
+			}
+		}
+		return cookies;
+    }
 
 	// When the user click 'Nee', close the modal
 	nietBevestigen.onclick = function() {
