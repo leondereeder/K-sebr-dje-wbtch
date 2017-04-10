@@ -1,3 +1,8 @@
+/*
+	This JS file is used on the diensten.jade pagina in order to allow shopping cart functionality and calculate
+	the cost for a customized laptop
+*/
+
 // Calculate the total price in real-time based on the parts chosen
 var totaal;
 

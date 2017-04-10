@@ -1,3 +1,8 @@
+/*
+	GENERIC.JS contains Javascripts required on all pages, like adding products to the shopping cart and the contextmenu
+	made for assignment 2
+*/
+
 // When the document is ready, load all the products into the shopping cart
 $(document).ready(function getCookie() {
     if (document.cookie.split("; ")[0] != "") {
