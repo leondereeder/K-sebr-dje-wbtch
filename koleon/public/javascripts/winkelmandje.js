@@ -133,6 +133,7 @@ function bevestigAankoop() {
 }
 
 var data = [];
+var empty = true;
 // When the document is ready, add all products to the shopping cart page
 $(document).ready(function getCookie() {
     if (document.cookie.split("; ")[0] != "") {
@@ -141,13 +142,21 @@ $(document).ready(function getCookie() {
         for (i = 0; i < cookieCnt; i++) {
             var str = cookies[i];
             if (str.search('product') != -1) {
+				empty = false;
                 var cookie01 = str.split("=");
                 var value01 = decodeURIComponent(cookie01[1]);
                 data.push(value01);
             }
         }
     }
+	if (empty == false)
+	{
 	displayInCart();
+	}
+	else
+	{
+		alert("Je winkelmandje is leeg");
+	}
 });
 
 // Get the proper piece of HTML for the cookie and add it to the page

@@ -169,8 +169,9 @@ $(document).ready(function(){
 	//voor checkboxes
 	for(var i=0; i<checkboxes.length; i++)	
 	{
-		document.getElementById(checkboxes[i]).addEventListener("change", function(){generateFilteringQuery()});
 		document.getElementById(checkboxes[i]).addEventListener("change", function(){showFilter()});
+		document.getElementById(checkboxes[i]).addEventListener("change", function(){generateFilteringQuery()});
+		
 	}
 	//sorteerbox
 	document.getElementById('orderby').addEventListener("change", function(){generateFilteringQuery()});
@@ -217,9 +218,10 @@ function getProducts(){
 }
 
 currentPage = 1;
+var totalPages;
 
 function makePages(totalProducts) {
-	var totalPages = Math.ceil(totalProducts/12);
+	totalPages = Math.ceil(totalProducts/12);
 	$(".pagination").append("<a href='javascript:changePage(\"previous\");'>&laquo;</a>");
 	for(i=1;i!=totalPages+1;i++) {
 		if(i==currentPage) {

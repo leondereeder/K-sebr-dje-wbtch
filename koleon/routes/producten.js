@@ -82,9 +82,6 @@ function generateFilteringQuery(sort, filter, searchFor) {
 	categories.remove('0');
 	merken.remove('0');
 	subcategories.remove('0');
-	console.log(categories);
-	console.log(merken);
-	console.log(subcategories);
 	
 	var query = "SELECT ProductID AS productID, ProductName AS productName, Description AS description, Stock AS stock, Price AS price, Image as image FROM PRODUCTS AS P INNER JOIN CATEGORIES AS CG ON P.CategoryID=CG.CategoryID INNER JOIN SUBCATEGORIES AS SCG ON P.SubCategoryID=SCG.SubCategoryID INNER JOIN SUBCATEGORIES AS SCG2 ON P.SubCategory2ID=SCG2.SubCategoryID INNER JOIN MANUFACTURERS AS M ON P.ManufacturerID=M.ManufacturerID WHERE ";
 	
@@ -106,7 +103,7 @@ function generateFilteringQuery(sort, filter, searchFor) {
 	var firstSubcategory = true;
 	for(i=0;i<subcategories.length;i++){
 		if (i==0 && first == false) {
-			query += "((SCG.SubCategoryName='" + subcategories[i] + "' OR SCG2.SubCategoryName='" + subcategories[i] + "') ";
+			query += "(((SCG.SubCategoryName='" + subcategories[i] + "' OR SCG2.SubCategoryName='" + subcategories[i] + "') ";
 			first = true;
 			firstSubcategory = false;
 		}
@@ -140,78 +137,7 @@ function generateFilteringQuery(sort, filter, searchFor) {
 		}
 	}
 	query += ") ";
-	console.log(query);
-	
-	/*var first = true;
-	var merk = false;
-	var category = false;
-	var subcategory = false;
-	
-	var query = "SELECT ProductID AS productID, ProductName AS productName, Description AS description, Stock AS stock, Price AS price, Image as image FROM PRODUCTS AS P INNER JOIN CATEGORIES AS CG ON P.CategoryID=CG.CategoryID INNER JOIN SUBCATEGORIES AS SCG ON P.SubCategoryID=SCG.SubCategoryID INNER JOIN SUBCATEGORIES AS SCG2 ON P.SubCategory2ID=SCG2.SubCategoryID INNER JOIN MANUFACTURERS AS M ON P.ManufacturerID=M.ManufacturerID WHERE (";
-	
-	//if(typeof searchFor == "undefined")
-	//{
-		for(var i=0; i < filter.length; i++)
-		{
-			if (first==true)
-			{
-				if(i>=0 && i <= 2 && filter[i] != '0')		//filter op categorie
-				{
-				query = query + "(CategoryName='" + filter[i] + "' ";
-				first = false;
-				category = true;
-				}
-			
-				else if(i >= 3 && i <= 10 && filter[i] != '0' && first == true) // filter op merk
-				{
-				query = query + "(ManufacturerName='" + filter[i] + "' ";
-				first = false;
-				merk=true;
-				}
-				else if((i >= 11) && filter[i] != '0' && first ==  true)	//filter op subcategorie
-				{
-				query = query + "(SCG.SubCategoryName='" + filter[i] + "' OR SCG2.SubCategoryName='" + filter[i] + "' ";
-				first = false;
-				subcategory = true;
-				}
-			}
-		}
-	
-		for(var i =0; i < filter.length; i++)
-		{
-			if(i>=0 && i <= 2 && filter[i] != '0' && category == false)		//filter op categorie
-			{
-				query = query + "AND CategoryName='" + filter[i] + "' ";
-			}
-			
-			else if ((i >= 14) && filter[i] != '0' && subcategory == false)	//filter op subcategory
-			{
-				query = query + "AND (SCG.SubCategoryName='" + filter[i] + "' OR SCG2.SubCategoryName='" + filter[i] + "') ";
-			}
-		}
 
-		query = query + ") ";
-		for(var i=3; i<=10; i++)
-
-		{
-			if(i>=3 && i<=10 && filter[i] != '0' && merk==false)
-			{
-				query = query + "AND (ManufacturerName='" + filter[i] + "' ";
-				merk = true;
-			}
-			if(i>=3 && i<=10 && filter[i] != '0' && merk == true)
-			{
-				query = query + "OR ManufacturerName='" + filter[i] + "'";
-			}
-			
-		}
-		var x = "AND"
-	//	if (query.includes(x))
-		//{query=query+") ";}
-		
-		query=query+"AND stock > 0) ";
-//	}
-*/
 	if(typeof searchFor !== "undefined") {
 		query += "LIKE '%" + searchFor + "%'";
 	}
