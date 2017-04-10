@@ -169,8 +169,9 @@ $(document).ready(function(){
 	//voor checkboxes
 	for(var i=0; i<checkboxes.length; i++)	
 	{
-		document.getElementById(checkboxes[i]).addEventListener("change", function(){generateFilteringQuery()});
 		document.getElementById(checkboxes[i]).addEventListener("change", function(){showFilter()});
+		document.getElementById(checkboxes[i]).addEventListener("change", function(){generateFilteringQuery()});
+		
 	}
 	//sorteerbox
 	document.getElementById('orderby').addEventListener("change", function(){generateFilteringQuery()});
