@@ -45,15 +45,49 @@ function createCookie(id, price) {
 
 // Generate a unique cookiename for the product based on the total number of products
 function generateProductName() {
-    var x = decodeURIComponent(document.cookie);
+	var x = "product_";
+	var number = Math.floor(Math.random() * 10000);
+	
+	if(freeNumber(number)) {
+		return x += number;
+	}
+	else {
+		generateProductName();
+	}
+	
+    /*var x = decodeURIComponent(document.cookie);
     var ca = x.split("_");
     var counter = ca.length;
     var name = encodeURIComponent("product_" + counter);
-    return name;
+    return name;*/
 }
 
+function freeNumber(number) {
+	var cname = "product_" + number;
+	if(getCookieByName(cname) == "") {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 var data = [];
 
+function getCookieByName(cname) { // Example from W3Schools: https://www.w3schools.com/js/js_cookies.asp
+	var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var cookieArray = decodedCookie.split(';');
+    for(var i = 0; i <cookieArray.length; i++) {
+        var c = cookieArray[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
 function getSorting() {
 	
 	var e = document.getElementById('orderby');
