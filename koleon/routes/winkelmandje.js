@@ -55,9 +55,10 @@ router.post('/order', function(req, res, next) {
 			console.log('Ordered: ' + products[i]);
 		}
 	}
-
-	res.setHeader('Content-Type', 'application/json');
-	res.send(JSON.stringify(sessionExists));
+	db.close(function() {
+		res.setHeader('Content-Type', 'application/json');
+		res.send(JSON.stringify(sessionExists));
+	});
 });
 	
 module.exports = router;
