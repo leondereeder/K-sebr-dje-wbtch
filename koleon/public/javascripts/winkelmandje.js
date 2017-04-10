@@ -19,6 +19,7 @@ function activateModal(id, productName, price, description, image, cookieName) {
 		deleteProduct();
     }
 	
+	// Remove cookie of selected product to delete from cart
 	function deleteProduct() {
 		document.cookie = cookieName + "=; expires=Thu, 18 Dec 2014 12:00:00 UTC;path=/";
 		window.location.reload();
@@ -39,6 +40,7 @@ function activateModal(id, productName, price, description, image, cookieName) {
 
 document.getElementById("afrekenen").addEventListener("click", function() {bevestigAankoop();});
 
+// Check if user wants to order and if so, perform the order
 function bevestigAankoop() {
 	var modal = document.getElementById('afrekenBevestiging');
     var modalbody = document.getElementById('modaltext');
@@ -48,16 +50,17 @@ function bevestigAankoop() {
 	var http = new XMLHttpRequest();
     modal.style.display = "block";
 	
-    // When a user clicks 'Ja' delete everything from shopping cart because the item has been purchased
+    // When a user clicks 'Ja' close modal and go on with the order
     welBevestigen.onclick = function () {
         modal.style.display = "none";
 		orderProducts();
     }
 	
+	//Execute the actual order
 	function orderProducts() {
 		var count = data.length;
 		if (count > 0) {
-			var products = ""
+			var products = "" // Will contain all product id's of all products in cart
 			for (i=0;i<count;i++) {
 				if (i == count - 1) {
 					products += data[i];
@@ -67,6 +70,7 @@ function bevestigAankoop() {
 				}
 			}
 			
+			// Open POST request and send details about the order (in 'products') to server 
 			var url = 'winkelmandje.html/order';
 			http.open('POST', url, true);
 			http.setRequestHeader("Content-type", "application/json");
@@ -75,31 +79,35 @@ function bevestigAankoop() {
 		}
 	}
 	
+	// Wait for server response about order
 	http.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			var res = (JSON.parse(http.responseText));
 			if(res.session) { // Only delete cookies of chosen products if order has been successfully inserted
 				deleteProducts();
 			}
-			else {
+			else { // Notify user when he is not logged in and cannot order
 				alert('U bent op dit moment niet ingelogd. Log in om door te gaan met uw bestelling.');
 			}
 		}
 	}
 	
+	// If order succeeded, remove products from cart
 	function deleteProducts() {
 		var cnt = document.cookie.length;
 		var path = window.location.pathname;
 		var cookies = getProductCookies();
 		
+		// Deleting cookies about products
 		for(var i = 0;i<cookies.length;i++) {
 			document.cookie = cookies[i] + "=; expires=Thu, 18 Dec 2014 12:00:00 UTC;path=/";
 		}
 		location.reload();
 	}
 	
+	// Gets the cookie names of all cookies containing 'product'
 	function getProductCookies() {
-		var cookies = [];
+		var cookies = []; // Will contain all cookies that need to be deleted
 		if (document.cookie.split("; ")[0] != "") {
 			var cookieString = document.cookie.split("; ");
 			var cookieCnt = document.cookie.split(";").length;
@@ -151,7 +159,7 @@ $(document).ready(function getCookie() {
     }
 	if (empty == false)
 	{
-	displayInCart();
+		displayInCart();
 	}
 	else
 	{
