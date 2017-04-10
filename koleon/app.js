@@ -59,12 +59,38 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 })); 
 		
 app.post('/*', function(req, res, next) {
-	if(typeof req.body.username !== "undefined" || req.body.logout) {
+	if(typeof req.body.firstName !== "undefined") {
+		register(req, res, next);
+	}
+	else if(typeof req.body.username !== "undefined" || req.body.logout) {
+		login(req, res, next);
+	}
+	else {
+		next();
+	}
+	function register (req,res,next) {
 		var db = new sqlite3.Database('public/protected/db.sqlite3');
 		// DB logic
-		var found = false;
+		var userIDs = [];
+		db.each("SELECT UserID FROM USERS", function(err, row) {
+			userIDs.push(row); 
+		});
+		db.close(function(err){
+			var db = new sqlite3.Database('public/protected/db.sqlite3');
+			var query = "INSERT INTO USERS VALUES (" + userIDs.length + ",'" + req.body.username + "','" + req.body.password + "','" + req.body.userType + "','" + req.body.firstName + "','" + req.body.lastName + "', '" + req.body.address + "', '" + req.body.postalCode + "')";
+			db.each(query, function(err, row) {
+				
+			});
+			db.close(function(err) {
+				login(req,res,next);
+			});
+		});
+	}
+		
+	function login (req,res,next) {
+		var db = new sqlite3.Database('public/protected/db.sqlite3');
+		// DB logic
 		db.each("SELECT UserName AS userName, Password AS password, UserID AS userID FROM USERS WHERE UserName = '" + req.body.username + "' AND Password = '" + req.body.password + "'", function(err, row) {
-			console.log(row);
 			req.session.cookie.userID = row.userID;
 			req.session.userID = row.userID;
 			req.session.save(function(err){
@@ -78,9 +104,6 @@ app.post('/*', function(req, res, next) {
 			res.sendStatus(200);
 			res.end();
 		}
-	}
-	else {
-		next();
 	}
 });
 

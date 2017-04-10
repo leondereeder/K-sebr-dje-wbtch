@@ -462,7 +462,7 @@ input:hover {
     vertical-align: middle;
 }
 /* End of over ons page */
-.startLogin, .startlogin:focus, .goToProfile, .goToProfile:hover, .logout, .logout:focus, .goToProfile:visited {
+.startLogin, .startlogin:focus, .goToProfile, .goToProfile:hover, .logout, .logout:focus, .goToProfile:visited, .startRegistration, .startRegistration:focus {
 	font-weight:bold;
 	-webkit-margin-before: 1em;
 	margin-bottom:0px;
@@ -473,6 +473,10 @@ input:hover {
 	position:absolute;
 	left:0;
 	font-family:Abel;
+}
+
+.startRegistration, .startRegistration:focus {
+	left:60px;
 }
 
 .goToProfile:hover, .logout:hover{
@@ -512,6 +516,7 @@ input:hover {
     
     overflow: hidden;
 }
+
 /* The Close Button */
 
 .close {
@@ -545,7 +550,7 @@ input:hover {
 .modal-body {
     padding: 2px 16px;
 }
-#username {
+form .modal-container input[type=text] {
 	width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -586,9 +591,19 @@ input:hover {
     animation-duration: 0.4s;
 }
 
-#id01 .modal-content {
+#loginModal .modal-content, #registerModal .modal-content{
 	width:40%;
 	margin:5% auto;
+}
+#registerModal .modal-content {
+	width:60%
+}
+#registerModal {
+	position:absolute;
+}
+
+form .modal-header {
+	background: royalblue;
 }
 .modal-container {
 	padding:16px;

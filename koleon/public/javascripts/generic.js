@@ -118,13 +118,17 @@ function makeItalic() {
 }
 
 // Get the modal
-var modal = document.getElementById('id01');
+var loginModal = document.getElementById('loginModal');
+var registerModal = document.getElementById('registerModal');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    if (event.target == loginModal) {
+        loginModal.style.display = "none";
     }
+	if(event.target == registerModal) {
+		registerModal.style.display = "none";
+	}
 }
 
 var logoutButton = document.getElementsByClassName("logout")[0];
@@ -150,6 +154,22 @@ function logout () {
 	}
 	
 	http.send(JSON.stringify(data));
+}
+
+var password = document.getElementById("password")
+  , confirm_password = document.getElementById("confirm_password");
+
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
+
+if(password != null && confirm_password!=null) {
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
 }
 
 /* Test function to delete all cookies from the page
