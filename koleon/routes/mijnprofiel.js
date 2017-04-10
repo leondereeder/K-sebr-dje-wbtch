@@ -87,7 +87,19 @@ router.post('/', upload.single('image'), function(req, res, next) {
 	}
 });
 
-
+function unameExists(uname) {
+		var db = new sqlite3.Database('public/protected/db.sqlite3');
+		var userExists = false;
+		db.serialize(function() {
+			db.each("SELECT * FROM USERS WHERE UserName = '" + uname + "' LIMIT 1", function(err, row) {
+				if (row.UserName == uname) {
+					return true;
+				}
+				userExists = true;
+			});
+		});
+		return userExists;
+	}
 
 router.post('/edit', function(req, res, next) {
 	var user = req.body;
@@ -97,20 +109,7 @@ router.post('/edit', function(req, res, next) {
 	var query = "";
 	console.log(user[0]);
 	console.log(postalCode);
-	if (function auth() {
-		var userExists = false;
-		var db = new sqlite3.Database('public/protected/db.sqlite3');
-		db.serialize(function() {
-			db.each("SELECT * FROM USERS WHERE UserName = '" + user[0] + "' LIMIT 1", function(err, row) {
-				if (row.UserName == user[0]) {
-					return true;
-				}
-				userExists = true;
-			});
-		
-		});
-		return userExists;
-	}) {
+	if (unameExists(user[0])) {
 		query = "UPDATE USERS SET UserType = '" + user[4] + "', FirstName = '" + user[1] + "', LastName = '" + user[2] + "', Adress = '" + address + "', PostalCode = '" + postalCode + "' WHERE UserID = " + req.session.userID;
 	}
 	else {
