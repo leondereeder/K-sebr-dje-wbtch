@@ -124,12 +124,12 @@ function showFilter() {
 	}
 	else 
 	{
-		//document.getElementById('randapperatuureigenschappen').style.display = 'none';
+		document.getElementById('randapperatuureigenschappen').style.display = 'none';
 		
-		//for(var i=0; i<checkboxes.length;i++)
+		for(var i=0; i<checkboxes.length;i++)
 		{
-			//if(i>=18)
-			//document.getElementById(checkboxes[i]).checked=false;
+			if(i>=18)
+			document.getElementById(checkboxes[i]).checked=false;
 			
 		}
 		
